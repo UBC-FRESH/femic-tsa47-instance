@@ -25,9 +25,9 @@ inventory, FEMIC export lane, and GBR legal framework, but they are
 
 ## Status
 
-Bootstrap: the repository, AOI, public-data manifest, and build scaffold are in
-place. The upstream FEMIC run and the ws4 model build follow the phases in
-`ROADMAP.md`.
+The calibrated model is built and the ten-decade benchmark meets all ten
+targets at 830,500 m3/yr. The FEMIC run, ws4 matrix, baseline, and UI geometry
+are recorded in `notes/reference/ws4-build.md`.
 
 ## AOI
 
@@ -37,6 +37,10 @@ FADM TSA 47 feature: no supply-block code and no retirement date. The gross area
 includes ocean and foreshore; the VRI block area is the forested subset.
 
 ## Model
+
+The calibrated model has **74,170 blocks**, **692,811.84 ha** of block area,
+and **145,256.00 ha** of managed area. The calibration factor is
+`0.9925390944203576`; 0 rows saturate.
 
 The model is built by `scripts/build_full_tsa47_model.sh`:
 
@@ -56,7 +60,8 @@ exact UI geometry and land-base underlay.
 
 `config/targets.tsa47_full.yaml` carries ten per-decade targets with an
 **8,305,000–8,306,000 m3** band around the published **830,500 m3/yr** AAC
-(B.C. Reg. 328/2016, effective January 1, 2017).
+(B.C. Reg. 328/2016, effective January 1, 2017). The `aac_benchmark` run meets
+all ten decades (objective 0.0, 3,872 blocks scheduled).
 
 ## Web UI
 

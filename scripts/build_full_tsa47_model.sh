@@ -7,7 +7,7 @@ INSTANCE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$INSTANCE_ROOT"
 
 RUN_ID="${RUN_ID:-tsa47_full_20261023}"
-CHECKPOINT="${CHECKPOINT:-data/ria_vri_vclr1p_checkpoint8.feather}"
+CHECKPOINT="${CHECKPOINT:-data/vri_vclr1p_checkpoint8.feather}"
 PATCHWORKS_OUT="${PATCHWORKS_OUT:-output/patchworks_tsa47_full}"
 MODEL_DIR="${MODEL_DIR:-runtime/tsa47_full}"
 TARGET_AGE="${TARGET_AGE:-60}"

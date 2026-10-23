@@ -56,7 +56,7 @@ nodes:
       run_config: config/run_profile.tsa47_full.yaml
       tsa: "46"
       bundle_dir: data/model_input_bundle
-      checkpoint: data/ria_vri_vclr1p_checkpoint8.feather
+      checkpoint: data/vri_vclr1p_checkpoint8.feather
       output_dir: output/patchworks_tsa47_full
     artifacts:
       forestmodel_xml: output/patchworks_tsa47_full/forestmodel.xml
