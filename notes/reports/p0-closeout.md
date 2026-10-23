@@ -2,8 +2,8 @@
 
 Phase: P0, Build the instance
 Parent issue: #1
-Pull request: not opened yet
-Evidence head: `238b64f`
+Pull request: #8
+Evidence head: `4543e41`. CI run 40026306802 is green in all three jobs on the code head.
 Report commit: the commit that adds this report. Its CI run is posted on the pull request.
 Date: 2026-10-23
 Status: queued for approval. Not merged.
@@ -52,6 +52,8 @@ Settings changes: none. This phase changes no repository setting, tag, release, 
 | validator | green |
 | docs | green |
 
+CI run 40026306802: Quality gates, Green dashboard summary, and Pre-commit parity all pass on `4543e41`.
+
 ## 4. CI evidence
 
 The pull request is not open yet. Its first CI run is posted on the pull request.
@@ -64,6 +66,7 @@ The pull request is not open yet. Its first CI run is posted on the pull request
 | The second FEMIC run failed because `config/tipsy/tsa47.yaml` was absent. | The seed ships only the TIPSY template. | Added a provisional coastal case file; the first lane uses VDYP-transform managed curves. |
 | The public data root had unresolved `siteprod.tif` and `misc.thlb.tif` annex pointers. | The annex payload was not materialized. | Materialized both rasters from the sibling annex copy. |
 | The checkpoint is `data/vri_vclr1p_checkpoint8.feather`, not the TSA 48 `ria_` name. | The legacy pipeline names the new checkpoint without the `ria_` prefix. | Updated the build script and FreshForge workflow. |
+| CI failed on the first PR run because the model tests import numpy, pandas, pyarrow, geopandas, and shapely. | The seed requirements carry only the dev tools, and mypy had no pandas override. | Added the geospatial dependencies to `requirements-dev.txt` and a pandas override to `pyproject.toml`; CI run 40026306802 is green. |
 
 ## 6. Next phase
 
