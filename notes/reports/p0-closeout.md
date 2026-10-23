@@ -84,6 +84,12 @@ Recommended defaults:
 - Keep the derived 145,256 ha target until a reviewed netdown replaces it.
 - Add the opening policy only after the TSA-level benchmark is accepted.
 
+## Known limitations
+
+- Three small AUs have managed area but no benchmark harvest: 291.2 ha (0.20% of the managed area). The benchmark is volume-feasible without them, but the zero signal is unexplained. See `notes/reference/model-sanity.md`.
+- The THLB target is a predecessor-value derivation, not a reviewed GBR netdown.
+- The managed curves are a VDYP transform, not accepted TIPSY curves.
+
 ## 7. Decision
 
 - [ ] Approve as written.
