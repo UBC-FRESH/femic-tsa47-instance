@@ -54,3 +54,19 @@ not accepted TIPSY yield curves. Replace it before release.
 
 The THLB calibration is a proportional rescale, not a reviewed GBR netdown. The
 benchmark assumes the calibrated managed area.
+
+AAC benchmark
+-------------
+
+The ten-decade benchmark is a separate search from the baseline:
+
+.. code-block:: bash
+
+   scripts/run_aac_benchmark.sh
+
+It writes ``runtime/tsa47_full/runs/aac_benchmark/``. The target band is
+``8,305,000-8,306,000`` m3 per decade at ``830,500`` m3/yr. The recorded run scheduled
+3,872 blocks and met all ten decades with objective 0.0. Set
+``ITERATIONS``, ``PATIENCE``, ``THREADS``, or ``TIME_LIMIT`` to change the
+search. ``scripts/watch_aac_benchmark.sh`` shows the search live without
+persisting a run.

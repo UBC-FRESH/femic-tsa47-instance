@@ -12,23 +12,23 @@ instance with a served model. It is one phase with six tasks.
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Build the instance | TBD | `feature/p0-build` | planned |
+| P0 Build the instance | #1 | `feature/p0-build` | pr-open |
 
 ## Phase 0: Build the instance
 
-Parent issue: TBD
+Parent issue: #1
 Branch: `feature/p0-build`
-Status: planned
+Status: pr-open
 
 Goal: establish the public instance, rebuild the TSA 47 inputs with FEMIC,
 compile and serve the ws4 model, and record the AAC benchmark.
 
-- [ ] P0.1 Bootstrap the seed contract and FEMIC/ws4 scaffold
-- [ ] P0.2 Build the AOI and record the public-data and TSR provenance
-- [ ] P0.3 Run the FEMIC upstream pipeline
-- [ ] P0.4 Export the Patchworks interchange package and build the ws4 matrix
-- [ ] P0.5 Calibrate the THLB and run the ten-decade AAC benchmark
-- [ ] P0.6 Serve the model, verify the UI, and close out
+- [x] P0.1 Bootstrap the seed contract and FEMIC/ws4 scaffold (#2)
+- [x] P0.2 Build the AOI and record the public-data and TSR provenance (#3)
+- [x] P0.3 Run the FEMIC upstream pipeline (#4)
+- [x] P0.4 Export the Patchworks interchange package and build the ws4 matrix (#5)
+- [x] P0.5 Calibrate the THLB and run the ten-decade AAC benchmark (#6)
+- [x] P0.6 Serve the model, verify the UI, and close out (#7)
 
 Acceptance criteria:
 

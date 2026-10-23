@@ -48,3 +48,6 @@ src/*.egg-info/
 .idea/
 .DS_Store
 Thumbs.db
+
+# FEMIC VDYP runtime (symlinked)
+VDYP7
