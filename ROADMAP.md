@@ -50,7 +50,7 @@ Status: active
 
 Goal: close the audit gaps before release.
 
-- [ ] P1.1 Add the runtime-signal and harvest-coverage gates (#10)
+- [x] P1.1 Add the runtime-signal and harvest-coverage gates (#10)
 - [ ] P1.2 Add the opening-size and adjacency policy
 - [ ] P1.3 Replace the VDYP transform with accepted TIPSY curves
 - [ ] P1.4 Replace the derived THLB with a reviewed GBR netdown
