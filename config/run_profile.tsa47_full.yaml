@@ -1,0 +1,28 @@
+selection:
+  # Full Great Bear Rainforest South TSA 47 boundary. The boundary is the
+  # current dissolved FADM TSA feature, not a supply-block component.
+  tsa:
+    - "47"
+
+  boundary_path: "data/source/aoi/tsa47_full.gpkg"
+  boundary_layer: "tsa47_full"
+  boundary_code: "47"
+  strata: []
+
+modes:
+  resume: true
+  dry_run: false
+  verbose: true
+  skip_checks: false
+
+  # First executable lane. Auto sampling keeps each VDYP console batch inside
+  # the current 30-second timeout; switch back to all after the timeout is
+  # raised. The managed lane is a VDYP transform, not accepted TIPSY output.
+  vdyp_sampling_mode: auto
+  vdyp_two_pass_rebin: false
+  vdyp_min_stands_per_si_bin: 10
+  managed_curve_mode: vdyp_transform
+
+run:
+  run_id: "tsa47_full_20261023"
+  log_dir: "runtime/logs"

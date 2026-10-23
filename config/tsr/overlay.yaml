@@ -1,0 +1,45 @@
+schema_version: 1
+tsa:
+  tsa_id: tsa_47
+  tsa_code: '47'
+  tsa_name: Great Bear Rainforest South
+canonical_summary:
+  candidate_fact_count: 0
+  document_count: 0
+  fact_family_counts:
+    au_definition_candidate: 0
+    source_layer_candidate: 0
+    thlb_reference: 0
+    tipsy_input_candidate: 0
+  candidate_facts_path: metadata/tsr/tsa_candidate_facts.json
+  documents_path: metadata/tsr/tsa_documents.json
+  registry_path: metadata/tsr/tsa_registry.json
+adopted:
+  source_layers: []
+  au_definitions: []
+  thlb_references:
+    - value: 830500
+      unit: m3/yr
+      label: GBR South TSA allowable annual cut
+      provenance_id: "BC Reg 328/2016 s.10"
+      notes: "AAC for Crown land in the GBR South TSA, effective 2017-01-01."
+    - value: 186914
+      unit: ha
+      label: former Kingcome TSA current EBM THLB
+      provenance_id: "TSA_33/TSR_2010/rationale#page=25"
+      notes: "Current EBM THLB; the pre-EBM current THLB is 195,696 ha."
+    - value: 162873
+      unit: ha
+      label: former Strathcona TSA current THLB
+      provenance_id: "TSA_37/TSR_2012/rationale#page=8"
+      notes: "Current THLB; the future THLB in the same table is 156,806 ha."
+    - value: 145256
+      unit: ha
+      label: derived GBR South THLB target
+      provenance_id: "derived from TSA 33 and TSA 37 current THLB by boundary overlap"
+      notes: "TSA 47 contains 60.08% of the Kingcome boundary and 20.23% of the Strathcona boundary, so 0.6008 * 186,914 + 0.2023 * 162,873 = 145,256 ha. This is a gross-area apportionment, not a reviewed GBR netdown."
+  tipsy_inputs: []
+  notes:
+    - "The GBR South TSA has no dedicated provincial TSR cycle; the current AAC comes from B.C. Reg. 328/2016."
+    - "The THLB target is provisional. Replace it with a reviewed GBR land-base netdown when one is available."
+    - "TSA 47 is the mainland portion of the former Kingcome and Strathcona TSAs; the apportionment uses the gross boundary overlap with those retired TSA features."

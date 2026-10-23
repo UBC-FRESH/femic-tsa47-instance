@@ -1,0 +1,123 @@
+workflow:
+  id: tsa47_model_build
+  name: GBR South TSA 47 FEMIC to ws4 model-build workflow
+  description: >
+    Instance-owned FreshForge graph that rebuilds the TSA 47 model inputs with
+    FEMIC, exports the Patchworks-compatible XML and fragments that ws4
+    compiles, then builds, validates, simulates, reports, and prepares the web
+    UI geometry. Run from the instance root.
+nodes:
+  - id: validate_case
+    provider: femic.validate_case
+    outputs:
+      case_validation: case_preflight_ok
+    parameters:
+      instance_root: "."
+      run_config: config/run_profile.tsa47_full.yaml
+      tipsy_config_dir: config/tipsy
+
+  - id: geospatial_preflight
+    provider: femic.geospatial_preflight
+    needs:
+      - validate_case
+    inputs:
+      case_validation: validate_case.case_validation
+    outputs:
+      geospatial_runtime: geospatial_runtime_ok
+    parameters:
+      instance_root: "."
+
+  - id: compile_upstream
+    provider: femic.compile_upstream
+    needs:
+      - geospatial_preflight
+    inputs:
+      geospatial_runtime: geospatial_preflight.geospatial_runtime
+    outputs:
+      btc_handoff: tsa47_vdyp_handoff
+    parameters:
+      instance_root: "."
+      run_config: config/run_profile.tsa47_full.yaml
+      run_id: tsa47_full_20261023
+      log_dir: runtime/logs
+    artifacts:
+      run_manifest: runtime/logs/run_manifest-tsa47_full_20261023.json
+
+  - id: export_patchworks
+    provider: femic.export_patchworks
+    needs:
+      - compile_upstream
+    inputs:
+      model_input_bundle: compile_upstream.btc_handoff
+    outputs:
+      patchworks_package: output/patchworks_tsa47_full
+    parameters:
+      instance_root: "."
+      run_config: config/run_profile.tsa47_full.yaml
+      tsa: "46"
+      bundle_dir: data/model_input_bundle
+      checkpoint: data/ria_vri_vclr1p_checkpoint8.feather
+      output_dir: output/patchworks_tsa47_full
+    artifacts:
+      forestmodel_xml: output/patchworks_tsa47_full/forestmodel.xml
+      fragments: output/patchworks_tsa47_full/fragments/fragments.shp
+
+  - id: build_dataset
+    provider: tsa47.ws4.build_dataset
+    needs:
+      - export_patchworks
+    outputs:
+      dataset: runtime/tsa47_full/matrix
+    parameters:
+      instance_root: "."
+      xml: output/patchworks_tsa47_full/forestmodel.xml
+      fragments: output/patchworks_tsa47_full/fragments/fragments.shp
+      out: runtime/tsa47_full/matrix
+    artifacts:
+      manifest: runtime/tsa47_full/matrix/manifest.json
+
+  - id: validate_dataset
+    provider: tsa47.ws4.validate_dataset
+    needs:
+      - build_dataset
+    inputs:
+      dataset: build_dataset.dataset
+    outputs:
+      validated_dataset: runtime/tsa47_full/matrix
+    parameters:
+      instance_root: "."
+      dataset: runtime/tsa47_full/matrix
+
+  - id: build_baseline_schedule
+    provider: tsa47.ws4.build_baseline_schedule
+    needs:
+      - validate_dataset
+    inputs:
+      validated_dataset: validate_dataset.validated_dataset
+    outputs:
+      schedule: runtime/tsa47_full/schedules/baseline.csv
+    parameters:
+      instance_root: "."
+      dataset: runtime/tsa47_full/matrix
+      out: runtime/tsa47_full/schedules/baseline.csv
+      target_age: "60"
+    artifacts:
+      schedule: runtime/tsa47_full/schedules/baseline.csv
+      summary: runtime/tsa47_full/schedules/baseline.summary.json
+
+  - id: simulate_baseline
+    provider: tsa47.ws4.simulate
+    needs:
+      - build_baseline_schedule
+    inputs:
+      schedule: build_baseline_schedule.schedule
+    outputs:
+      run: runtime/tsa47_full/runs/baseline
+    parameters:
+      instance_root: "."
+      dataset: runtime/tsa47_full/matrix
+      schedule: runtime/tsa47_full/schedules/baseline.csv
+      out: runtime/tsa47_full/runs/baseline
+      years: "100"
+    artifacts:
+      run: runtime/tsa47_full/runs/baseline

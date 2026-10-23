@@ -1,0 +1,17 @@
+{
+  "bounds_epsg3005": [
+    740945.1021,
+    585354.7158,
+    1069115.1199,
+    769795.6524
+  ],
+  "crs": "EPSG:3005",
+  "features": 1,
+  "gross_area_ha": 1991787.4693,
+  "out": "data/source/aoi/tsa47_full.gpkg",
+  "out_layer": "tsa47_full",
+  "source": "/srv/shared-data/gep/ws4/femic/external/femic-public-data/data/bc/tsa/FADM_TSA.gdb",
+  "source_layer": "WHSE_ADMIN_BOUNDARIES_FADM_TSA",
+  "tsa_name": "GBR South TSA",
+  "tsa_number": "47"
+}
