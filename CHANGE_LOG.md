@@ -37,3 +37,5 @@ status and the GitHub issue comments.
   `config/tipsy/tsa47.yaml` case file, and the materialized `siteprod.tif` and
   `misc.thlb.tif` rasters. The checkpoint is
   `data/vri_vclr1p_checkpoint8.feather`, not the TSA 48 `ria_` name.
+
+- Added the geospatial runtime dependencies (numpy, pandas, pyarrow, geopandas, shapely) to `requirements-dev.txt` so CI can collect the model tests.
