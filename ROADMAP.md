@@ -12,13 +12,14 @@ instance with a served model. It is one phase with six tasks.
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Build the instance | #1 | `feature/p0-build` | pr-open |
+| P0 Build the instance | #1 | `feature/p0-build` | complete |
+| P1 Harden the model | #9 | `feature/p1-hardening` | active |
 
 ## Phase 0: Build the instance
 
 Parent issue: #1
 Branch: `feature/p0-build`
-Status: pr-open
+Status: complete
 
 Goal: establish the public instance, rebuild the TSA 47 inputs with FEMIC,
 compile and serve the ws4 model, and record the AAC benchmark.
@@ -41,12 +42,32 @@ Acceptance criteria:
 - `/health` returns `{"status":"ok"}` and the UI shows the TSA 47 AOI.
 - No private data, credentials, or machine-specific paths are tracked.
 
+## Phase 1: Harden the model
+
+Parent issue: #9
+Branch: `feature/p1-hardening`
+Status: active
+
+Goal: close the audit gaps before release.
+
+- [x] P1.1 Add the runtime-signal and harvest-coverage gates (#10)
+- [ ] P1.2 Add the opening-size and adjacency policy
+- [ ] P1.3 Replace the VDYP transform with accepted TIPSY curves
+- [ ] P1.4 Replace the derived THLB with a reviewed GBR netdown
+- [ ] P1.5 Release v0.1.0 and verify a clean checkout
+- [ ] P1.6 Complete the Sphinx docs and publish Pages (#11)
+
+Acceptance criteria:
+
+- The runtime-signal gate passes on the compiled model and the benchmark.
+- The harvest-coverage gate passes on the coverage run; remaining zero-harvest AUs are allowlisted with a reason.
+- The opening policy is recorded and checked.
+- The release passes the dashboard and CI from a clean checkout.
+
 ## Detailed Next Steps Notes
 
-1. Create the GitHub repository and the P0 parent issue. This needs maintainer approval.
-2. Activate P0 by setting its parent issue number and its status to `active`, here and in the tracker map.
-3. Build the AOI, manifest, and TSR provenance in P0.2 before the long FEMIC run.
-4. Run the FEMIC upstream pipeline in P0.3; the run is the expensive step.
-5. Export and build the ws4 matrix in P0.4.
-6. Calibrate the THLB and run the AAC benchmark in P0.5.
-7. Serve and verify the model in P0.6, then write the close-out report.
+1. P1.1 adds the runtime-signal and harvest-coverage gates and records the coverage run.
+2. P1.2 adds the opening-size and adjacency policy.
+3. P1.3 replaces the VDYP transform with accepted TIPSY curves.
+4. P1.4 replaces the derived THLB with a reviewed GBR netdown.
+5. P1.5 releases v0.1.0 and verifies a clean checkout.

@@ -58,3 +58,14 @@ reproducible starting point.
 The GBR North TSA 46 model is built independently in
 `UBC-FRESH/femic-tsa46-instance`. See
 `notes/reference/related-instances.md`.
+
+## UI geometry levels
+
+The build writes two UI geometry files:
+
+- `fragments.geojson` — 100 m simplified block layer served by default.
+- `fragments_full.geojson` — unsimplified block layer, retained for viewport
+  detail and future tiled serving.
+
+The 100 m overview reduces the TSA 46 map response from about 444 MB to 74 MB.
+That is an interim scale fix, not a substitute for viewport or tiled serving.

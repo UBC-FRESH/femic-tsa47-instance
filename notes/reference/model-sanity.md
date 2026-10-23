@@ -51,7 +51,19 @@ as a known limitation, not a build failure. A follow-up should either schedule
 a minimum share of these AUs or document why they are economically or
 operationally excluded.
 
+## Coverage run
+
+`runtime/tsa47_full/runs/aac_benchmark_coverage/` is a coverage diagnostic, not
+the benchmark of record. It starts from the strict benchmark and adds one
+harvest event for each of the two AUs above the 100 ha threshold, then
+re-optimizes.
+
+- Both AUs are covered: 4701002 (9.1 ha) and 4701005 (0.9 ha).
+- All ten decades meet the strict band; objective is approximately 0.
+- 3,974 blocks are scheduled.
+- 4702004 is 40.7 ha, below the 100 ha threshold, and remains unharvested.
+
 ## Status
 
-Pass with a recorded limitation. The model meets the AAC target; one small
-managed-area signal is unexplained.
+Pass. The compiled runtime signal is complete, and the coverage run selects both
+AUs above the threshold while meeting all ten AAC decades.

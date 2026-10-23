@@ -39,3 +39,9 @@ status and the GitHub issue comments.
   `data/vri_vclr1p_checkpoint8.feather`, not the TSA 48 `ria_` name.
 
 - Added the geospatial runtime dependencies (numpy, pandas, pyarrow, geopandas, shapely) to `requirements-dev.txt` so CI can collect the model tests.
+
+- Added the complete Sphinx documentation surface: overview, AOI, public
+  data and TSR provenance, model build, model structure, AAC benchmark, Web UI,
+  reproduction, decisions, glossary, and the generated API reference. The docs
+  build with warnings as errors and the dashboard is green. Enabled GitHub
+  Pages and deployed the Docs workflow.

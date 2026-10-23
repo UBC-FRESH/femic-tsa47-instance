@@ -1,9 +1,9 @@
-"""Sphinx configuration for FEMIC Great Bear Rainforest South TSA 47 Instance."""
+"""Sphinx configuration for the Great Bear Rainforest South TSA 47 instance."""
 
 import sys
 from pathlib import Path
 
-project = "FEMIC Great Bear Rainforest South TSA 47 Instance"
+project = "Great Bear Rainforest South TSA 47 Instance"
 author = "UBC-FRESH"
 copyright = "2026, UBC-FRESH"
 
@@ -17,6 +17,7 @@ extensions: list[str] = [
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 autodoc_member_order = "bysource"
+autodoc_typehints = "description"
 napoleon_numpy_docstring = True
 napoleon_google_docstring = False
 napoleon_use_param = True
