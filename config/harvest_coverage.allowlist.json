@@ -1,0 +1,16 @@
+{
+  "aus": [
+    {
+      "au": "4701002",
+      "reason": "Not selected by the strict volume-only AAC benchmark; the aac_benchmark_coverage run harvests this AU."
+    },
+    {
+      "au": "4701005",
+      "reason": "Not selected by the strict volume-only AAC benchmark; the aac_benchmark_coverage run harvests this AU."
+    },
+    {
+      "au": "4702004",
+      "reason": "Below the 100 ha managed-area threshold; the aac_benchmark_coverage run does not harvest this AU."
+    }
+  ]
+}

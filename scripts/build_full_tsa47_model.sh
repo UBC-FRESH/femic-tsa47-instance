@@ -66,8 +66,13 @@ python -m ws4.cli report \
 
 python scripts/prepare_ws4_ui.py \
   --fragments "$PATCHWORKS_OUT/fragments/fragments.shp" \
+  --out "$MODEL_DIR/fragments_full.geojson" \
+  --simplify-m 0
+
+python scripts/prepare_ws4_ui.py \
+  --fragments "$PATCHWORKS_OUT/fragments/fragments.shp" \
   --out "$MODEL_DIR/fragments.geojson" \
-  --simplify-m "${UI_SIMPLIFY_M:-0}"
+  --simplify-m "${UI_SIMPLIFY_M:-100}"
 
 python scripts/prepare_land_base.py \
   --aoi "$LAND_BASE_AOI" \

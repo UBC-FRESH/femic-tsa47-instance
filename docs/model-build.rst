@@ -70,3 +70,26 @@ It writes ``runtime/tsa47_full/runs/aac_benchmark/``. The target band is
 ``ITERATIONS``, ``PATIENCE``, ``THREADS``, or ``TIME_LIMIT`` to change the
 search. ``scripts/watch_aac_benchmark.sh`` shows the search live without
 persisting a run.
+
+Signal and coverage gates
+-------------------------
+
+Two gates keep the compiled signal and the benchmark coverage separate:
+
+.. code-block:: bash
+
+   python scripts/check_runtime_signal.py \
+     --dataset runtime/tsa47_full/matrix \
+     --bundle data/model_input_bundle \
+     --run runtime/tsa47_full/runs/aac_benchmark
+
+   python scripts/check_harvest_coverage.py \
+     --dataset runtime/tsa47_full/matrix \
+     --schedule runtime/tsa47_full/runs/aac_benchmark/schedule.csv \
+     --allowlist config/harvest_coverage.allowlist.json
+
+The runtime-signal gate fails on a missing species/SI label, an orphan track,
+or a missing curve. The coverage gate fails when an AU with at least 100 ha of
+managed area has no harvest event, unless the allowlist names it with a reason.
+The strict AAC benchmark and the ``aac_benchmark_coverage`` diagnostic are
+recorded separately.

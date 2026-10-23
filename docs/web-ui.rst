@@ -38,6 +38,15 @@ The block layer still renders if the OpenStreetMap basemap tiles are
 unavailable. If MapLibre cannot create a WebGL context, switch **Map engine** to
 **SVG (fallback)**.
 
+Geometry scale
+--------------
+
+The served ``fragments.geojson`` is a 100 m simplification of the block layer.
+The unsimplified layer is retained as ``fragments_full.geojson``. The overview
+keeps the initial map payload manageable; the full layer is the source for
+viewport-detail work. The 100 m tolerance is invisible at the TSA overview
+scale and preserves every block polygon.
+
 Checks
 ------
 
