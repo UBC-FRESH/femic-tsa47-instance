@@ -1,14 +1,11 @@
 Web UI
 ======
 
-The ws4 web UI serves the compiled TSA 47 dataset and its runs. It is
-read-only except for the optional run and agent controls. It binds loopback by
+The ws4 web UI serves the compiled dataset and its runs. It binds loopback by
 default and has no authentication.
 
 Launch
 ------
-
-The calibrated model is served by:
 
 .. code-block:: bash
 
@@ -29,31 +26,52 @@ The script expands to:
      --allow-agent \
      --port 8018
 
-``PORT=...`` overrides the default. The geometry is EPSG:3005; pass
-``--crs EPSG:3005`` so MapLibre can project it to WGS84. The land base is the
-AOI polygon drawn under the blocks, so non-forest gaps read as land rather than
-as missing map data.
-
-The block layer still renders if the OpenStreetMap basemap tiles are
-unavailable. If MapLibre cannot create a WebGL context, switch **Map engine** to
-**SVG (fallback)**.
+``PORT=...`` overrides the default. Open
+``http://127.0.0.1:8018/``. Under a JupyterHub code-server proxy the path
+is the proxied port.
 
 Geometry scale
 --------------
 
-The served ``fragments.geojson`` is a 100 m simplification of the block layer.
-The unsimplified layer is retained as ``fragments_full.geojson``. The overview
-keeps the initial map payload manageable; the full layer is the source for
-viewport-detail work. The 100 m tolerance is invisible at the TSA overview
-scale and preserves every block polygon.
+.. list-table::
+   :header-rows: 1
+
+   * - File
+     - Role
+     - Size
+   * - ``fragments.geojson``
+     - 100 m simplified overview, served by default
+     - 23 MB
+   * - ``fragments_full.geojson``
+     - Unsimplified block layer, retained for detail
+     - 94 MB
+   * - Map response
+     - Full-map GeoJSON at the overview scale
+     - 29.7 MB, about 4.0 s
+
+The 100 m overview keeps the initial payload manageable. It is not a substitute
+for viewport or tiled serving. A production deployment should serve vector tiles
+at zoom-dependent detail: dissolved units at low zoom, simplified blocks at
+middle zoom, and full blocks at high zoom. See ``docs`` and the ws4 roadmap for
+the tiling work.
 
 Checks
 ------
 
-- ``/health`` returns ``{"status":"ok"}``.
-- The map shows the full TSA 47 AOI.
-- The run list contains ``baseline`` and any benchmark runs.
-- The target table shows ten decade targets and their realized values.
+.. code-block:: bash
 
-Do not use ``--allow-remote`` on an untrusted network. Put the service behind a
-trusted proxy if it must be reachable from another host.
+   curl http://127.0.0.1:8018/health
+   # {"status":"ok"}
+
+- The map shows the full TSA 47 AOI.
+- The run list contains ``baseline``, ``aac_benchmark``, and
+  ``aac_benchmark_coverage``.
+- The target table shows ten decade targets and their realized values.
+- The block detail panel shows ``block_id`` and treatment state.
+
+Security
+--------
+
+The service has no authentication. Keep it on loopback. Do not use
+``--allow-remote`` without a trusted proxy. Pass ``--crs EPSG:3005`` for the GBR
+geometry; MapLibre projects it to WGS84 in the browser.

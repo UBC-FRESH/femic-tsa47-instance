@@ -1,13 +1,20 @@
 API reference
 =============
 
-The API reference is generated from the docstrings and annotations in ``scripts/``. Every public
-function is listed with its signature, its parameter types, and its return value. Search this
-reference before you call one of these functions. Add a page here, with an ``automodule`` entry,
-whenever you add a module to the project.
+The reference is generated from the type annotations and numpy-style docstrings
+in ``scripts/``. Every public function is listed with its parameters, return
+value, and exceptions.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
+   build-aoi
+   check-public-data
+   calibrate-thlb-proportion
+   build-baseline-schedule
+   prepare-ws4-ui
+   prepare-land-base
+   check-runtime-signal
+   check-harvest-coverage
    check-workflow
    dashboard

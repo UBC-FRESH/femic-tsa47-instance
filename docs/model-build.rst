@@ -1,9 +1,9 @@
-Model Build
+Model build
 ===========
 
-The full TSA 47 model is built by ``scripts/build_full_tsa47_model.sh``. The
-script records each command and artifact path; the Patchworks XML/fragments
-pair is an interchange input to ``ws4 build``, not the runtime lane.
+The model is built by ``scripts/build_full_tsa47_model.sh``. The script
+records every command and artifact path. The Patchworks XML/fragments pair is an
+interchange input to ``ws4 build``, not the runtime lane.
 
 Chain
 -----
@@ -16,65 +16,123 @@ Chain
      -> ws4 validate
      -> build_baseline_schedule
      -> ws4 simulate + report
-     -> prepare_ws4_ui (exact block geometry)
-     -> prepare_land_base (non-forest underlay)
+     -> ws4 optimize (AAC benchmark)
+     -> prepare_ws4_ui
+     -> prepare_land_base
 
-FEMIC compiles the public inventory and yield curves and writes the model-input
-bundle. The export reads the calibrated checkpoint when ``CALIBRATE_THLB=1`` so
-each stand carries the proportional THLB signal. ws4 compiles the full matrix
-and runs the baseline.
+Upstream run
+------------
 
-Commands
---------
+.. list-table::
+   :header-rows: 1
+
+   * - Item
+     - Value
+   * - Run ID
+     - ``tsa47_full_20261023``
+   * - Status
+     - ok, exit 0
+   * - Duration
+     - 2,078.901 s
+   * - Started / finished
+     - 2026-10-23T20:06:12Z / 2026-10-23T20:40:51Z
+   * - AUs / curves
+     - 18 / 73
+   * - Exported fragments
+     - 74,170
+   * - Manifest
+     - ``runtime/logs/run_manifest-tsa47_full_20261023.json``
+
+The run uses the full TSA boundary in ``config/run_profile.tsa47_full.yaml``
+and the public data root. It writes the model-input bundle, VDYP caches, and the
+checkpoint under ``data/`` (all ignored by Git).
+
+Build and validation
+--------------------
 
 .. code-block:: bash
 
    MODEL_DIR=runtime/tsa47_full \
    PATCHWORKS_OUT=output/patchworks_tsa47_full \
    CALIBRATE_THLB=1 \
-   THLB_TARGET_HA=<published THLB> \
+   THLB_TARGET_HA=145256 \
    scripts/build_full_tsa47_model.sh
 
-Set ``FEMIC_EXTERNAL_DATA_ROOT`` to the public BC data root. The generated
-matrix, runs, evidence, and UI geometry are written under
-``runtime/tsa47_full/`` and are ignored by Git.
+The script runs ``femic export patchworks``, ``ws4 build``, ``ws4 validate``,
+the baseline schedule and simulation, and the UI geometry preparation.
 
-Runtime boundary
+.. list-table::
+   :header-rows: 1
+
+   * - Dataset fact
+     - Value
+   * - Blocks
+     - 74,170
+   * - Fragments in the compiled dataset
+     - 98,040
+   * - Block area
+     - 692,811.84 ha
+   * - Tracks
+     - 34,656
+   * - Treatments
+     - 22,000
+   * - Feature rows
+     - 207,936
+   * - Product rows
+     - 66,000
+   * - Accounts
+     - 45
+   * - Curve rows
+     - 3,333
+
+THLB calibration
 ----------------
 
-VDYP7 is a Windows executable. On Linux it runs under Wine, including the
-32-bit loader. The first lane sets ``vdyp_sampling_mode: auto`` because the
-larger ``all`` batches exceeded the short VDYP console timeout in the TSA 48
-run. Auto sampling fits from fewer stands, so it is a provisional workaround;
-raise the timeout and rerun in ``all`` mode before release.
+The calibration scales each stand's ``thlb_raw / 100`` by one factor, capped at
+1.0. The factor is solved so the capped proportional area hits the target.
 
-The first lane also sets ``managed_curve_mode: vdyp_transform`` and therefore
-does not need BatchTIPSY. That transform is a provisional managed curve lane,
-not accepted TIPSY yield curves. Replace it before release.
+.. list-table::
+   :header-rows: 1
 
-The THLB calibration is a proportional rescale, not a reviewed GBR netdown. The
-benchmark assumes the calibrated managed area.
+   * - Item
+     - Value
+   * - Uncalibrated managed area
+     - 146,347.89 ha
+   * - Target
+     - 145,256 ha
+   * - Factor
+     - 0.9925390944203576
+   * - Saturated rows
+     - 0
+   * - Evidence
+     - ``runtime/tsa47_full/evidence/thlb_calibration.json``
+
+The calibration is a proportional rescale, not a reviewed GBR netdown.
+
+Baseline
+--------
+
+The baseline schedule harvests every block once when it reaches age 60. It is a
+reproducible reference, not the AAC benchmark: it dumps mature stands into the
+first decade and then declines. The baseline run is
+``runtime/tsa47_full/runs/baseline``.
 
 AAC benchmark
 -------------
 
-The ten-decade benchmark is a separate search from the baseline:
+The benchmark is a separate search from the baseline:
 
 .. code-block:: bash
 
    scripts/run_aac_benchmark.sh
 
-It writes ``runtime/tsa47_full/runs/aac_benchmark/``. The target band is
-``8,305,000-8,306,000`` m3 per decade at ``830,500`` m3/yr. The recorded run scheduled
-3,872 blocks and met all ten decades with objective 0.0. Set
-``ITERATIONS``, ``PATIENCE``, ``THREADS``, or ``TIME_LIMIT`` to change the
-search. ``scripts/watch_aac_benchmark.sh`` shows the search live without
-persisting a run.
+The target band is 8,305,000-8,306,000 m3 per decade at
+830,500 m3/yr. The recorded run schedules 3,872 blocks with
+5,327 events and meets all ten decades. See :doc:`benchmark` for
+the decade table and the coverage run.
 
 Signal and coverage gates
 -------------------------
-
-Two gates keep the compiled signal and the benchmark coverage separate:
 
 .. code-block:: bash
 
@@ -91,5 +149,20 @@ Two gates keep the compiled signal and the benchmark coverage separate:
 The runtime-signal gate fails on a missing species/SI label, an orphan track,
 or a missing curve. The coverage gate fails when an AU with at least 100 ha of
 managed area has no harvest event, unless the allowlist names it with a reason.
-The strict AAC benchmark and the ``aac_benchmark_coverage`` diagnostic are
-recorded separately.
+
+Runtime boundary
+----------------
+
+VDYP7 is a 32-bit Windows executable. On Linux it runs under Wine, including the
+32-bit loader. The first lane sets ``vdyp_sampling_mode: auto`` because larger
+``all`` batches exceeded the short VDYP console timeout in the TSA 48 reference
+run. Auto sampling fits from fewer stands, so it is a provisional workaround.
+
+The first lane also sets ``managed_curve_mode: vdyp_transform`` and therefore
+does not require BatchTIPSY. That transform is a provisional managed curve lane,
+not accepted TIPSY yield curves.
+
+The legacy pipeline also needs ``plots/`` to exist, a
+``config/tipsy/tsa47.yaml`` case file, and the materialized
+``siteprod.tif`` and ``misc.thlb.tif`` rasters. ArcRasterRescue is only needed
+when the pre-stacked SiteProd raster is absent.

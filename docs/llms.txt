@@ -1,17 +1,33 @@
-# FEMIC Great Bear Rainforest South TSA 47 Instance
+# Great Bear Rainforest South TSA 47 Instance
 
 > Agent-facing index for the GBR South TSA 47 model. Read the linked pages before you change the project.
 
 ## Start here
 
-- [Home](index.html): the documentation home for the project.
+- [Home](index.html): the documentation home, status, and model at a glance.
 - [API reference](api/index.html): every public function, with its parameters, types, and return values.
 
 ## Guides
 
-- [TSA 47 AOI](aoi.html): the current dissolved TSA boundary and the GBR legal framework.
-- [Model build](model-build.html): the FEMIC-to-ws4 chain, THLB calibration, commands, and runtime boundary.
-- [Web UI](web-ui.html): the ws4 serve command, exact geometry, land-base underlay, EPSG:3005 handling, and verification checks.
-- [Related instance](https://github.com/UBC-FRESH/femic-tsa47-instance): the independent GBR South TSA 47 dataset.
+- [TSA 47 AOI](aoi.html): the current dissolved boundary, selection rule, and legal framework.
+- [Public data and TSR](public-data.html): the data root, manifest, TSR fetch/extract evidence, and THLB derivation.
+- [Model build](model-build.html): the FEMIC-to-ws4 chain, calibration, gates, and runtime boundary.
+- [Model structure](model-structure.html): fragments, blocks, tracks, species mix, and accounts.
+- [AAC benchmark](benchmark.html): targets, decade results, coverage run, and baseline distinction.
+- [Web UI](web-ui.html): the serve command, geometry scale, checks, and security.
+- [Reproduce](reproduce.html): a clean-checkout rebuild from public data.
+- [Decisions and limitations](decisions.html): the recorded model decisions and caveats.
+- [Glossary](glossary.html): AAC, AU, THLB, track, VDYP, and ws4 terms.
 
-- [VDYP runtime boundary](../notes/reference/vdyp-runtime.md): Wine, the batch timeout evidence, and the provisional auto-sampling workaround.
+## API
+
+- [build_aoi](api/build-aoi.html): the tracked boundary builder.
+- [check_public_data](api/check-public-data.html): the public-data manifest check.
+- [calibrate_thlb_proportion](api/calibrate-thlb-proportion.html): the THLB calibration.
+- [build_baseline_schedule](api/build-baseline-schedule.html): the baseline schedule.
+- [prepare_ws4_ui](api/prepare-ws4-ui.html): the UI geometry.
+- [prepare_land_base](api/prepare-land-base.html): the land-base underlay.
+- [check_runtime_signal](api/check-runtime-signal.html): the compiled-signal gate.
+- [check_harvest_coverage](api/check-harvest-coverage.html): the managed-AU coverage gate.
+- [check_workflow](api/check-workflow.html): the workflow validator.
+- [dashboard](api/dashboard.html): the green dashboard.
