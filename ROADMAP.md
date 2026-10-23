@@ -55,7 +55,7 @@ Goal: close the audit gaps before release.
 - [ ] P1.3 Replace the VDYP transform with accepted TIPSY curves
 - [ ] P1.4 Replace the derived THLB with a reviewed GBR netdown
 - [ ] P1.5 Release v0.1.0 and verify a clean checkout
-- [ ] P1.6 Complete the Sphinx docs and publish Pages (#11)
+- [x] P1.6 Complete the Sphinx docs and publish Pages (#11)
 
 Acceptance criteria:
 

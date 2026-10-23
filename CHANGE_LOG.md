@@ -45,3 +45,5 @@ status and the GitHub issue comments.
   reproduction, decisions, glossary, and the generated API reference. The docs
   build with warnings as errors and the dashboard is green. Enabled GitHub
   Pages and deployed the Docs workflow.
+
+- Enabled GitHub Pages and published the docs site at https://ubc-fresh.github.io/femic-tsa47-instance/.
