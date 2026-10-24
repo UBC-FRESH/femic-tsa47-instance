@@ -176,3 +176,26 @@ The legacy pipeline also needs ``plots/`` to exist, a
 ``config/tipsy/tsa47.yaml`` case file, and the materialized
 ``siteprod.tif`` and ``misc.thlb.tif`` rasters. ArcRasterRescue is only needed
 when the pre-stacked SiteProd raster is absent.
+
+Opening policy
+--------------
+
+The opening-first schedule is built from the touching-block topology:
+
+.. code-block:: bash
+
+   python scripts/build_topology.py \
+     --fragments runtime/tsa47_full/fragments.geojson \
+     --out runtime/tsa47_full/topology.csv \
+     --distance-m 0
+
+   python scripts/build_opening_schedule.py \
+     --dataset runtime/tsa47_full/matrix \
+     --topology runtime/tsa47_full/topology.csv \
+     --out runtime/tsa47_full/schedules/opening_first.csv \
+     --years 100 --min-area 5 --max-area 40 \
+     --target-per-decade 8306000 \
+     --intermediate-share 0
+
+See :doc:`benchmark` for the result and :doc:`web-ui` for the run list.
+

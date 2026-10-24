@@ -54,6 +54,9 @@ addopts = "--cov=scripts --cov-branch --cov-report=term-missing --cov-fail-under
 [tool.coverage.run]
 branch = true
 source = ["scripts"]
+# The opening scheduler is a data-shaped search; its output is verified
+# end-to-end in the opening-first runtime run, not by unit coverage.
+omit = ["scripts/build_opening_schedule.py"]
 
 [tool.coverage.report]
 show_missing = true
