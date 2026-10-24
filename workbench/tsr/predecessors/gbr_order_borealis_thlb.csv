@@ -1,0 +1,8 @@
+source,dataset_doi,license,area,spatial_thlb_ha,method,notes
+Borealis GBR landscape planning data,doi:10.5683/SP2/GY2QJH,CC BY-NC-SA 4.0,TSA 46,329724.9,spatial clip of Res_v1CN.shp rollup=THLB to tsa46_full.gpkg,"Spatial planning THLB, not the legal/effective TSR THLB"
+Borealis GBR landscape planning data,doi:10.5683/SP2/GY2QJH,CC BY-NC-SA 4.0,TSA 47,267139.9,spatial clip of Res_v1CN.shp rollup=THLB to tsa47_full.gpkg,"Spatial planning THLB, not the legal/effective TSR THLB"
+Borealis GBR landscape planning data,doi:10.5683/SP2/GY2QJH,CC BY-NC-SA 4.0,North Coast TSA,162197.8,"sum by TSA_NUMBER_DESCRIPTION, rollup=THLB","Full dataset, not clipped to the new GBR TSA"
+Borealis GBR landscape planning data,doi:10.5683/SP2/GY2QJH,CC BY-NC-SA 4.0,Mid Coast TSA,167519.3,"sum by TSA_NUMBER_DESCRIPTION, rollup=THLB","Full dataset, not clipped to the new GBR TSA"
+Borealis GBR landscape planning data,doi:10.5683/SP2/GY2QJH,CC BY-NC-SA 4.0,Kingcome TSA,229307.9,"sum by TSA_NUMBER_DESCRIPTION, rollup=THLB","Full dataset, not clipped to the new GBR TSA"
+Borealis GBR landscape planning data,doi:10.5683/SP2/GY2QJH,CC BY-NC-SA 4.0,Strathcona TSA,37868.0,"sum by TSA_NUMBER_DESCRIPTION, rollup=THLB",GBR portion only
+Borealis GBR landscape planning data,doi:10.5683/SP2/GY2QJH,CC BY-NC-SA 4.0,All 5 TSAs,607935.1,sum of rollup=THLB,Dataset total; small Pacific/unclassified remainder included

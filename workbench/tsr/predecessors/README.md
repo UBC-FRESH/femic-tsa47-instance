@@ -1,7 +1,8 @@
 # Predecessor TSR netdown workbench
 
 This directory holds the transcribed land-base ladders for the TSRs that
-preceded the GBR North (TSA 46) and GBR South (TSA 47) TSAs.
+preceded the GBR North (TSA 46) and GBR South (TSA 47) TSAs, plus the public
+GBR order planning data check.
 
 ## Status
 
@@ -47,13 +48,35 @@ column uses the FEMIC grammar:
   - Kingcome table + 2012 Strathcona anchor: `142,335 ha`.
 
 The spread is caused by using the AAC rationale/current THLB values versus the
-analysis-table values, and by the 2005 vs 2012 Strathcona version. Do **not**
-change the calibration until a reviewed decision picks the authoritative anchor.
-The official SELES model would resolve it.
+analysis-table values, and by the 2005 vs 2012 Strathcona version.
+
+## Public GBR order planning data
+
+The UBC Borealis dataset **Great Bear Rainforest - landscape level planning
+data** (`doi:10.5683/SP2/GY2QJH`, CC BY-NC-SA 4.0) is a 2016 GBR-order planning
+dataset, not the legal TSR model. Its `Res_v1CN.shp` shapefile has a
+`rollup = 'THLB'` class.
+
+| Area | Spatial planning THLB |
+| --- | ---: |
+| TSA 46 | 329,724.9 ha |
+| TSA 47 | 267,139.9 ha |
+| North Coast TSA | 162,197.8 ha |
+| Mid Coast TSA | 167,519.3 ha |
+| Kingcome TSA | 229,307.9 ha |
+| Strathcona TSA (GBR portion) | 37,868.0 ha |
+| All 5 TSAs | 607,935.1 ha |
+
+These are **spatial planning THLB** values. They are much higher than the
+legal/effective TSR targets and use a different inventory/operability/land-base
+definition. They are recorded as an overlay/upper-bound check, not as a
+calibration target. The raw dataset is not committed because it is large and
+CC BY-NC-SA; only these aggregate values are recorded.
 
 ## Next steps
 
-1. Apply the GBR land-use order overlay to the predecessor ladders.
+1. Apply the GBR land-use order overlay to the predecessor ladders, using the
+   Borealis spatial classes as a cross-check.
 2. Decide the authoritative anchor and replace the calibration target.
 3. Compare the reconstructed result to the official SELES/STSM model when it is
    obtained.

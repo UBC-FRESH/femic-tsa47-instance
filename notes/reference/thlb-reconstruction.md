@@ -1,6 +1,7 @@
 # THLB reconstruction progress: TSA 47
 
-Status: four predecessor ladders transcribed or anchored; the calibration target is unchanged.
+Status: four predecessor ladders transcribed; a public GBR-order planning
+dataset checked; the calibration target is unchanged.
 
 ## Automatic recipe build
 
@@ -20,24 +21,31 @@ for these predecessors.
 - Strathcona (37): TSR 2005 Analysis Report Table 5, p. 14. Transcribed;
   reconciles to 160,454 ha. The 2012 current THLB anchor is 162,873 ha.
 
-## Apportionment
+## Anchor comparison
 
-| GBR TSA | Rationale/current target | Netdown-table anchor | Spread |
-| --- | ---: | ---: | ---: |
-| TSA 46 | 268,970 ha | 270,413 ha | +1,443 ha |
-| TSA 47 | 145,256 ha | 141,845-142,335 ha | -2,921 to -3,411 ha |
+| Anchor | TSA 46 | TSA 47 |
+| --- | ---: | ---: |
+| Rationale/current target | 268,970 ha | 145,256 ha |
+| Predecessor netdown tables | 270,413 ha | 141,845-142,335 ha |
+| Borealis GBR order spatial THLB | 329,724.9 ha | 267,139.9 ha |
 
-For TSA 47, the 2005 Strathcona ladder gives 141,845 ha; the 2012 Strathcona
-anchor gives 142,335 ha; the rationale anchors give 145,256 ha.
+The Borealis dataset is a **2016 GBR-order planning dataset**, not the legal TSR
+model. Its `rollup = 'THLB'` values are spatial planning THLB, much higher than
+the legal/effective targets and based on a different inventory/operability/
+land-base definition. It is an overlay/upper-bound check, not a calibration
+target.
 
-The current target uses the AAC rationale/current effective THLB values. The
-TSR analysis tables give a lower TSA 47 anchor. The difference is recorded, not
-silently applied. The official SELES/STSM model would resolve which is
-authoritative.
+## Decision
+
+Keep the current predecessor-derived target for now. The netdown tables give a
+narrow sensitivity band; the Borealis spatial THLB is an upper bound. The
+official SELES/STSM model and the GBR legal-order overlay are needed before the
+calibration target is replaced.
 
 ## Next steps
 
-- Apply the GBR land-use order overlay.
+- Apply the GBR land-use order overlay to the predecessor ladders, using the
+  Borealis spatial classes as a cross-check.
 - Decide the authoritative anchor and replace the calibration target.
 - Compare to the official SELES/STSM model when available.
 
