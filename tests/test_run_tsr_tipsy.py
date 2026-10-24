@@ -55,7 +55,7 @@ def test_run_and_parse_writes_curves(tmp_path: Path, monkeypatch: pytest.MonkeyP
     def fake_run(**_kwargs: object) -> SimpleNamespace:
         return SimpleNamespace(exit_code=0, stderr_log_path=tmp_path / "stderr.log")
 
-    monkeypatch.setattr(run_tsr_tipsy, "run_btc_cli", fake_run)
+    monkeypatch.setattr(run_tsr_tipsy, "_run_btc_cli", fake_run)
     result = run_tsr_tipsy.run_and_parse(
         input_csv=tmp_path / "input.csv",
         curves_csv=curves,
@@ -78,7 +78,7 @@ def test_run_and_parse_rejects_error_rows(tmp_path: Path, monkeypatch: pytest.Mo
     error.write_text("feature_id,RowNum,Type\n21000,2,Error\n", encoding="utf-8")
     monkeypatch.setattr(
         run_tsr_tipsy,
-        "run_btc_cli",
+        "_run_btc_cli",
         lambda **_kwargs: SimpleNamespace(exit_code=0, stderr_log_path=tmp_path / "s.log"),
     )
     with pytest.raises(RuntimeError, match="error rows"):
@@ -100,7 +100,7 @@ def test_run_and_parse_rejects_nonzero_exit(
     """A non-zero BTC exit aborts the lane."""
     monkeypatch.setattr(
         run_tsr_tipsy,
-        "run_btc_cli",
+        "_run_btc_cli",
         lambda **_kwargs: SimpleNamespace(exit_code=1, stderr_log_path=tmp_path / "s.log"),
     )
     with pytest.raises(RuntimeError, match="exited with 1"):

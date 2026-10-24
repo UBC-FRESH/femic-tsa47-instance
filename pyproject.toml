@@ -27,7 +27,7 @@ mypy_path = "scripts"
 files = ["scripts", "tests", "docs/conf.py"]
 
 [[tool.mypy.overrides]]
-module = ["numpydoc", "numpydoc.*", "yaml", "yaml.*"]
+module = ["numpydoc", "numpydoc.*", "yaml", "yaml.*", "femic", "femic.*"]
 ignore_missing_imports = true
 
 [[tool.mypy.overrides]]

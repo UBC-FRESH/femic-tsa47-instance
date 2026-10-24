@@ -12,13 +12,37 @@ import argparse
 import os
 from collections.abc import Mapping
 from pathlib import Path
-from typing import cast
+from typing import Protocol, cast
 
 import pandas as pd
-from femic.pipeline.tipsy import (  # type: ignore[import-untyped]
-    parse_btc_tsr_transposed_output,
-    run_btc_cli,
-)
+
+
+class _BTCRunResult(Protocol):
+    """The subset of FEMIC's BTC result this module reads."""
+
+    exit_code: int
+    stderr_log_path: Path
+
+
+def _run_btc_cli(**kwargs: object) -> _BTCRunResult:
+    """Import and call FEMIC's BTC runner lazily.
+
+    The import is local so this module can be imported in a checkout that does
+    not have the femic package installed, such as the instance's CI job.
+    """
+    from femic.pipeline.tipsy import run_btc_cli
+
+    return cast(_BTCRunResult, run_btc_cli(**kwargs))
+
+
+def _parse_curves(output_csv: Path) -> pd.DataFrame:
+    """Parse BTC output lazily for the same reason."""
+    from femic.pipeline.tipsy import parse_btc_tsr_transposed_output
+
+    return cast(
+        pd.DataFrame,
+        parse_btc_tsr_transposed_output(output_csv=output_csv, pd_module=pd),
+    )
 
 
 def btc_error_rows(error_csv: Path) -> pd.DataFrame:
@@ -79,7 +103,7 @@ def run_and_parse(
     pandas.DataFrame
         Parsed long-format managed curves.
     """
-    result = run_btc_cli(
+    result = _run_btc_cli(
         input_csv=input_csv,
         mode="TSR",
         output_csv=output_csv,
@@ -98,10 +122,10 @@ def run_and_parse(
     if not errors.empty:
         sample = errors.head(5).to_dict(orient="records")
         raise RuntimeError(f"BTC reported {len(errors)} error rows: {sample}")
-    curves = parse_btc_tsr_transposed_output(output_csv=output_csv, pd_module=pd)
+    curves = _parse_curves(output_csv)
     curves_csv.parent.mkdir(parents=True, exist_ok=True)
     curves.to_csv(curves_csv, index=False)
-    return cast(pd.DataFrame, curves)
+    return curves
 
 
 def main() -> None:
