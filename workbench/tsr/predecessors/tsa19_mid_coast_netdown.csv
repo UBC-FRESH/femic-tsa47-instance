@@ -1,0 +1,32 @@
+stage,label,total_area_ha,effective_area_ha,percent_total_area,percent_pflb,provenance,notes
+reference,"Total area (Mid Coast TSA boundary, less ocean)",3012310,3012310,,,"TSA19 TSR 2011 Data Package Table 3, PDF p.16 / document p.8",
+glb_to_aflb,"Private Land, Indian Reserves",14276,14276,,,"TSA19 TSR 2011 Data Package Table 3, p.8",
+glb_to_aflb,"TFLs, CFAs, Woodlots, Misc Leases, Etc",270786,270786,,,"TSA19 TSR 2011 Data Package Table 3, p.8",
+glb_to_aflb,Timber Licenses (unreverted),7767,7767,,,"TSA19 TSR 2011 Data Package Table 3, p.8",
+reference,Total TSA Area,2719481,2719481,100.0,,"TSA19 TSR 2011 Data Package Table 3, p.8",
+aflb_to_lhlb,Non forest / Non-productive forest,1691972,1691972,62.2,,"TSA19 TSR 2011 Data Package Table 3, p.8",
+aflb_to_lhlb,Non-Commercial Brush,481,481,0.0,,"TSA19 TSR 2011 Data Package Table 3, p.8",
+glb_to_aflb,"Existing Roads, Trails and Landings",3721,3520,0.1,,"TSA19 TSR 2011 Data Package Table 3, p.8",
+reference,Total Productive Forest Land Base (PFLB),1023508,1023508,37.6,100.0,"TSA19 TSR 2011 Data Package Table 3, p.8",
+aflb_to_lhlb,Parks and Ecological Reserves,490122,490122,18.0,47.9,"TSA19 TSR 2011 Data Package Table 3, p.8",
+lhlb_to_thlb,Inoperable / Inaccessible,865883,353227,13.0,34.5,"TSA19 TSR 2011 Data Package Table 3, p.8",
+aflb_to_lhlb,Environmentally Sensitive Areas (ESA's),263675,7960,0.3,0.8,"TSA19 TSR 2011 Data Package Table 3, p.8",
+lhlb_to_thlb,Non-Merchantable or Problem Forest Types,197679,36,0.0,0.0,"TSA19 TSR 2011 Data Package Table 3, p.8",
+lhlb_to_thlb,Low Productivity Sites,178222,18060,0.7,1.8,"TSA19 TSR 2011 Data Package Table 3, p.8",
+aflb_to_lhlb,Grizzly Wildlife Habitat Areas (WHA's),13659,3902,0.1,0.4,"TSA19 TSR 2011 Data Package Table 3, p.8",
+aflb_to_lhlb,Mountain Goat Winter Range,32558,163,0.0,0.0,"TSA19 TSR 2011 Data Package Table 3, p.8",
+aflb_to_lhlb,FRPA Riparian (not including S6's),17423,6340,0.2,0.6,"TSA19 TSR 2011 Data Package Table 3, p.8",
+aflb_to_lhlb,Recreation Values,10586,3376,0.1,0.3,"TSA19 TSR 2011 Data Package Table 3, p.8",
+aflb_to_lhlb,EBM - High Value Fish Habitat (Obj 9),5784,1629,0.1,0.2,"TSA19 TSR 2011 Data Package Table 3, p.8",
+aflb_to_lhlb,EBM - Non High Value Aquatic Habitat (Obj 10),6625,2083,0.1,0.2,"TSA19 TSR 2011 Data Package Table 3, p.8",
+aflb_to_lhlb,EBM - Active Fluvial Units (Obj 13),5693,1163,0.0,0.1,"TSA19 TSR 2011 Data Package Table 3, p.8",
+aflb_to_lhlb,EBM - Sensitive Grizzly Bear Habitat (Obj 17),3957,157,0.0,0.0,"TSA19 TSR 2011 Data Package Table 3, p.8",
+reference,Spatial Timber Harvesting Land Base,135293,135293,5.0,13.2,"TSA19 TSR 2011 Data Package Table 3, p.8",
+lhlb_to_thlb,FRPA Riparian - S6's (0.3%),,406,0.0,0.0,"TSA19 TSR 2011 Data Package Table 3, p.8",Non-spatial netdown
+aflb_to_lhlb,EBM - Arch/FN (Obj 4-7 = 1.3%),,1759,0.1,0.2,"TSA19 TSR 2011 Data Package Table 3, p.8",Non-spatial netdown
+aflb_to_lhlb,EBM - Red and Blue (Obj 15 - 3.0%),,4059,0.1,0.4,"TSA19 TSR 2011 Data Package Table 3, p.8",Non-spatial netdown
+lhlb_to_thlb,EBM - Stand Level Retention (Obj 16 - 3.3%),,4465,0.2,0.4,"TSA19 TSR 2011 Data Package Table 3, p.8",Non-spatial netdown
+reference,Effective Timber Harvesting Land Base,,124605,4.6,12.2,"TSA19 TSR 2011 Data Package Table 3, p.8",
+lhlb_to_thlb,"Future roads, trails and landings",,2713,0.1,0.3,"TSA19 TSR 2011 Data Package Table 3, p.8",
+reference,TL Reversions,,7767,0.3,0.8,"TSA19 TSR 2011 Data Package Table 3, p.8",Addition
+reference,Long Term Timber Harvesting Land Base,,129659,4.8,12.7,"TSA19 TSR 2011 Data Package Table 3, p.8",
