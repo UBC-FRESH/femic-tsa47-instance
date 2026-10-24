@@ -126,10 +126,11 @@ def build_validation_rows(
         mix = _species_mix(row)
         if not mix:
             continue
+        observed_si = _finite(row.get("SITE_INDEX"))
         assigned = assign_au(
             bec_zone=row.get("BGC_ZONE_CODE"),
             species_pct=mix,
-            site_index=_finite(row.get("SITE_INDEX")),
+            site_index=observed_si,
             stratum_by_leading=stratum_by_leading,
             si_medians=si_medians,
         )
@@ -154,6 +155,8 @@ def build_validation_rows(
                 "stratum_code": stratum,
                 "si_level": level,
                 "local_au": local_au,
+                "observed_si": round(observed_si, 1) if observed_si is not None else None,
+                "checkpoint_si": round(si_medians.get((stratum, level), float("nan")), 1),
                 "bec_zone": row.get("BGC_ZONE_CODE"),
                 "leading_species": max(mix.items(), key=lambda item: item[1])[0],
                 "leading_percent": round(leading_percent, 1),
@@ -195,6 +198,8 @@ def summarize_validation(frame: pd.DataFrame) -> pd.DataFrame:
             n=("error_m", "size"),
             mean_observed_m=("observed_height_m", "mean"),
             mean_predicted_m=("predicted_height_m", "mean"),
+            median_observed_si=("observed_si", "median"),
+            median_checkpoint_si=("checkpoint_si", "median"),
             bias_m=("error_m", "mean"),
             mae_m=("error_m", lambda values: float(np.mean(np.abs(values)))),
             rmse_m=("error_m", lambda values: float(np.sqrt(np.mean(np.square(values))))),
@@ -202,6 +207,7 @@ def summarize_validation(frame: pd.DataFrame) -> pd.DataFrame:
         .reset_index()
     )
     grouped["relative_bias"] = grouped["bias_m"] / grouped["mean_observed_m"]
+    grouped["si_gap_m"] = grouped["median_observed_si"] - grouped["median_checkpoint_si"]
     return grouped.round(3)
 
 

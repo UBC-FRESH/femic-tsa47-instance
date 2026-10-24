@@ -120,6 +120,8 @@ def test_build_validation_rows_matches_au_and_predicts_height() -> None:
     assert row["predicted_height_m"] == 2.0
     assert row["error_m"] == -1.0
     assert row["age_class"] == "5-15"
+    assert row["observed_si"] == 9.0
+    assert row["checkpoint_si"] == 9.0
 
 
 def test_build_validation_rows_filters_age_and_mixed_stand() -> None:
@@ -158,6 +160,8 @@ def test_summarize_validation_reports_bias_and_error() -> None:
             "observed_height_m": [3.0, 5.0],
             "predicted_height_m": [2.0, 7.0],
             "error_m": [-1.0, 2.0],
+            "observed_si": [10.0, 10.0],
+            "checkpoint_si": [9.0, 9.0],
         }
     )
     summary = summarize_validation(frame)
@@ -167,6 +171,7 @@ def test_summarize_validation_reports_bias_and_error() -> None:
     assert row["mae_m"] == 1.5
     assert row["rmse_m"] == pytest.approx(1.581, abs=0.001)
     assert row["relative_bias"] == pytest.approx(0.125, abs=0.001)
+    assert row["si_gap_m"] == 1.0
 
 
 def test_finite_rejects_missing_and_nonfinite() -> None:

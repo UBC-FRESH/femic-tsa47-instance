@@ -54,6 +54,20 @@ and slightly conservative at older ages. CWH_HW M is the weakest well-sampled
 cell. This is an accuracy signal, not a reason to choose the curve set that
 needs less area.
 
+## Site-index attribution
+
+The CWH_HW H height bias is small because the SI gap is small:
+
+| Age class | n | Observed SI | Checkpoint SI | Gap | Height bias |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 5-15 | 2,125 | 28.0 m | 26.3 m | +1.7 m | -0.33 m |
+| 51-80 | 221 | 28.0 m | 26.3 m | +1.7 m | -1.76 m |
+
+CWH_HW M at ages 5-15 has observed SI 19.0 m versus checkpoint 17.0 m
+(+2.0 m) and a -1.02 m height bias. The pattern is the same as TSA 46: the
+checkpoint AU median understates the managed/harvested stand SI, but the gap is
+much smaller in TSA 47.
+
 ## Caveats
 
 - Height only. Volume, DBH, and mortality are not validated here.

@@ -94,3 +94,12 @@ status and the GitHub issue comments.
   height-only check and does not use the AAC target. See
   `notes/reference/tipsy-validation.md`.
 
+- Documented the independent height validation in `docs/benchmark.rst`,
+  `docs/decisions.rst`, `docs/model-build.rst`, `docs/reproduce.rst`, the
+  README, and `notes/reference/`. Added observed SI and the checkpoint SI gap
+  to the validation table. The dominant height bias is largely a site-index
+  input issue: TSA 46 CWH_HW H observed 23.0 m versus checkpoint 16.3 m; TSA 47
+  CWH_HW H observed 28.0 m versus checkpoint 26.3 m. The next test is an
+  SI-stratified managed-land curve validated on held-out stands, not tuning to
+  the AAC.
+

@@ -174,6 +174,14 @@ the weakest well-sampled cell at -1.02 m (-28%). The RESULTS curves are only
 marginally closer, and their species inputs are not independent of the observed
 cover.
 
+Site-index attribution
+~~~~~~~~~~~~~~~~~~~~~~
+
+The CWH_HW H gap is small: observed managed-stand SI is **28.0 m**, while the
+checkpoint AU median is **26.3 m**. CWH_HW M is 19.0 m observed versus 17.0 m
+checkpoint. The pattern is the same as TSA 46 but much smaller. The next test
+is an SI-stratified managed-land curve, validated on held-out stands.
+
 This is a height-only check. Volume, DBH, and mortality still need independent
 validation. See ``notes/reference/tipsy-validation.md``.
 
