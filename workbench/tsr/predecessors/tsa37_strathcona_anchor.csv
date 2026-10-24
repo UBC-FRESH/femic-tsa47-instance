@@ -1,0 +1,7 @@
+stage,label,area_ha,,provenance,notes
+reference,"Crown forest land base (CFLB), approximate",345000,,"TSA37 TSR 2012 AAC Rationale, p.11","Published as ""about 345 000 hectares"""
+reference,Current THLB,162873,,"TSA37 TSR 2012 AAC Rationale, p.8",
+reference,Future THLB,156806,,"TSA37 TSR 2012 AAC Rationale, p.8",
+lhlb_to_thlb,"Unstable terrain reductions, all classes",29411,,"TSA37 TSR 2012 AAC Rationale, p.14","One component, not the full ladder"
+aflb_to_lhlb,Ungulate winter range (UWR),5265,,"TSA37 TSR 2012 AAC Rationale, p.21","One component, not the full ladder"
+reference,TSR 2012 data package summary table,,,"TSA37 TSR 2012 Data Package, section 5",No single THLB summary table; assemble from Tables 5-12 and the rationale

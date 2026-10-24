@@ -1,42 +1,43 @@
 # THLB reconstruction progress: TSA 47
 
-Status: first slice transcribed. The current model still uses the
-predecessor-derived THLB target; no calibration change has been applied.
+Status: predecessor ladders mostly transcribed; the calibration target is unchanged.
 
 ## Automatic recipe build
 
-`femic tsr recipe-init` and `femic tsr thlb-netdown-build` were run on the
-predecessor TSA 19 (Mid Coast) as a trial. The builder found only 4 compiled
-steps, all context, with **zero** GLB/AFLB/LHLB/THLB stage rows. The older TSR
-PDFs are not parsed into structured land-base rows by the canonical fact pool.
-The automatic path is therefore not sufficient for these four predecessors.
+`femic tsr recipe-init` and `femic tsr thlb-netdown-build` were run on Mid Coast
+as a trial. The builder found only 4 compiled steps, all context, with zero
+GLB/AFLB/LHLB/THLB stage rows. The older TSR PDFs are not parsed into structured
+land-base rows by the canonical fact pool. The automatic path is not sufficient
+for these predecessors.
 
-## Transcribed tables
+## Transcribed or anchored
 
-- North Coast (21), TSR 2007 Data Package, Table 2.1, page 9:
-  `workbench/tsr/predecessors/tsa21_north_coast_netdown.csv`.
-- Kingcome (33), TSR 2010 Data Package, Table 3, pages 14-15:
-  `workbench/tsr/predecessors/tsa33_kingcome_netdown.csv`.
+- North Coast (21): TSR 2007 Data Package Table 2.1, p. 9. Transcribed; 25,109 ha
+  source residual.
+- Mid Coast (19): TSR 2011 Data Package Table 3, p. 8. Transcribed; reconciles.
+- Kingcome (33): TSR 2010 Data Package Table 3, pp. 14-15. Transcribed;
+  reconciles.
+- Strathcona (37): TSR 2012 Data Package sections 5.3-5.17 and AAC rationale.
+  Anchor only; no single summary table.
 
-Kingcome reconciles. North Coast has a 25,109 ha residual in the published
-table and is flagged rather than forced.
+## Apportionment
 
-## Remaining work
+| GBR TSA | Current target | Table-based anchor | Difference |
+| --- | ---: | ---: | ---: |
+| TSA 46 | 268,970 ha | 270,413 ha | +1,443 ha |
+| TSA 47 | 145,256 ha | 142,335 ha | -2,921 ha |
 
-- Mid Coast (19): assemble the ladder from the TSR 2011 data package sections
-  and rationale.
-- Strathcona (37): assemble the ladder from the TSR 2012 data package sections
-  and rationale; there is no single summary table.
-- Clip and apportion to the current GBR boundaries.
+The current target uses the AAC rationale/current effective THLB values. The
+TSR analysis tables give slightly different anchors. The difference is recorded,
+not silently applied. The official SELES/STSM model would resolve which is
+authoritative.
+
+## Next steps
+
+- Assemble the full Strathcona ladder.
 - Apply the GBR land-use order overlay.
-- Reconcile and replace the calibration target.
+- Decide the authoritative anchor and replace the calibration target.
+- Compare to the official SELES/STSM model when available.
 
-## SELES lead
-
-The public SELES publication list records A. Fall's 2022 GBR LUO 2021 Analysis
-Update Memos 1 and 7, the STSM v2022 documentation, and the 2015 GBR LUO review
-analysis. The TSR model archive itself is not in the standard provincial TSR
-folder. The data request list is in `notes/reference/thlb-netdown-plan.md`.
-
-Until the official model arrives, the reconstructed lane is labelled
-**reconstructed**, not official, and is the comparison target.
+The model still uses the predecessor-derived target and the safe sliver merge.
+No calibration change has been applied.
