@@ -1,0 +1,21 @@
+stage,label,area_ha,percent_total_area,percent_productive_forest,volume_000m3,provenance,notes
+reference,Total area (incl. fresh water),1830883,100,,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+glb_to_aflb,Non-crown,40138,2.2,,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+glb_to_aflb,Nisga'a lands,55389,3.0,,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+glb_to_aflb,Non-productive,859454,46.9,,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+reference,Total Crown managed productive forest,850794,46.4,100,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+aflb_to_lhlb,Inoperable/inaccessible,685627,,80.5,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+aflb_to_lhlb,Non-commercial,23,,0,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+lhlb_to_thlb,Low site,5844,,0.7,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+lhlb_to_thlb,Non-merchantable,1161,,0.1,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+aflb_to_lhlb,Environmentally sensitive areas,20345,,2.4,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+aflb_to_lhlb,Riparian reserves,12201,,1.4,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+aflb_to_lhlb,Culturally significant,1507,,0.2,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+lhlb_to_thlb,Wildlife tree patches and retention,1492,,0.2,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+lhlb_to_thlb,"Unclassified roads, trails and landings",1592,,0.2,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+glb_to_aflb,Woodlots,212,,0,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+lhlb_to_thlb,Permanent NSR,91,,0,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+reference,Total reductions to productive forest,730095,39.9,85.8,,"TSA21 TSR 2007 Data Package Table 2.1, p.9","Residual: 850,794 - 730,095 = 120,699, not 145,808; source table does not reconcile"
+reference,Total reduced land base (including NSR),145808,8.0,17.1,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",Current THLB
+lhlb_to_thlb,"Less future roads, trails and landings",7838,,,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
+reference,Long-term timber harvesting land base,137970,7.5,16.2,,"TSA21 TSR 2007 Data Package Table 2.1, p.9",
