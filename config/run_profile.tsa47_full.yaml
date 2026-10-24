@@ -9,6 +9,10 @@ selection:
   boundary_code: "47"
   strata: []
 
+plots:
+  # Coastal stands exceed the legacy 600 m3/ha plot top; keep the full curve visible.
+  tipsy_vdyp_ylim: [0.0, 2000.0]
+
 modes:
   resume: true
   dry_run: false
