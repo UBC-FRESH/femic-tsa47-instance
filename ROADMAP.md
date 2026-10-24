@@ -55,7 +55,7 @@ Goal: close the audit gaps before release.
 - [x] P1.3 Replace the VDYP transform with accepted TIPSY curves (#19)
 - [ ] P1.4 Build the documented GLB > AFLB > LHLB > THLB netdown (#14)
 - [ ] P1.5 Release v0.1.0 and verify a clean checkout
-- [ ] P1.7 Repeat the RESULTS-derived TIPSY input analysis (#21)
+- [ ] P1.7 Repeat the RESULTS-derived TIPSY input analysis (#21) — TSA 47 and 46 analysis complete; independent height validation done; PR review pending
 - [x] P1.6 Complete the Sphinx docs and publish Pages (#11)
 
 Acceptance criteria:
@@ -72,4 +72,4 @@ Acceptance criteria:
 3. P1.3 replaces the VDYP transform with accepted TIPSY curves.
 4. P1.4 replaces the derived THLB with a reviewed GBR netdown.
 5. P1.5 releases v0.1.0 and verifies a clean checkout.
-6. P1.7 repeats the TSA 48 RESULTS-derived TIPSY input analysis for TSA 47, then TSA 46.
+6. P1.7 repeats the TSA 48 RESULTS-derived TIPSY input analysis for TSA 47 and TSA 46. Both are complete, and the first independent height validation is recorded; volume/DBH/mortality validation remains next.

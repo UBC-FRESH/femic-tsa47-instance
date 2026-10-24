@@ -43,14 +43,25 @@ The opening-first schedule covers all 18 managed AUs, so
 unused. The earlier strict volume-only schedule left small AUs unselected; that result is retained with the dated VDYP-transform runtime. The benchmark of record is the opening-first run, not the
 volume-only seed.
 
-5. UI geometry scale
+5. Accuracy is not AAC fit
+---------------------------
+
+The AAC band is a policy constraint, not a validation statistic. A curve set
+that needs fewer hectares is not thereby more accurate. The independent height
+check compares TIPSY height at age with observed RESULTS cover heights. The
+current TSR curves are slightly more accurate than the RESULTS species mix
+(TSR bias -0.55 m, MAE 1.38 m, RMSE 2.53 m; RESULTS bias
+-0.34 m, MAE 1.36 m). Volume, DBH, and mortality remain
+unvalidated. Record: ``notes/reference/tipsy-validation.md``.
+
+6. UI geometry scale
 --------------------
 
 The served map uses a 100 m overview. The full layer is retained. This is an
 interim payload fix; production serving needs viewport and tiled detail. Record:
 ``notes/reference/ws4-build.md``.
 
-6. Independent sibling instance
+7. Independent sibling instance
 -------------------------------
 
 This repository and `Great Bear Rainforest North TSA 46 <https://github.com/UBC-FRESH/femic-tsa46-instance>`_

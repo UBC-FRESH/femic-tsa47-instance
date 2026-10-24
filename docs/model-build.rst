@@ -162,6 +162,25 @@ The runtime-signal gate fails on a missing species/SI label, an orphan track,
 or a missing curve. The coverage gate fails when an AU with at least 100 ha of
 managed area has no harvest event, unless the allowlist names it with a reason.
 
+Height validation
+-----------------
+
+The independent accuracy check uses observed RESULTS cover heights, not the
+AAC target:
+
+.. code-block:: bash
+
+   python scripts/validate_tipsy_height.py \
+     --tsa 47 \
+     --curves tipsy_io/runs/curves_tsa47_tsr.csv \
+     --checkpoint runtime/tsa47_full_vdyp_20261023/thlb_calibrated_checkpoint.feather \
+     --out config/tsr/tipsy_height_validation.tsa47.csv \
+     --summary-out config/tsr/tipsy_height_validation_summary.tsa47.csv
+
+Current TSR: bias -0.55 m, MAE 1.38 m, RMSE 2.53 m. This is a
+height-only check; volume, DBH, and mortality still need independent data. See
+:doc:`benchmark` and ``notes/reference/tipsy-validation.md``.
+
 Runtime boundary
 ----------------
 

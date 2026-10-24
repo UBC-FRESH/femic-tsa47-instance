@@ -31,7 +31,7 @@ without changing net area or managed area. The FEMIC run, ws4 matrix, benchmark,
 and UI geometry are recorded in `notes/reference/ws4-build.md`. The managed curves are TSR-consistent BatchTIPSY 4.7 curves, not a VDYP
 transform. The opening-first policy holds 100% of patch area in the 5-40 ha
 class and all ten AAC decades met; see `notes/reference/opening-policy.md` and
-`notes/reference/tipsy-curves.md`.
+`notes/reference/tipsy-curves.md`. The first independent height validation is recorded in `notes/reference/tipsy-validation.md`; TSR bias is `-0.55 m` with MAE `1.38 m`.
 
 ## AOI
 
