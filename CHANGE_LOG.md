@@ -74,3 +74,15 @@ status and the GitHub issue comments.
   reproducible lane is `scripts/build_tsr_lane.sh`; the method and caveats are
   in `notes/reference/tipsy-curves.md`.
 
+- Repeated the TSA 48 RESULTS-derived TIPSY workflow for TSA 47. Fetched
+  14,191 RESULTS openings, 42,890 forest-cover rows, and 1,297 planting rows
+  for the TSA 47 AOI. Re-derived the AU mapping and median SI from the TSA 47
+  AU table and checkpoint. The raw candidate table has 16 AU/SI rows; the
+  screened input applies RESULTS only to the six groups with at least three
+  planting records and keeps the current TSR input elsewhere. The screened
+  opening-first run meets all ten decades with 7,806 openings, 15,449 blocks,
+  and 92,902.7 ha (versus 103,413.3 ha for TSR); the raw run uses 88,651.3 ha
+  but is not defensible because sparse cover data drives implausible AU jumps.
+  Production remains on TSR pending review. See
+  `notes/reference/results-tipsy.md`. `python scripts/dashboard.py` is green.
+

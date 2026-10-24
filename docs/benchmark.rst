@@ -103,6 +103,44 @@ The opening-first schedule covers all 18 managed AUs.
 unused. The earlier strict volume-only schedule left small AUs unselected; that
 result is retained with the dated VDYP-transform runtime.
 
+RESULTS sensitivity
+-------------------
+
+The TSA 48 RESULTS-derived TIPSY workflow was repeated for TSA 47. The raw
+candidate table has 16 AU/SI rows, but only six have at least three planting
+records. Using the raw table would let sparse cover data drive the result; the
+screened scenario applies RESULTS only to those six groups and keeps the
+current TSR input for the rest.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 34 14 14 18
+
+   * - Scenario
+     - Openings
+     - Blocks
+     - Scheduled area
+   * - Current TSR
+     - 8,636
+     - 17,365
+     - 103,413.3 ha
+   * - RESULTS screened
+     - 7,806
+     - 15,449
+     - 92,902.7 ha
+   * - RESULTS raw
+     - 7,320
+     - 14,585
+     - 88,651.3 ha
+
+All three scenarios meet the ten-decade band and hold 100% of patch area in the
+5-40 ha class. The screened scenario reduces scheduled area by about 10%
+relative to the current TSR lane. It is a sensitivity result, not the benchmark
+of record; the raw scenario is an upper bound driven by sparse cover data.
+
+See ``notes/reference/results-tipsy.md`` for the data coverage, AU changes, and
+caveats.
+
 Baseline versus benchmark
 -------------------------
 
