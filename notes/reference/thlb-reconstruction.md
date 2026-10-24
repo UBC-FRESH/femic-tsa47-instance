@@ -1,6 +1,6 @@
 # THLB reconstruction progress: TSA 47
 
-Status: predecessor ladders mostly transcribed; the calibration target is unchanged.
+Status: four predecessor ladders transcribed or anchored; the calibration target is unchanged.
 
 ## Automatic recipe build
 
@@ -17,24 +17,26 @@ for these predecessors.
 - Mid Coast (19): TSR 2011 Data Package Table 3, p. 8. Transcribed; reconciles.
 - Kingcome (33): TSR 2010 Data Package Table 3, pp. 14-15. Transcribed;
   reconciles.
-- Strathcona (37): TSR 2012 Data Package sections 5.3-5.17 and AAC rationale.
-  Anchor only; no single summary table.
+- Strathcona (37): TSR 2005 Analysis Report Table 5, p. 14. Transcribed;
+  reconciles to 160,454 ha. The 2012 current THLB anchor is 162,873 ha.
 
 ## Apportionment
 
-| GBR TSA | Current target | Table-based anchor | Difference |
+| GBR TSA | Rationale/current target | Netdown-table anchor | Spread |
 | --- | ---: | ---: | ---: |
 | TSA 46 | 268,970 ha | 270,413 ha | +1,443 ha |
-| TSA 47 | 145,256 ha | 142,335 ha | -2,921 ha |
+| TSA 47 | 145,256 ha | 141,845-142,335 ha | -2,921 to -3,411 ha |
+
+For TSA 47, the 2005 Strathcona ladder gives 141,845 ha; the 2012 Strathcona
+anchor gives 142,335 ha; the rationale anchors give 145,256 ha.
 
 The current target uses the AAC rationale/current effective THLB values. The
-TSR analysis tables give slightly different anchors. The difference is recorded,
-not silently applied. The official SELES/STSM model would resolve which is
+TSR analysis tables give a lower TSA 47 anchor. The difference is recorded, not
+silently applied. The official SELES/STSM model would resolve which is
 authoritative.
 
 ## Next steps
 
-- Assemble the full Strathcona ladder.
 - Apply the GBR land-use order overlay.
 - Decide the authoritative anchor and replace the calibration target.
 - Compare to the official SELES/STSM model when available.
