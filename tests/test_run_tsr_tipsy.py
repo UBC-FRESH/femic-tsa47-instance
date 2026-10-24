@@ -56,6 +56,11 @@ def test_run_and_parse_writes_curves(tmp_path: Path, monkeypatch: pytest.MonkeyP
         return SimpleNamespace(exit_code=0, stderr_log_path=tmp_path / "stderr.log")
 
     monkeypatch.setattr(run_tsr_tipsy, "_run_btc_cli", fake_run)
+    monkeypatch.setattr(
+        run_tsr_tipsy,
+        "_parse_curves",
+        lambda _path: pd.DataFrame({"AU": [21000, 21000], "Age": [0, 10], "Yield": [0.0, 10.0]}),
+    )
     result = run_tsr_tipsy.run_and_parse(
         input_csv=tmp_path / "input.csv",
         curves_csv=curves,
