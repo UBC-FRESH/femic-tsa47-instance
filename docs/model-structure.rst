@@ -15,10 +15,10 @@ Dataset tables
      - Rows
      - Role
    * - ``fragments.parquet``
-     - 98,040
+     - 97,529
      - Fragment geometry and age, keyed to a block and track
    * - ``blocks.parquet``
-     - 98,040
+     - 97,529
      - Block/track/offset/area join used by simulation
    * - ``tracks.parquet``
      - 34,656
@@ -51,9 +51,9 @@ Blocks and area
    * - Quantity
      - Value
    * - Unique blocks
-     - 74,170
+     - 73,659
    * - Fragment rows
-     - 98,040
+     - 97,529
    * - Block area
      - 692,811.84 ha
    * - Gross AOI area

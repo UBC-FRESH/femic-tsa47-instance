@@ -36,7 +36,7 @@ Model at a glance
    * - Calibrated THLB
      - 145,256 ha
    * - Blocks
-     - 74,170
+     - 73,659
    * - Block area
      - 692,811.84 ha
    * - AUs / curves

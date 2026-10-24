@@ -26,8 +26,9 @@ inventory, FEMIC export lane, and GBR legal framework, but they are
 ## Status
 
 The calibrated model is built and the ten-decade benchmark meets all ten
-targets at 830,500 m3/yr. The FEMIC run, ws4 matrix, baseline, and UI geometry
-are recorded in `notes/reference/ws4-build.md`.
+targets at 830,500 m3/yr. A safe sliver merge removed 511 blocks (255.78 ha)
+without changing net area or managed area. The FEMIC run, ws4 matrix, benchmark,
+and UI geometry are recorded in `notes/reference/ws4-build.md`.
 
 ## AOI
 
@@ -38,7 +39,7 @@ includes ocean and foreshore; the VRI block area is the forested subset.
 
 ## Model
 
-The calibrated model has **74,170 blocks**, **692,811.84 ha** of block area,
+The calibrated model has **73,659 blocks**, **692,811.84 ha** of block area,
 and **145,256.00 ha** of managed area. The calibration factor is
 `0.9925390944203576`; 0 rows saturate.
 

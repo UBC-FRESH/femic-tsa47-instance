@@ -23,6 +23,7 @@ from pathlib import Path
 
 import geopandas as gpd
 import pandas as pd
+from shapely.geometry.base import BaseGeometry
 from shapely.ops import unary_union
 from shapely.validation import make_valid
 
@@ -41,7 +42,7 @@ REQUIRED_COLUMNS: tuple[str, ...] = (
 )
 
 
-def _valid(geometry: object) -> object:
+def _valid(geometry: BaseGeometry) -> BaseGeometry:
     """Return a valid geometry, repairing invalid input."""
     if not geometry.is_valid:
         return make_valid(geometry)
@@ -156,9 +157,7 @@ def merge_slivers(
     skipped: dict[str, int] = {}
     merged_area = 0.0
     for _, candidate in candidates.iterrows():
-        host_id, reason = _candidate_host(
-            candidate, blocks, age_tolerance=age_tolerance
-        )
+        host_id, reason = _candidate_host(candidate, blocks, age_tolerance=age_tolerance)
         if host_id is None:
             skipped[reason] = skipped.get(reason, 0) + 1
             continue
@@ -174,7 +173,7 @@ def merge_slivers(
             "input_fragments": len(fragments),
             "input_blocks": int(fragments["BLOCK"].nunique()),
             "cutoff_ha": cutoff_ha,
-            "candidates": int(len(candidates)),
+            "candidates": len(candidates),
             "merged_blocks": 0,
             "merged_area_ha": 0.0,
             "skipped": skipped,
@@ -186,9 +185,9 @@ def merge_slivers(
 
     # Host fragment is the largest fragment in the host block.
     host_rows: dict[int, int] = {}
-    for host_id, group in fragments.loc[fragments["BLOCK"].isin(set(host_by_block.values()))].groupby(
-        "BLOCK"
-    ):
+    for host_id, group in fragments.loc[
+        fragments["BLOCK"].isin(set(host_by_block.values()))
+    ].groupby("BLOCK"):
         host_rows[int(host_id)] = int(group.sort_values("AREA_HA", ascending=False).index[0])
 
     area_before = float(fragments["AREA_HA"].sum())
@@ -214,16 +213,14 @@ def merge_slivers(
     cleaned = fragments.drop(index=drop_rows).copy()
     area_after = float(cleaned["AREA_HA"].sum())
     if abs(area_before - area_after) > 1e-6:
-        raise ValueError(
-            f"net area changed from {area_before} to {area_after}; refusing to write"
-        )
+        raise ValueError(f"net area changed from {area_before} to {area_after}; refusing to write")
     out_path.parent.mkdir(parents=True, exist_ok=True)
     cleaned.to_file(out_path)
     return {
         "input_fragments": len(fragments),
         "input_blocks": int(fragments["BLOCK"].nunique()),
         "cutoff_ha": cutoff_ha,
-        "candidates": int(len(candidates)),
+        "candidates": len(candidates),
         "merged_blocks": len(host_by_block),
         "merged_area_ha": round(merged_area, 6),
         "skipped": skipped,

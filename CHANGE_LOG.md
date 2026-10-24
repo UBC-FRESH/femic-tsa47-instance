@@ -47,3 +47,11 @@ status and the GitHub issue comments.
   Pages and deployed the Docs workflow.
 
 - Enabled GitHub Pages and published the docs site at https://ubc-fresh.github.io/femic-tsa47-instance/.
+
+- Applied the safe sliver merge at the 1.0 ha cutoff: 511 blocks (255.78 ha) merged
+  with same AU, IFM, origin, age within 20 years, and neighbour retention zero.
+  Net area and managed area are unchanged. The merged model has 73,659 blocks and
+  97,529 fragments. The strict AAC benchmark still meets all ten decades; the
+  coverage run was refreshed and covers the remaining above-threshold AUs.
+- Queued the documented GLB > AFLB > LHLB > THLB netdown as P1.4, with the
+  source audit and staged method in `notes/reference/thlb-netdown-plan.md`.

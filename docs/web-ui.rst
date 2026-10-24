@@ -41,13 +41,13 @@ Geometry scale
      - Size
    * - ``fragments.geojson``
      - 100 m simplified overview, served by default
-     - 23 MB
+     - 22.6 MiB
    * - ``fragments_full.geojson``
      - Unsimplified block layer, retained for detail
-     - 94 MB
+     - 93.0 MiB
    * - Map response
      - Full-map GeoJSON at the overview scale
-     - 29.7 MB, about 4.0 s
+     - about 30 MB, about 4.0 s
 
 The 100 m overview keeps the initial payload manageable. It is not a substitute
 for viewport or tiled serving. A production deployment should serve vector tiles
