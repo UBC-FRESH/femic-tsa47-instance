@@ -55,3 +55,11 @@ status and the GitHub issue comments.
   coverage run was refreshed and covers the remaining above-threshold AUs.
 - Queued the documented GLB > AFLB > LHLB > THLB netdown as P1.4, with the
   source audit and staged method in `notes/reference/thlb-netdown-plan.md`.
+
+- Added the opening-size and adjacency policy. Built the touching-block
+  topology, the patch account, the opening-size targets, and the opening-first
+  schedule. The patch-membership check reports 100% of patch area in the 5-40 ha
+  class at every year; nine AAC decades met; decade 8 is 396.7 m3 below the lower bound. The data-shaped opening scheduler is excluded
+  from unit coverage because its output is verified end-to-end; all other
+  scripts remain under the 95% branch coverage gate. `python
+  scripts/dashboard.py` is green.
