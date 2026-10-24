@@ -72,54 +72,17 @@ greedy seed, schedules 3,872 blocks, and records
 Coverage run
 ------------
 
-The strict volume-only search leaves three small managed AUs unselected. A
-separate coverage run starts from the strict schedule, adds one event for each
-AU above the 100 ha threshold, and re-optimizes. It is a diagnostic, not the
-benchmark of record.
+The strict volume-only search leaves small managed AUs unselected. A separate
+coverage run starts from the strict schedule, adds one event for each AU above
+the 100 ha threshold, and re-optimizes. It is a diagnostic, not the benchmark
+of record.
 
 - Coverage run: ``runtime/tsa47_full/runs/aac_benchmark_coverage``
-- Blocks scheduled: 3,974
-- AUs covered: 4701002 (9.1 ha) and 4701005 (0.9 ha)
-
-.. list-table::
-   :header-rows: 1
-   :widths: 10 28 16
-
-   * - Decade
-     - Coverage-run volume (m3)
-     - Band status
-   * - 1
-     - 8,305,894.823
-     - met
-   * - 2
-     - 8,305,817.571
-     - met
-   * - 3
-     - 8,305,730.333
-     - met
-   * - 4
-     - 8,305,620.238
-     - met
-   * - 5
-     - 8,305,102.781
-     - met
-   * - 6
-     - 8,305,908.163
-     - met
-   * - 7
-     - 8,305,630.603
-     - met
-   * - 8
-     - 8,305,700.018
-     - met
-   * - 9
-     - 8,305,459.258
-     - met
-   * - 10
-     - 8,305,952.271
-     - met
-
-All ten decades meet the strict band with objective approximately 0. The coverage run schedules 4701002 and 4701005; 4702004 is below the 100 ha threshold and remains unharvested.
+- Blocks scheduled: 3,951
+- Events: 5,409
+- AUs covered: 4701002 and 4701005
+- All ten decades meet the strict band with objective approximately 0.
+- Per-decade report: ``runtime/tsa47_full/runs/aac_benchmark_coverage/report_targets.csv``
 
 Baseline versus benchmark
 -------------------------

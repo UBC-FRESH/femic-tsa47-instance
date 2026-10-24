@@ -67,9 +67,9 @@ the baseline schedule and simulation, and the UI geometry preparation.
    * - Dataset fact
      - Value
    * - Blocks
-     - 74,170
+     - 73,659
    * - Fragments in the compiled dataset
-     - 98,040
+     - 97,529
    * - Block area
      - 692,811.84 ha
    * - Tracks
@@ -84,6 +84,16 @@ the baseline schedule and simulation, and the UI geometry preparation.
      - 45
    * - Curve rows
      - 3,333
+
+Safe sliver cleanup
+-------------------
+
+The build runs ``scripts/merge_slivers.py`` before ``ws4 build``. It merges
+only small blocks with the same AU, IFM, and origin, an area-weighted age
+difference of at most 20 years, and a neighbour with ``RETENTION = 0``.
+Retention/IFM split fragments are never merged and isolated small blocks are
+kept. The merge removed 511 blocks (255.78 ha) and left
+net area and managed area unchanged.
 
 THLB calibration
 ----------------
