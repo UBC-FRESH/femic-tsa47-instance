@@ -36,6 +36,7 @@ data/03_input-*
 data/04_*
 data/tipsy_*
 data/model_input_bundle/
+data/model_input_bundle_*/
 outputs/
 output/
 vdyp_io/

@@ -14,9 +14,9 @@ Status
 ------
 
 Phase P0 (build the instance) is complete. Phase P1 (harden the model) is
-active: the runtime-signal and harvest-coverage gates are in place, and the
-remaining work is the opening policy, accepted TIPSY curves, and a reviewed
-land-base netdown.
+active: the runtime-signal and harvest-coverage gates, the opening policy, and
+the TSR-consistent BatchTIPSY curves are in place. The remaining work is the
+reviewed GBR land-base netdown and the release verification.
 
 Model at a glance
 -----------------
@@ -41,6 +41,8 @@ Model at a glance
      - 692,811.84 ha
    * - AUs / curves
      - 18 / 73
+   * - Managed curves
+     - TSR-consistent BatchTIPSY
    * - AAC benchmark
      - 10/10 decades met
    * - Web UI

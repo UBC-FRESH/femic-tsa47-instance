@@ -20,40 +20,28 @@ cycle, so the THLB target is derived from the mainland portions of the former Ki
 This is a **predecessor-value derivation**, not a reviewed GBR netdown. Record:
 ``config/tsr/overlay.yaml`` and ``notes/reference/tsr.md``.
 
-3. VDYP transform, not accepted TIPSY
--------------------------------------
+3. TSR-consistent BatchTIPSY curves
+-----------------------------------
 
-The managed curve lane uses ``managed_curve_mode: vdyp_transform``. It is a
-provisional transform of the natural curves, not accepted TIPSY yield curves.
-Replace it with a BatchTIPSY handoff before calling the model production-ready.
+The production bundle uses BatchTIPSY 4.7 curves built by
+``scripts/build_tsr_lane.sh``. The FEMIC data-prep profile stays
+``managed_curve_mode: vdyp_transform`` because the lane replaces the treated
+curves after the checkpoint and input table are materialized. The input follows the
+predecessor TSRs: the future stand regenerates to the existing analysis-unit
+species composition, with 1,000 stems/ha, OAF1 = 0.85, OAF2 = 0.95, and
+a one-year regeneration delay. The sources are the Kingcome TSA TSR 3 Data Package (2010, Tables 47-48) and the Strathcona TSA TSR 3 Data Package (2005, Table 21). The full
+method, caveats, and run results are in ``notes/reference/tipsy-curves.md``.
 
-4. Zero-harvest AUs
+The earlier VDYP transform is retained as a dated backup at
+``runtime/tsa47_full_vdyp_20261023``. It is not the benchmark of record.
+
+4. Harvest coverage
 -------------------
 
-Three small managed AUs are unselected by the strict volume-only benchmark:
-
-.. list-table::
-   :header-rows: 1
-   :widths: 16 20 18
-
-   * - AU
-     - Managed area (ha)
-     - Total area (ha)
-   * - 4701002
-     - 139.2
-     - 20,768.9
-   * - 4702004
-     - 40.7
-     - 18,424.0
-   * - 4701005
-     - 111.4
-     - 8,246.2
-
-Total: **291.2 ha (0.20% of the managed area)**. The
-coverage run selects the AUs above the 100 ha threshold and re-optimizes. The
-strict benchmark remains the benchmark of record. Record:
-``notes/reference/model-sanity.md`` and
-``config/harvest_coverage.allowlist.json``.
+The opening-first schedule covers all 18 managed AUs, so
+``scripts/check_harvest_coverage.py`` reports no gaps and the allowlist is
+unused. The earlier strict volume-only schedule left small AUs unselected; that result is retained with the dated VDYP-transform runtime. The benchmark of record is the opening-first run, not the
+volume-only seed.
 
 5. UI geometry scale
 --------------------

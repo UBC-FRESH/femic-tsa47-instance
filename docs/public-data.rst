@@ -112,4 +112,5 @@ Caveats
   forested subset.
 - The TSR corpus is cached outside the repository. A fresh machine must refetch
   it or mount a shared corpus.
-- The managed-curve lane is a VDYP transform, not accepted TIPSY output.
+- The managed-curve lane uses TSR-consistent BatchTIPSY curves. The BatchTIPSY
+  install and Wine prefix are host-local and are not committed.

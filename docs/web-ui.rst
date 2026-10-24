@@ -64,8 +64,7 @@ Checks
    # {"status":"ok"}
 
 - The map shows the full TSA 47 AOI.
-- The run list contains ``baseline``, ``aac_benchmark``,
-  ``aac_benchmark_coverage``, and ``opening_first``.
+- The run list contains ``baseline`` and ``opening_first``.
 - The target table shows ten decade targets and their realized values.
 - The block detail panel shows ``block_id`` and treatment state.
 

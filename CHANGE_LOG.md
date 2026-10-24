@@ -63,3 +63,14 @@ status and the GitHub issue comments.
   from unit coverage because its output is verified end-to-end; all other
   scripts remain under the 95% branch coverage gate. `python
   scripts/dashboard.py` is green.
+
+- Replaced the VDYP-transform managed curves with TSR-consistent BatchTIPSY
+  4.7 curves. The input uses the area-weighted VRI conifer species mix,
+  1,000 stems/ha, OAF1 = 0.85, OAF2 = 0.95, and the predecessor-TSR
+  regeneration delay. The opening-first run schedules 8,636 openings
+  on 17,365 blocks over 103,413.3 ha, holds 100% of patch area in the
+  5-40 ha class, covers all 18 managed AUs, and meets all ten decades
+  at 8,305,578.9-8,305,999.0 m3. The VDYP runtime is retained as a dated backup. The
+  reproducible lane is `scripts/build_tsr_lane.sh`; the method and caveats are
+  in `notes/reference/tipsy-curves.md`.
+
