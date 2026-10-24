@@ -235,11 +235,11 @@ stems. DBH is approximate because TIPSY `DBHg000` is all-stem QMD while PSP
      - DBH bias
      - Height bias
    * - VRI
-     - 365
-     - -75.3 m3/ha
-     - 138.8 m3/ha
-     - -2.6 cm
-     - -1.7 m
+     - 480
+     - -45.6 m3/ha
+     - 151.7 m3/ha
+     - -4.4 cm
+     - -1.2 m
    * - YSM
      - 11
      - -44.5 m3/ha
@@ -247,20 +247,20 @@ stems. DBH is approximate because TIPSY `DBHg000` is all-stem QMD while PSP
      - -4.0 cm
      - -2.1 m
    * - CMI
-     - 4
-     - -104.6 m3/ha
-     - 106.9 m3/ha
-     - +2.9 cm
-     - -4.0 m
+     - 7
+     - -111.8 m3/ha
+     - 135.0 m3/ha
+     - -0.1 cm
+     - -3.7 m
    * - NFI
-     - 6
-     - -258.7 m3/ha
-     - 258.7 m3/ha
-     - -2.1 cm
-     - -2.8 m
+     - 8
+     - -239.4 m3/ha
+     - 239.4 m3/ha
+     - -4.0 cm
+     - -2.1 m
 
-The VRI sample shows a consistent underprediction of volume, DBH, height, and
-stems by the current TSR curves. VRI plots are inventory audits, not
+The 480-observation VRI sample shows a consistent underprediction of volume,
+DBH, height, and stems by the current TSR curves. VRI plots are inventory audits, not
 remeasured PSP/CMI plots; YSM/CMI/NFI are stronger sample types but small.
 This is an accuracy signal, not an AAC tuning result.
 

@@ -111,3 +111,5 @@ status and the GitHub issue comments.
 
 - Ran the first Nemora-backed managed/young-stand validation on GBR South non-PSP plots. `nemora ingest-faib-hps` prepared 1,284 plots / 8,255 live trees; 365 VRI, 11 YSM, 4 CMI, and 6 NFI rows matched a TIPSY AU. VRI shows underprediction: volume bias -75.3 m3/ha (MAE 138.8), DBH -2.6 cm, height -1.7 m, stems -158.7 sph. DBH is approximate because TIPSY all-stem QMD is compared with 12.5 cm PSP QMD. VRI is an audit sample, not remeasured PSP/CMI; YSM/CMI/NFI are stronger but small. Production remains on TSR. See `notes/reference/tipsy-validation.md`.
 
+- Expanded the Nemora ground-plot validation to the full non-PSP set. TSA 47 has 506 matched observations; VRI n=480, volume bias -45.6 m3/ha (MAE 151.7), DBH -4.4 cm, height -1.2 m, stems -103.1 sph. TSA 46 has 20 matched observations (CMI 8, NFI 6, YSM 6), still too sparse to quantify. Added `scripts/validate_tipsy_ground_plots.py` and tests; the table is reproducible from the Nemora HPS manifest and FAIB compiled summaries. See `notes/reference/tipsy-validation.md`.
+

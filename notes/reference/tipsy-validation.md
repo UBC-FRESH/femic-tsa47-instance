@@ -137,16 +137,16 @@ GBR South compilation:
 
 | Sample type | n | Volume bias | Volume MAE | DBH bias | Height bias | Stems bias |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| VRI | 365 | -75.3 m3/ha | 138.8 m3/ha | -2.6 cm | -1.7 m | -158.7 sph |
+| VRI | 480 | -45.6 m3/ha | 151.7 m3/ha | -4.4 cm | -1.2 m | -103.1 sph |
 | YSM | 11 | -44.5 m3/ha | 70.5 m3/ha | -4.0 cm | -2.1 m | -276.8 sph |
-| CMI | 4 | -104.6 m3/ha | 106.9 m3/ha | +2.9 cm | -4.0 m | -455.1 sph |
-| NFI | 6 | -258.7 m3/ha | 258.7 m3/ha | -2.1 cm | -2.8 m | -231.4 sph |
+| CMI | 7 | -111.8 m3/ha | 135.0 m3/ha | -0.1 cm | -3.7 m | -327.1 sph |
+| NFI | 8 | -239.4 m3/ha | 239.4 m3/ha | -4.0 cm | -2.1 m | -156.0 sph |
 
-The VRI sample is large enough to show a consistent **underprediction** of
-volume, DBH, height, and stems by the current TSR curves. VRI plots are
-inventory audit plots, not remeasured PSP/CMI plots; YSM/CMI/NFI are stronger
-sample types but have small counts. This is a real accuracy signal, not an AAC
-tuning result.
+The full VRI sample (480 observations, 106 sites) shows a consistent
+**underprediction** of volume, DBH, height, and stems by the current TSR curves.
+VRI plots are inventory audit plots, not remeasured PSP/CMI plots; YSM/CMI/NFI
+are stronger sample types but have small counts. This is a real accuracy signal,
+not an AAC tuning result.
 
 The non-PSP `PLOT` field uses codes (`I/W/E/N/S`), but Nemora's HPS loader
 expects integer plot ids. A staged code-to-index copy was used for this run.
