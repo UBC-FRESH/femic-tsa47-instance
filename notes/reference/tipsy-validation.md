@@ -68,6 +68,23 @@ CWH_HW M at ages 5-15 has observed SI 19.0 m versus checkpoint 17.0 m
 checkpoint AU median understates the managed/harvested stand SI, but the gap is
 much smaller in TSA 47.
 
+## Holdout managed-SI test
+
+A deterministic opening-id split (80% training, 20% holdout) was used to
+estimate a managed-stand SI for each AU/SI cell. Species and density were held
+at the current TSR input; only SI changed. The holdout observations were not
+used to estimate SI.
+
+| Curve set | n | Bias | MAE | RMSE |
+| --- | ---: | ---: | ---: | ---: |
+| Current TSR | 845 | -0.56 m | 1.52 m | 3.06 m |
+| Managed SI | 845 | +0.13 m | 1.60 m | 3.04 m |
+
+Bias improves, but MAE gets slightly worse and RMSE is essentially unchanged. TSR is already close; managed SI overcorrects TSA 47.
+
+This is an accuracy experiment only; no production curve or AAC target was
+changed.
+
 ## Caveats
 
 - Height only. Volume, DBH, and mortality are not validated here.

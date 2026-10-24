@@ -70,6 +70,8 @@ def build_validation_rows(
     max_age: int = 80,
     min_height: float = 1.3,
     min_leading_percent: float = 80.0,
+    holdout_mod: int | None = None,
+    holdout_seed: int = 0,
 ) -> pd.DataFrame:
     """Match observed cover height/age to the TIPSY curve for the model AU.
 
@@ -93,6 +95,12 @@ def build_validation_rows(
         Minimum observed leading-species height in metres.
     min_leading_percent : float
         Minimum leading-species share for the single-species comparison.
+    holdout_mod : int or None
+        Optional opening-id modulus for a deterministic holdout split. When
+        set, only openings with ``OPENING_ID % holdout_mod == holdout_seed`` are
+        kept.
+    holdout_seed : int
+        Opening-id remainder that identifies the holdout.
 
     Returns
     -------
@@ -118,6 +126,8 @@ def build_validation_rows(
         if age is None or height is None or leading_percent is None:
             continue
         if opening_id is None or forest_cover_id is None:
+            continue
+        if holdout_mod is not None and int(opening_id) % holdout_mod != holdout_seed:
             continue
         if not (min_age <= age <= max_age) or height < min_height:
             continue
@@ -227,6 +237,8 @@ def main() -> None:
     parser.add_argument("--max-age", type=int, default=80)
     parser.add_argument("--min-height", type=float, default=1.3)
     parser.add_argument("--min-leading-percent", type=float, default=80.0)
+    parser.add_argument("--holdout-mod", type=int)
+    parser.add_argument("--holdout-seed", type=int, default=0)
     args = parser.parse_args()
 
     cover_path = args.cover or Path(
@@ -276,6 +288,8 @@ def main() -> None:
         max_age=args.max_age,
         min_height=args.min_height,
         min_leading_percent=args.min_leading_percent,
+        holdout_mod=args.holdout_mod,
+        holdout_seed=args.holdout_seed,
     )
     summary = summarize_validation(frame)
     out.parent.mkdir(parents=True, exist_ok=True)

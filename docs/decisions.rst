@@ -53,8 +53,9 @@ current TSR curves are slightly more accurate than the RESULTS species mix
 (TSR bias -0.55 m, MAE 1.38 m, RMSE 2.53 m; RESULTS bias
 -0.34 m, MAE 1.36 m). The height bias is largely a site-index issue: the checkpoint AU median SI
 understates the managed/harvested stand SI (TSA 46 CWH_HW H: 23.0 m observed
-versus 16.3 m checkpoint). The next test is an SI-stratified managed-land
-curve, not a higher AAC. Volume, DBH, and mortality remain unvalidated.
+versus 16.3 m checkpoint). A holdout test found that a managed-land SI does not improve TSA 47 height
+accuracy (MAE 1.52 m to 1.60 m), although it improves TSA 46 (1.86 m to
+1.46 m). Volume, DBH, and mortality remain unvalidated.
 Record: ``notes/reference/tipsy-validation.md``.
 
 6. UI geometry scale

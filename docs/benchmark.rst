@@ -182,6 +182,35 @@ checkpoint AU median is **26.3 m**. CWH_HW M is 19.0 m observed versus 17.0 m
 checkpoint. The pattern is the same as TSA 46 but much smaller. The next test
 is an SI-stratified managed-land curve, validated on held-out stands.
 
+Holdout managed-SI test
+~~~~~~~~~~~~~~~~~~~~~~~
+
+A deterministic 80/20 opening split estimated managed-stand SI from training
+observations and tested it on held-out heights, holding species and density at
+the current TSR input.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 16 16 16 16
+
+   * - Curve set
+     - n
+     - Bias
+     - MAE
+     - RMSE
+   * - Current TSR
+     - 845
+     - -0.56 m
+     - 1.52 m
+     - 3.06 m
+   * - Managed SI
+     - 845
+     - +0.13 m
+     - 1.60 m
+     - 3.04 m
+
+Bias improves, but MAE gets slightly worse and RMSE is essentially unchanged. TSR is already close; managed SI overcorrects TSA 47.
+
 This is a height-only check. Volume, DBH, and mortality still need independent
 validation. See ``notes/reference/tipsy-validation.md``.
 

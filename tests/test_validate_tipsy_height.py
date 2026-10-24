@@ -267,3 +267,22 @@ def test_cli_writes_observation_and_summary_csvs(
     assert out.is_file()
     assert summary_out.is_file()
     assert pd.read_csv(out).iloc[0]["predicted_height_m"] == 2.0
+
+
+def test_build_validation_rows_filters_to_holdout_openings() -> None:
+    """A deterministic opening-id modulus selects one side of the split."""
+    first = _cover().iloc[0].to_dict()
+    second = dict(first)
+    second["OPENING_ID"] = 2
+    second["FOREST_COVER_ID"] = 11
+    cover = pd.DataFrame([first, second])
+    frame = build_validation_rows(
+        cover=cover,
+        curves=_curves(),
+        au_table=_au_table(),
+        stratum_by_leading={"Hw": "CWH_HW"},
+        si_medians={("CWH_HW", "L"): 9.0},
+        holdout_mod=2,
+        holdout_seed=0,
+    )
+    assert frame["opening_id"].tolist() == [2]
