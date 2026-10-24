@@ -53,7 +53,7 @@ Goal: close the audit gaps before release.
 - [x] P1.1 Add the runtime-signal and harvest-coverage gates (#10)
 - [ ] P1.2 Add the opening-size and adjacency policy
 - [ ] P1.3 Replace the VDYP transform with accepted TIPSY curves
-- [ ] P1.4 Replace the derived THLB with a reviewed GBR netdown
+- [ ] P1.4 Build the documented GLB > AFLB > LHLB > THLB netdown (#14)
 - [ ] P1.5 Release v0.1.0 and verify a clean checkout
 - [x] P1.6 Complete the Sphinx docs and publish Pages (#11)
 
