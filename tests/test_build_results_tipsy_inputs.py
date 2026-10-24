@@ -228,6 +228,10 @@ def test_main_reads_fetched_layers(tmp_path: Path, monkeypatch: pytest.MonkeyPat
             str(aoi_path),
             "--out",
             str(out),
+            "--au-table",
+            str(au_table),
+            "--checkpoint",
+            str(checkpoint),
         ],
     )
     main()

@@ -329,9 +329,9 @@ def aggregate(
         species: dict[str, float] = {}
         for i in range(1, 6):
             code = normalize_species(getattr(row, f"I_SPECIES_CODE_{i}", None))
-            pct = getattr(row, f"I_SPECIES_PERCENT_{i}", None)
-            if code is not None and pd.notna(pct) and float(pct) > 0:
-                species[code] = species.get(code, 0.0) + float(pct)
+            pct = _to_float(getattr(row, f"I_SPECIES_PERCENT_{i}", None))
+            if code is not None and pct is not None and pct > 0:
+                species[code] = species.get(code, 0.0) + pct
         if not species:
             species = plant_mix.get(int(row.OPENING_ID), {})
         total = sum(species.values())
