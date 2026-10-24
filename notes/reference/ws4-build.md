@@ -43,16 +43,20 @@ merged, and isolated small blocks are kept.
 
 ## Benchmark
 
-`scripts/run_aac_benchmark.sh` runs the ten-decade benchmark with the
-target-driven greedy seed. `config/targets.tsa47_full.yaml` asks for the
-published 830,500 m3/yr.
+The benchmark of record is the TSR-consistent opening-first run at
+`runtime/tsa47_full/runs/opening_first`. `scripts/build_tsr_lane.sh` builds
+the BatchTIPSY curves, exports Patchworks, merges safe slivers, compiles the
+matrix, and runs the opening-first schedule.
 
-The strict benchmark schedules 3,872 blocks with
-5,327 events and meets all ten decades with objective 0.0.
+The run schedules 8,636 openings on 17,365 blocks, covering
+103,413.3 ha with a 5.0-40.0 ha opening range. Patch area is
+218,872.3 ha, all of it in the 5-40 ha class. All ten decades are inside the
+8,305,000-8,306,000 m3 band; the realized decade volumes are 8,305,578.9-8,305,999.0 m3.
 
-The coverage run schedules 3,951 blocks with 5,409
-events, meets all ten decades, and covers the remaining above-threshold AUs:
-4701002 (139.2 ha), 4701005 (111.4 ha).
+The opening-first schedule covers all 18 managed AUs, so
+`scripts/check_harvest_coverage.py` reports no gaps and the allowlist is
+unused. The earlier VDYP-transform runtime is retained at
+`runtime/tsa47_full_vdyp_20261023` for comparison.
 
 ## Validation
 

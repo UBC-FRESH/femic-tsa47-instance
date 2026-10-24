@@ -8,6 +8,7 @@ cd "$INSTANCE_ROOT"
 
 RUN_ID="${RUN_ID:-tsa47_full_20261023}"
 CHECKPOINT="${CHECKPOINT:-data/vri_vclr1p_checkpoint8.feather}"
+BUNDLE_DIR="${BUNDLE_DIR:-data/model_input_bundle}"
 PATCHWORKS_OUT="${PATCHWORKS_OUT:-output/patchworks_tsa47_full}"
 MODEL_DIR="${MODEL_DIR:-runtime/tsa47_full}"
 TARGET_AGE="${TARGET_AGE:-60}"
@@ -39,7 +40,7 @@ fi
 
 python -m femic export patchworks \
   --tsa 47 \
-  --bundle-dir data/model_input_bundle \
+  --bundle-dir "$BUNDLE_DIR" \
   --checkpoint "$CHECKPOINT" \
   --ifm-mode proportional \
   ${IFM_SOURCE_COL:+--ifm-source-col "$IFM_SOURCE_COL"} \

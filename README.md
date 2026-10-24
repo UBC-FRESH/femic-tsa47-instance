@@ -14,8 +14,8 @@ interchange input to `ws4 build`, not the runtime lane.
 ## Related instance
 
 This repository is deliberately related to
-**[`UBC-FRESH/femic-tsa47-instance`](https://github.com/UBC-FRESH/femic-tsa47-instance)**,
-the Great Bear Rainforest South TSA 47 model. They share the same public
+**[`UBC-FRESH/femic-tsa46-instance`](https://github.com/UBC-FRESH/femic-tsa46-instance)**,
+the Great Bear Rainforest North TSA 46 model. They share the same public
 inventory, FEMIC export lane, and GBR legal framework, but they are
 **independent datasets and runtimes**:
 
@@ -28,10 +28,10 @@ inventory, FEMIC export lane, and GBR legal framework, but they are
 The calibrated model is built and the ten-decade benchmark meets all ten
 targets at 830,500 m3/yr. A safe sliver merge removed 511 blocks (255.78 ha)
 without changing net area or managed area. The FEMIC run, ws4 matrix, benchmark,
-and UI geometry are recorded in `notes/reference/ws4-build.md`. The
-opening-first policy holds 100% of patch area in the 5-40 ha class; nine AAC
-decades met, with decade 8 397 m3 below the lower bound. See
-`notes/reference/opening-policy.md`.
+and UI geometry are recorded in `notes/reference/ws4-build.md`. The managed curves are TSR-consistent BatchTIPSY 4.7 curves, not a VDYP
+transform. The opening-first policy holds 100% of patch area in the 5-40 ha
+class and all ten AAC decades met; see `notes/reference/opening-policy.md` and
+`notes/reference/tipsy-curves.md`.
 
 ## AOI
 
@@ -46,14 +46,10 @@ The calibrated model has **73,659 blocks**, **692,811.84 ha** of block area,
 and **145,256.00 ha** of managed area. The calibration factor is
 `0.9925390944203576`; 0 rows saturate.
 
-The model is built by `scripts/build_full_tsa47_model.sh`:
+The production model is built by `scripts/build_tsr_lane.sh`:
 
 ```bash
-MODEL_DIR=runtime/tsa47_full \
-PATCHWORKS_OUT=output/patchworks_tsa47_full \
-CALIBRATE_THLB=1 \
-THLB_TARGET_HA=145256 \
-scripts/build_full_tsa47_model.sh
+TSA=47 bash scripts/build_tsr_lane.sh
 ```
 
 The script exports the FEMIC inventory, compiles and validates the ws4 matrix,
@@ -64,8 +60,8 @@ exact UI geometry and land-base underlay.
 
 `config/targets.tsa47_full.yaml` carries ten per-decade targets with an
 **8,305,000–8,306,000 m3** band around the published **830,500 m3/yr** AAC
-(B.C. Reg. 328/2016, effective January 1, 2017). The `aac_benchmark` run meets
-all ten decades (objective 0.0, 3,872 blocks scheduled).
+(B.C. Reg. 328/2016, effective January 1, 2017). The `opening_first` run meets
+all ten decades and covers all 18 managed AUs.
 
 ## Web UI
 

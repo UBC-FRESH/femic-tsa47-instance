@@ -17,7 +17,9 @@ modes:
 
   # First executable lane. Auto sampling keeps each VDYP console batch inside
   # the current 30-second timeout; switch back to all after the timeout is
-  # raised. The managed lane is a VDYP transform, not accepted TIPSY output.
+  # raised. This profile is the upstream data-prep lane. The production managed
+  # curves are the TSR lane in scripts/build_tsr_lane.sh, which replaces the
+  # treated curves after this run materializes the checkpoint and 03_input.
   vdyp_sampling_mode: auto
   vdyp_two_pass_rebin: false
   vdyp_min_stands_per_si_bin: 10

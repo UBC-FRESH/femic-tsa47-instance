@@ -1,9 +1,9 @@
 Reproduce the model
 ===================
 
-This guide rebuilds the TSA 47 instance from a clean checkout. The
-runtime outputs are large and ignored by Git; a fresh checkout has the code,
-boundary, configs, and docs but not the model tree.
+This guide rebuilds the TSA 47 instance from a clean checkout. The runtime
+outputs are large and ignored by Git; a fresh checkout has the code, boundary,
+configs, and docs but not the model tree.
 
 Prerequisites
 -------------
@@ -11,11 +11,13 @@ Prerequisites
 - Linux with Python 3.11 or 3.12.
 - ``femic`` and ``ws4`` installed in the active environment.
 - Wine with both 64-bit and 32-bit support for VDYP7.
+- BatchTIPSY 4.7 and a Wine Mono prefix for the managed-curve lane. The
+  install and prefix are host-local and are not committed.
+- A userspace Xvfb for BatchTIPSY. See the North Island
+  ``runbooks/tipsy-btc-linux-wine.md`` for the one-time setup.
 - ``FEMIC_EXTERNAL_DATA_ROOT`` pointing at a materialized
   ``femic-public-data/data`` tree.
 - The ``plots/`` directory in the instance root.
-- A ``config/tipsy/tsa47.yaml`` case file. The first lane uses the
-  VDYP-transform managed curves, so BatchTIPSY is not required.
 
 1. Materialize the public data
 ------------------------------
@@ -40,8 +42,8 @@ real files, not annex pointer symlinks.
 
 Expected: one feature, EPSG:3005, 1,991,787.47 ha gross.
 
-3. Run FEMIC
-------------
+3. Run the FEMIC data-prep lane
+-------------------------------
 
 .. code-block:: bash
 
@@ -51,21 +53,28 @@ Expected: one feature, EPSG:3005, 1,991,787.47 ha gross.
      --log-dir runtime/logs \
      --skip-checks
 
-The run takes tens of minutes. It writes the model-input bundle, VDYP caches,
-and ``data/vri_vclr1p_checkpoint8.feather``.
+The profile keeps ``managed_curve_mode: vdyp_transform``. This run
+materializes the VDYP caches, the calibrated-stand checkpoint, and
+``data/03_input-tsa47.csv``. The production managed curves are built in the
+next step; the transform curves are not the benchmark of record.
 
-4. Build and benchmark
-----------------------
+The run takes tens of minutes. It writes the model-input bundle and
+``data/vri_vclr1p_checkpoint8.feather``.
+
+4. Build the TSR-consistent model
+---------------------------------
 
 .. code-block:: bash
 
-   MODEL_DIR=runtime/tsa47_full \
-   PATCHWORKS_OUT=output/patchworks_tsa47_full \
-   CALIBRATE_THLB=1 \
-   THLB_TARGET_HA=145256 \
-   scripts/build_full_tsa47_model.sh
+   export FEMIC_BTC_WINEPREFIX=/path/to/wineprefix-mono
+   export FEMIC_BTC_DISPLAY=:99
+   TSA=47 bash scripts/build_tsr_lane.sh
 
-   scripts/run_aac_benchmark.sh
+The lane derives the area-weighted VRI conifer mix, writes the BatchTIPSY
+input, runs BTC, interpolates the treated curves, exports Patchworks, merges
+safe slivers, compiles the matrix, and runs the opening-first benchmark. The
+result is ``runtime/tsa47_full``; the earlier VDYP run is kept at
+``runtime/tsa47_full_vdyp_20261023``.
 
 5. Verify
 ---------
@@ -76,10 +85,10 @@ and ``data/vri_vclr1p_checkpoint8.feather``.
    python scripts/check_runtime_signal.py \
      --dataset runtime/tsa47_full/matrix \
      --bundle data/model_input_bundle \
-     --run runtime/tsa47_full/runs/aac_benchmark
+     --run runtime/tsa47_full/runs/opening_first
    python scripts/check_harvest_coverage.py \
      --dataset runtime/tsa47_full/matrix \
-     --schedule runtime/tsa47_full/runs/aac_benchmark_coverage/schedule.csv
+     --schedule runtime/tsa47_full/schedules/opening_first.csv
    python scripts/dashboard.py
 
 The dashboard runs lint, format, strict types, tests, the workflow validator,
@@ -92,17 +101,21 @@ and the docs build.
 
    ./serve_tsa47_calibrated.sh
 
-Then check ``http://127.0.0.1:8018/health``.
+Then check ``http://127.0.0.1:8018/health``. Set ``MODEL_DIR`` to serve the
+dated VDYP backup instead.
 
 Known rebuild boundaries
 ------------------------
 
 - The first run failed when ``plots/`` was absent. Create it before the run.
-- The TIPSY case file is required even though the managed lane is a VDYP
-  transform.
+- The BatchTIPSY install, Wine prefix, and Xvfb are host-local. The TSR lane
+  cannot run on a machine without them.
 - The checkpoint is ``data/vri_vclr1p_checkpoint8.feather``, not the TSA 48
   ``ria_`` name.
 - The pre-stacked ``siteprod.tif`` and ``misc.thlb.tif`` rasters must be
   materialized.
-- The model is volume-only; adjacency, opening size, and green-up are not yet
-  applied.
+- The model applies opening size and adjacency through the opening-first
+  schedule, but green-up, seral-stage, and visual constraints are still out of
+  scope.
+- The AU-level site index is applied to every species in the TIPSY input; the
+  VRI AU table does not carry species-specific site indices.
