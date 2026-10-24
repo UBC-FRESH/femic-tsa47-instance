@@ -216,6 +216,54 @@ volume, QMD, stems, age, and top height. A volume/DBH validation table is the
 next step; natural-growth and experimental PSP must be reported separately. See
 ``notes/reference/tipsy-validation.md``.
 
+Nemora ground-plot validation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The managed/young-stand check uses Nemora's FAIB HPS pipeline and the non-PSP
+GBR South compilation. The 12.5 cm utilization limit is used for volume and
+stems. DBH is approximate because TIPSY `DBHg000` is all-stem QMD while PSP
+`QMD_LS` is at 12.5 cm.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 12 16 16 14 14
+
+   * - Sample
+     - n
+     - Volume bias
+     - Volume MAE
+     - DBH bias
+     - Height bias
+   * - VRI
+     - 365
+     - -75.3 m3/ha
+     - 138.8 m3/ha
+     - -2.6 cm
+     - -1.7 m
+   * - YSM
+     - 11
+     - -44.5 m3/ha
+     - 70.5 m3/ha
+     - -4.0 cm
+     - -2.1 m
+   * - CMI
+     - 4
+     - -104.6 m3/ha
+     - 106.9 m3/ha
+     - +2.9 cm
+     - -4.0 m
+   * - NFI
+     - 6
+     - -258.7 m3/ha
+     - 258.7 m3/ha
+     - -2.1 cm
+     - -2.8 m
+
+The VRI sample shows a consistent underprediction of volume, DBH, height, and
+stems by the current TSR curves. VRI plots are inventory audits, not
+remeasured PSP/CMI plots; YSM/CMI/NFI are stronger sample types but small.
+This is an accuracy signal, not an AAC tuning result.
+
 Baseline versus benchmark
 -------------------------
 

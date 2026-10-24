@@ -109,3 +109,5 @@ status and the GitHub issue comments.
 
 - Found the public FAIB ground-plot compilation (PSP/CMI) with plot/tree volume, QMD, stems, age, and top height. TSA 47: 30 sites, 244 visits, 1,217 volume/DBH rows, 410 height rows (3 natural, 27 experimental). Added BTC `stand-structure-basic` support so DBH and stems can be emitted. Volume/DBH validation is now a defined next step, not a data-absence blocker.
 
+- Ran the first Nemora-backed managed/young-stand validation on GBR South non-PSP plots. `nemora ingest-faib-hps` prepared 1,284 plots / 8,255 live trees; 365 VRI, 11 YSM, 4 CMI, and 6 NFI rows matched a TIPSY AU. VRI shows underprediction: volume bias -75.3 m3/ha (MAE 138.8), DBH -2.6 cm, height -1.7 m, stems -158.7 sph. DBH is approximate because TIPSY all-stem QMD is compared with 12.5 cm PSP QMD. VRI is an audit sample, not remeasured PSP/CMI; YSM/CMI/NFI are stronger but small. Production remains on TSR. See `notes/reference/tipsy-validation.md`.
+

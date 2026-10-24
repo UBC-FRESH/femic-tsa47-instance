@@ -122,6 +122,36 @@ a managed-stand model, natural-growth PSP is unmanaged, and experimental PSP
 may carry treatments. The validation must report sample type separately and
 use the 12.5 cm utilization limit consistently.
 
+## Nemora ground-plot validation
+
+The managed/young-stand check now uses Nemora's FAIB HPS pipeline and the non-PSP
+GBR South compilation:
+
+- `nemora ingest-faib-hps` prepared 1,284 plots / 8,255 live trees from the
+  CMI, YSM, NFI, and VRI plots.
+- AU matching uses BEC + leading species + checkpoint SI.
+- Volume is compared at the 12.5 cm utilization limit.
+- Stems use TIPSY `StemCount125`.
+- DBH is approximate: TIPSY `DBHg000` is all-stem QMD, while PSP `QMD_LS` is at
+  12.5 cm.
+
+| Sample type | n | Volume bias | Volume MAE | DBH bias | Height bias | Stems bias |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| VRI | 365 | -75.3 m3/ha | 138.8 m3/ha | -2.6 cm | -1.7 m | -158.7 sph |
+| YSM | 11 | -44.5 m3/ha | 70.5 m3/ha | -4.0 cm | -2.1 m | -276.8 sph |
+| CMI | 4 | -104.6 m3/ha | 106.9 m3/ha | +2.9 cm | -4.0 m | -455.1 sph |
+| NFI | 6 | -258.7 m3/ha | 258.7 m3/ha | -2.1 cm | -2.8 m | -231.4 sph |
+
+The VRI sample is large enough to show a consistent **underprediction** of
+volume, DBH, height, and stems by the current TSR curves. VRI plots are
+inventory audit plots, not remeasured PSP/CMI plots; YSM/CMI/NFI are stronger
+sample types but have small counts. This is a real accuracy signal, not an AAC
+tuning result.
+
+The non-PSP `PLOT` field uses codes (`I/W/E/N/S`), but Nemora's HPS loader
+expects integer plot ids. A staged code-to-index copy was used for this run.
+That is a Nemora ingest limitation, not a property of the forest data.
+
 ## Caveats
 
 - Height only. Volume, DBH, and mortality are not validated here.
