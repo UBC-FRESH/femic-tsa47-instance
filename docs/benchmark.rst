@@ -141,6 +141,42 @@ of record; the raw scenario is an upper bound driven by sparse cover data.
 See ``notes/reference/results-tipsy.md`` for the data coverage, AU changes, and
 caveats.
 
+Independent height validation
+-----------------------------
+
+Area is a consequence of the yield assumptions, not a score. Accuracy is
+checked separately by comparing TIPSY height at age with observed RESULTS
+forest-cover height for immature single-species stands. The AAC target is not
+used in this check.
+
+For TSA 47, 3,472 observations matched a TIPSY AU curve:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 18 18 18
+
+   * - Curve set
+     - Bias
+     - MAE
+     - RMSE
+   * - Current TSR
+     - -0.55 m
+     - 1.38 m
+     - 2.53 m
+   * - RESULTS screened
+     - -0.34 m
+     - 1.36 m
+     - 2.48 m
+
+The dominant CWH_HW H young stands are close: 2,125 observations, bias -0.33 m
+(-8%) at ages 5-15, and -1.76 m (-5.5%) at ages 51-80. CWH_HW M at ages 5-15 is
+the weakest well-sampled cell at -1.02 m (-28%). The RESULTS curves are only
+marginally closer, and their species inputs are not independent of the observed
+cover.
+
+This is a height-only check. Volume, DBH, and mortality still need independent
+validation. See ``notes/reference/tipsy-validation.md``.
+
 Baseline versus benchmark
 -------------------------
 

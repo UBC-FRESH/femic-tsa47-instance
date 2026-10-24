@@ -446,6 +446,8 @@ def apply_candidates_to_input(
     base_input: pd.DataFrame,
     au_table: pd.DataFrame,
     fallback_density: float | None = None,
+    density_override: float | None = None,
+    si_by_key: dict[tuple[str, str], float] | None = None,
 ) -> pd.DataFrame:
     """Replace the managed species, density, SI, and OAF fields in a TIPSY input.
 
@@ -462,6 +464,11 @@ def apply_candidates_to_input(
     fallback_density : float or None
         Density used when a RESULTS candidate has no planting-derived density.
         The base input density is retained when this is ``None``.
+    density_override : float or None
+        Fixed density applied to every matched candidate.
+    si_by_key : dict of (str, str) to float or None
+        Optional checkpoint SI by ``(stratum, level)``. When supplied, it
+        overrides the RESULTS cover SI to avoid harvested-area selection bias.
 
     Returns
     -------
@@ -512,10 +519,16 @@ def apply_candidates_to_input(
         total = sum(mix.values())
         if total <= 0:
             continue
-        density = _to_float(candidate.median_density)
+        density = density_override
+        if density is None:
+            density = _to_float(candidate.median_density)
         if density is None:
             density = fallback_density
-        site_index = _to_float(candidate.median_si)
+        site_index = None
+        if si_by_key is not None:
+            site_index = si_by_key.get((str(candidate.stratum_code), str(candidate.si_level)))
+        if site_index is None:
+            site_index = _to_float(candidate.median_si)
         if density is None or site_index is None:
             continue
         for position in range(1, 6):
@@ -588,6 +601,11 @@ def main() -> None:
         help="Density used when no planting record exists; base input is kept if omitted.",
     )
     parser.add_argument(
+        "--density-override",
+        type=float,
+        help="Fixed density for every matched candidate; use to isolate species/SI.",
+    )
+    parser.add_argument(
         "--checkpoint",
         type=Path,
         default=Path("runtime/tsa47_full/thlb_calibrated_checkpoint.feather"),
@@ -625,6 +643,10 @@ def main() -> None:
         stratum_by_leading=stratum_by_leading,
         si_medians=si_medians,
     )
+    result["checkpoint_si"] = [
+        si_medians.get((str(stratum), str(level)))
+        for stratum, level in zip(result["stratum_code"], result["si_level"], strict=False)
+    ]
     args.out.parent.mkdir(parents=True, exist_ok=True)
     result.to_csv(args.out, index=False)
     print(result.to_string(index=False))
@@ -634,6 +656,8 @@ def main() -> None:
             base_input=pd.read_csv(args.base_input),
             au_table=au_table,
             fallback_density=args.fallback_density,
+            density_override=args.density_override,
+            si_by_key=si_medians,
         )
         args.tipsy_input.parent.mkdir(parents=True, exist_ok=True)
         updated.to_csv(args.tipsy_input, index=False)

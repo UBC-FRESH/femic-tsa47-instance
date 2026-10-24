@@ -86,3 +86,11 @@ status and the GitHub issue comments.
   Production remains on TSR pending review. See
   `notes/reference/results-tipsy.md`. `python scripts/dashboard.py` is green.
 
+- Added the first independent TIPSY height validation for TSA 47. Compared
+  TIPSY height at age with 3,472 observed immature single-species RESULTS
+  cover rows. Current TSR: bias -0.55 m, MAE 1.38 m, RMSE 2.53 m. RESULTS
+  screened: bias -0.34 m, MAE 1.36 m, RMSE 2.48 m. The dominant CWH_HW H young
+  stands are close; CWH_HW M is the weakest well-sampled cell. This is a
+  height-only check and does not use the AAC target. See
+  `notes/reference/tipsy-validation.md`.
+
