@@ -211,9 +211,9 @@ the current TSR input.
 
 Bias improves, but MAE gets slightly worse and RMSE is essentially unchanged. TSR is already close; managed SI overcorrects TSA 47.
 
-This is a height-only check. Volume/DBH validation is blocked by data: RESULTS
-basal area is mostly a 1.0 placeholder, and the public PSP layer is active plot
-locations only, not remeasured measurements. See
+Public PSP/CMI data are available from the FAIB ground-plot compilation, including
+volume, QMD, stems, age, and top height. A volume/DBH validation table is the
+next step; natural-growth and experimental PSP must be reported separately. See
 ``notes/reference/tipsy-validation.md``.
 
 Baseline versus benchmark

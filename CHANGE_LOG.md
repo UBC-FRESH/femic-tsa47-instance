@@ -107,3 +107,5 @@ status and the GitHub issue comments.
 
 - Recorded the volume/DBH data limitation for TSA 47: RESULTS basal area is mostly a 1.0 placeholder, and the public PSP layer is active plot locations only, not remeasured measurements. Height validation remains the available accuracy check; production stays on TSR.
 
+- Found the public FAIB ground-plot compilation (PSP/CMI) with plot/tree volume, QMD, stems, age, and top height. TSA 47: 30 sites, 244 visits, 1,217 volume/DBH rows, 410 height rows (3 natural, 27 experimental). Added BTC `stand-structure-basic` support so DBH and stems can be emitted. Volume/DBH validation is now a defined next step, not a data-absence blocker.
+

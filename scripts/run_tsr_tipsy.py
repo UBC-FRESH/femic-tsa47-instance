@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import argparse
 import os
-from collections.abc import Mapping
+from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Protocol, cast
 
@@ -74,6 +74,7 @@ def run_and_parse(
     log_dir: Path,
     run_id: str,
     env: Mapping[str, str] | None = None,
+    indicator_banks: Sequence[str] = (),
 ) -> pd.DataFrame:
     """Run BTC, reject any error rows, and write parsed long curves.
 
@@ -97,6 +98,9 @@ def run_and_parse(
         Run identifier used in log names.
     env : Mapping[str, str] or None
         Extra environment, such as the Wine prefix and display.
+    indicator_banks : sequence of str
+        Optional BTC indicator banks, such as ``stand-structure-basic`` for
+        DBH and stems output.
 
     Returns
     -------
@@ -115,6 +119,7 @@ def run_and_parse(
         log_dir=log_dir,
         run_id=run_id,
         env=dict(env or {}),
+        indicator_bank_names=list(indicator_banks),
     )
     if result.exit_code != 0:
         raise RuntimeError(f"BTC exited with {result.exit_code}; see {result.stderr_log_path}")
@@ -144,6 +149,7 @@ def main() -> None:
     parser.add_argument("--wineprefix", default=os.environ.get("FEMIC_BTC_WINEPREFIX"))
     parser.add_argument("--display", default=os.environ.get("FEMIC_BTC_DISPLAY", ":99"))
     parser.add_argument("--run-id")
+    parser.add_argument("--indicator-bank", action="append", default=[])
     args = parser.parse_args()
 
     input_csv = args.input or Path(f"tipsy_io/runs/03_input-tsa{args.tsa}_tsr.csv")
@@ -167,6 +173,7 @@ def main() -> None:
         log_dir=args.log_dir,
         run_id=run_id,
         env=env,
+        indicator_banks=args.indicator_bank,
     )
     print(f"wrote {len(curves)} curve rows for {curves['AU'].nunique()} AUs to {curves_csv}")
 
