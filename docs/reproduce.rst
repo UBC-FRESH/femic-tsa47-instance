@@ -73,7 +73,8 @@ The run takes tens of minutes. It writes the model-input bundle and
 The lane derives the area-weighted VRI conifer mix, writes the BatchTIPSY
 input, runs BTC, interpolates the treated curves, exports Patchworks, merges
 safe slivers, compiles the matrix, and runs the opening-first benchmark. The
-result is ``runtime/tsa47_full``; the earlier VDYP run is kept at
+lane writes ``runtime/tsa47_tsr``. After validation, the served instance
+uses that tree as ``runtime/tsa47_full``; the earlier VDYP run is kept at
 ``runtime/tsa47_full_vdyp_20261023``.
 
 5. Verify
