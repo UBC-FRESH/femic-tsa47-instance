@@ -105,3 +105,5 @@ status and the GitHub issue comments.
 
 - Ran a holdout managed-SI experiment. Training 80% of observed openings to estimate managed-stand SI and validated on the held-out 20%, holding species and density at the current TSR input. TSA 46: TSR bias -0.56 m, MAE 1.52 m, RMSE 3.06 m; managed SI bias +0.13 m, MAE 1.60 m, RMSE 3.04 m. TSA 47: TSR bias -0.56 m, MAE 1.52 m, RMSE 3.06 m; managed SI bias +0.13 m, MAE 1.60 m, RMSE 3.04 m. Bias improves, but MAE gets slightly worse and RMSE is essentially unchanged. TSR is already close; managed SI overcorrects TSA 47. No production curve or AAC target was changed. See `notes/reference/tipsy-validation.md`.
 
+- Recorded the volume/DBH data limitation for TSA 47: RESULTS basal area is mostly a 1.0 placeholder, and the public PSP layer is active plot locations only, not remeasured measurements. Height validation remains the available accuracy check; production stays on TSR.
+

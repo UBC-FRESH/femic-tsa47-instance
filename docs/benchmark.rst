@@ -211,8 +211,10 @@ the current TSR input.
 
 Bias improves, but MAE gets slightly worse and RMSE is essentially unchanged. TSR is already close; managed SI overcorrects TSA 47.
 
-This is a height-only check. Volume, DBH, and mortality still need independent
-validation. See ``notes/reference/tipsy-validation.md``.
+This is a height-only check. Volume/DBH validation is blocked by data: RESULTS
+basal area is mostly a 1.0 placeholder, and the public PSP layer is active plot
+locations only, not remeasured measurements. See
+``notes/reference/tipsy-validation.md``.
 
 Baseline versus benchmark
 -------------------------

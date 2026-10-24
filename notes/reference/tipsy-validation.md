@@ -85,6 +85,15 @@ Bias improves, but MAE gets slightly worse and RMSE is essentially unchanged. TS
 This is an accuracy experiment only; no production curve or AAC target was
 changed.
 
+## Volume and DBH data limitation
+
+RESULTS `I_BASAL_AREA` is mostly a 1.0 placeholder, so observed quadratic-mean
+DBH cannot be computed reliably. The public PSP layer is
+`WHSE_FOREST_VEGETATION.ISMC_PSP_ACTIVE_SITES_SP`, which contains active plot
+locations, not remeasured tree measurements. No CMI/PSP measurement table is
+materialized in the public-data tree. Volume, DBH, and mortality validation
+therefore remain a separate data-acquisition task.
+
 ## Caveats
 
 - Height only. Volume, DBH, and mortality are not validated here.
