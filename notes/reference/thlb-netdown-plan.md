@@ -127,3 +127,44 @@ python -m femic tsr thlb-netdown-workbench-build --instance-root .
 ## Status
 
 Queued. No recipe or checkpoint has been built yet.
+
+## External model lead (2026-10-24)
+
+The GBR timber-supply and land-use analyses appear to use the **SELES Spatial
+Timber Supply Model (STSM)**. The public SELES publication list
+(`http://gowlland.ca/publications.html`) records:
+
+- Fall, A. 2022. *Great Bear Rainforest Land-Use Order: 2021 Analysis Update
+  Memo 1: Timber supply and carbon offset potential based on updated spatial
+  information.* Report to the GBR Government-to-Government working group.
+- Fall, A. 2022. *GBR Land-Use Order: 2021 Analysis Update Memo 7: Timber supply
+  assessment of potential LUO changes to grizzly habitat, Kermode bear
+  stewardship areas, red & blue-listed ecosystems and aquatic habitat.*
+- Fall, A. 2023. *STSM v2022 (SELES Spatial Timber Supply Model): User
+  documentation.* 202pp.
+- Fall, A. 2015. *Central-North Coast and South-Central Coast (Great Bear
+  Rainforest) Land-Use Order Review Analysis: comparing timber supply and carbon
+  offset potential of current land-use orders with proposed JSP scenario.*
+
+These are reports and model documentation, not the GBR TSR model archive. The
+standard provincial TSR folder for TSA 46/47 is empty, so the model files are
+not in the usual public location.
+
+### Data request list
+
+- The GBR North and GBR South TSR model archive, including the SELES/STSM
+  scenario and parameter files.
+- The land-base netdown tables and resultant outputs (GLB, AFLB, LHLB, THLB),
+  with page-level provenance.
+- Stand-level netdown or resultant checkpoints, if they exist.
+- AAC partition assumptions and the current THLB by partition.
+- SELES/STSM version, seral/adjacency parameters, operability rules, retention
+  assumptions, and yield-curve source.
+- Appendices to the 2021 LUO update memos that contain the spatial model detail.
+
+### Interim lane
+
+Until the model arrives, P1.4 proceeds on the **reconstructed lane**:
+predecessor TSR netdowns clipped to the current GBR boundaries, plus the GBR
+land-use order overlay. Label it **reconstructed**, not official. It is also the
+comparison target for the official model when it arrives.
