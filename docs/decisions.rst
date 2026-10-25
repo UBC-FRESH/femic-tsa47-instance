@@ -1,8 +1,10 @@
 Decisions and limitations
 =========================
 
-This page records the model decisions that matter to a reviewer. The detailed
-records are in ``notes/reference/`` and ``notes/reports/``.
+This page records the model decisions that matter to a reviewer. The concise
+operational summary is :doc:`limitations`; the accepted boundary is
+``notes/adr/0001-model-boundary.md``. The detailed records are in
+``notes/reference/`` and ``notes/reports/``.
 
 1. Full TSA boundary
 --------------------
@@ -71,3 +73,11 @@ interim payload fix; production serving needs viewport and tiled detail. Record:
 This repository and `Great Bear Rainforest North TSA 46 <https://github.com/UBC-FRESH/femic-tsa46-instance>`_
 are related but independent. Neither imports the other. Record:
 ``notes/reference/related-instances.md``.
+
+8. Accepted model boundary
+--------------------------
+
+ADR 0001 records the accepted boundary: full TSA, predecessor-derived THLB,
+TSR-consistent BatchTIPSY managed curves, and the AAC as a policy ceiling. It
+also records what the model does not answer. See
+``notes/adr/0001-model-boundary.md`` and :doc:`limitations`.

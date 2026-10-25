@@ -139,3 +139,8 @@ status and the GitHub issue comments.
 - P41: add a tiny provider-smoke fixture, `requirements-freshforge.txt` pinned to the FEMIC/ws4
   commits, and a CI job that runs the build → validate → provenance → schedule → simulate graph
   and uploads the evidence JSON.
+
+- P47: record the accepted model boundary in `notes/adr/0001-model-boundary.md` and add a
+  `docs/limitations.rst` page linked from the index, model-build guide, and decisions page.
+  Correct the provenance sidecar to name the TSR-consistent BatchTIPSY managed curves and
+  point at the instance limitations URL. Normal quality gates remain green.

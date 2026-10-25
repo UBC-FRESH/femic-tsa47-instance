@@ -8,7 +8,7 @@ web UI.
 
 This site is the RTFM surface for the project. Read ``AGENTS.md`` and
 ``ROADMAP.md`` before changing the model, and use the reproduction guide when
-you need to rebuild it.
+you need to rebuild it. Read :doc:`limitations` before using the model output.
 
 Status
 ------
@@ -79,6 +79,7 @@ Documentation map
    web-ui
    reproduce
    decisions
+   limitations
    glossary
 
 .. toctree::
