@@ -76,6 +76,7 @@ Documentation map
    model-build
    model-structure
    benchmark
+   ground-plot-validation
    web-ui
    reproduce
    decisions

@@ -229,9 +229,24 @@ audit sample.
 
 See `notes/reference/density-diagnostic.md` for the follow-up density scenario test.
 
+## P48 stratified validation
+
+P48 reconciles the 506 matched ground-plot rows and publishes volume, DBH,
+height, and stems by sample type, species, and age class in
+``docs/ground-plot-validation.rst``. The aggregate volume bias is -49.6 m3/ha
+(-10.0%), DBH -4.3 cm (-13.6%), height -1.2 m (-4.6%), and stems -110.8 sph
+(-14.7%). The 26-row managed/young subset is more negative on volume
+(-122.6 m3/ha, -27.7%) and stems (-253.2 sph, -30.1%) than the VRI audit.
+Cw and Hw carry most of the gap; Ba and Fd are close to neutral. This is a
+signal, not a separable correction.
+
+Decision: ADR 0002 retains the production TSR-consistent BatchTIPSY curves.
+No curve or AAC change follows. The next test needs an independent remeasured
+managed/young sample, especially Cw and Hw in the 16-80 age range.
+
 ## Caveats
 
-- Height only. Volume, DBH, and mortality are not validated here.
+- Height is the independent check here. Volume and DBH are reported in the P48 stratified table; mortality is not validated.
 - RESULTS cover is an inventory observation, not a remeasured PSP/CMI plot.
 - Single-species filter excludes mixed stands.
 - TIPSY age and observed total age are assumed comparable; regeneration delay

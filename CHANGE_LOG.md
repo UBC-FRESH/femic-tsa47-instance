@@ -144,3 +144,8 @@ status and the GitHub issue comments.
   `docs/limitations.rst` page linked from the index, model-build guide, and decisions page.
   Correct the provenance sidecar to name the TSR-consistent BatchTIPSY managed curves and
   point at the instance limitations URL. Normal quality gates remain green.
+
+- P48: reconcile the ground-plot sample, add `docs/ground-plot-validation.rst` and the
+  stratified summary script/tables, and record ADR 0002. Production TSR curves are retained;
+  TSA 47 does not justify a curve or AAC change. The sidecar and limitations page name the
+  sample limit.
