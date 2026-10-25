@@ -227,6 +227,8 @@ This is a candidate model decision, not a production switch. It also explains
 why a global SI correction is wrong: it helps the managed sample and hurts the
 audit sample.
 
+See `notes/reference/density-diagnostic.md` for the follow-up density scenario test.
+
 ## Caveats
 
 - Height only. Volume, DBH, and mortality are not validated here.

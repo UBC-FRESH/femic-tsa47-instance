@@ -331,6 +331,19 @@ Managed SI improves the managed/young YSM, CMI, and NFI sample but overcorrects
 the VRI audit sample. That supports an origin split, not a global SI correction.
 Stems barely change, so the stem gap remains a density/mortality question.
 
+Density diagnostic
+~~~~~~~~~~~~~~~~~~
+
+A 1.0x/1.5x/2.0x initial-density scenario was run on the same ground plots,
+changing only the AUs represented in the managed sample. Higher density reduces
+the YSM stem gap (-276.8 to -99.3 sph at 2.0x) and volume gap (-44.5 to -30.0
+m3/ha), but makes DBH worse (-4.0 to -6.4 cm) and does not change height.
+VRI audits overcorrect quickly and remain a separate origin class.
+
+Density is a partial lever, not a clean correction. The remaining explanation is
+mortality/ingrowth and species/establishment composition. Production remains on
+TSR. See ``notes/reference/density-diagnostic.md``.
+
 Baseline versus benchmark
 -------------------------
 

@@ -119,3 +119,5 @@ status and the GitHub issue comments.
 
 - Compared current TSR and managed-SI curves against the independent TSA 47 ground plots. Managed SI improves volume/DBH/height for YSM (volume -44.5 to +9.3 m3/ha; DBH -4.0 to -1.4 cm), CMI, and NFI, but overcorrects VRI audits (volume -45.6 to +49.7). Stems barely change (YSM -276.8 to -181.0 sph; VRI -103.1 to -107.4). This supports an origin split between managed/young stands and VRI audit/average stands, not a global SI correction. Production remains on TSR. See `notes/reference/tipsy-validation.md`.
 
+- Ran the P1.8 density diagnostic for TSA 47. Scaling initial density for the managed-sample AUs from 1.0x to 1.5x/2.0x reduces the YSM stem bias from -276.8 to -99.3 sph and volume bias from -44.5 to -30.0 m3/ha, but worsens DBH from -4.0 to -6.4 cm and leaves height unchanged. VRI audits overcorrect from -103.1 to +97.8 sph. Density is a partial lever, not a clean correction; mortality/ingrowth and establishment composition remain. No production change or AAC tuning. See `notes/reference/density-diagnostic.md`.
+
