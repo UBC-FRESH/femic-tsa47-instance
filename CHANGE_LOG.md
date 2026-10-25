@@ -131,3 +131,7 @@ status and the GitHub issue comments.
 - P38: package the `tsa47.ws4` FreshForge provider with build, validate, baseline-schedule,
   and simulate nodes; add the entry point and command tests. The workflow now resolves its
   instance nodes through the installed provider.
+
+- P40: add `workflows/freshforge/tsa47_ws4_smoke.yaml` and
+  `scripts/run_provider_smoke.py`. The bounded graph validates the matrix, gates provenance,
+  builds a baseline schedule, and simulates one year from an existing matrix.
