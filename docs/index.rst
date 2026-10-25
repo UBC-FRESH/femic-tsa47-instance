@@ -74,6 +74,7 @@ Documentation map
    aoi
    public-data
    model-build
+   runtime-provenance
    model-structure
    benchmark
    ground-plot-validation

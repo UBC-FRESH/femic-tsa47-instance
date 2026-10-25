@@ -68,7 +68,8 @@ The build copies ``config/dataset_quality.yaml`` beside the compiled matrix and 
 ``ws4 quality --check``. The FreshForge workflow adds the same check as the
 ``femic.ws4_quality`` node, so the workflow fails when provenance is missing or invalid. The record names the 2025 VRI vintage, TSR-consistent BatchTIPSY managed-curve
 provenance, predecessor-derived THLB, and the imputation/coverage fields the source
-does not record. The model boundaries are documented in :doc:`limitations` and the
+does not record. The current runtime artifacts and sidecar hashes are recorded in
+:doc:`runtime-provenance`. The model boundaries are documented in :doc:`limitations` and the
 `upstream limitations and boundaries
 <https://ubc-fresh.github.io/ws4/guides/limitations-and-boundaries.html>`__.
 

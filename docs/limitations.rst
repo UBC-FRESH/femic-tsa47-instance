@@ -93,3 +93,6 @@ record the change in a new ADR rather than silently changing the profile.
 Related records: :doc:`decisions`, :doc:`model-build`,
 ``notes/reference/tipsy-curves.md``, ``notes/reference/tipsy-validation.md``,
 and ``config/dataset_quality.yaml``.
+
+The current runtime matrices, sidecar hashes, and quality status are recorded in
+:doc:`runtime-provenance`.
