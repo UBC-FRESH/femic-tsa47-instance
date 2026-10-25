@@ -115,3 +115,5 @@ status and the GitHub issue comments.
 
 - Upstreamed the non-PSP FAIB plot-id fix to Nemora (PR #5). HPS ingest now preserves string plot codes (`I/W/E/N/S`) instead of forcing integer ids. Direct ingest of the 105-plot GBR North set was verified without the staged code-to-index workaround.
 
+- Diagnosed the TSA 47 ground-plot underprediction. VRI volume bias is concentrated at ages 16-80 (-23% to -27%) and is unbiased at 81-200 (+2%); CWH_HW L (-53%) and CWH_CW L (-37%) are the worst cells, while CWH_FD H overpredicts (+12%). YSM young stands are under-dense (observed 675 stems/ha vs predicted 365), with volume -28%, DBH -21%, and height -13%. This points to density/mortality, establishment, and management-origin questions, not a global yield correction. See `notes/reference/tipsy-validation.md`.
+

@@ -264,6 +264,18 @@ DBH, height, and stems by the current TSR curves. VRI plots are inventory audits
 remeasured PSP/CMI plots; YSM/CMI/NFI are stronger sample types but small.
 This is an accuracy signal, not an AAC tuning result.
 
+Underprediction diagnostic
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The VRI underprediction is concentrated at ages 16-80 and in low-SI hemlock and
+cedar cells; VRI stands aged 81-200 are essentially unbiased. CWH_FD H
+overpredicts. YSM young stands are under-dense: observed median stems 675/ha
+versus predicted 365/ha, with volume -28%, DBH -21%, and height -13%.
+
+This is not a uniform scale error. The next tests should focus on mid-rotation
+density/mortality, establishment density, and management origin, not a global
+yield multiplier. See ``notes/reference/tipsy-validation.md``.
+
 Baseline versus benchmark
 -------------------------
 

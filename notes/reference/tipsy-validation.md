@@ -152,6 +152,47 @@ The non-PSP `PLOT` field uses codes (`I/W/E/N/S`), but Nemora's HPS loader
 expects integer plot ids. A staged code-to-index copy was used for this run.
 That is a Nemora ingest limitation, not a property of the forest data.
 
+## Underprediction diagnostic
+
+The VRI underprediction is age- and AU-specific, not a uniform scale error.
+
+VRI volume bias by age class:
+
+| Age class | n | Observed | Predicted | Bias | Relative |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 5-15 | 5 | 0.4 | 0.9 | +0.5 | +123% |
+| 16-30 | 64 | 65.7 | 50.7 | -15.1 | -23% |
+| 31-50 | 67 | 263.7 | 203.0 | -60.7 | -23% |
+| 51-80 | 133 | 551.5 | 403.8 | -147.6 | -27% |
+| 81-200 | 211 | 687.9 | 701.0 | +13.0 | +2% |
+
+VRI volume bias for AU/SI cells with n>=10:
+
+| AU | SI | n | Bias | Relative |
+| --- | --- | ---: | ---: | ---: |
+| CWH_HW | L | 29 | -205.9 | -53% |
+| CWH_CW | L | 16 | -188.3 | -37% |
+| CWH_CW | H | 68 | -111.6 | -17% |
+| CWH_HW | H | 209 | -21.6 | -4% |
+| CWH_BA | H | 18 | -30.8 | -4% |
+| CWH_FD | H | 29 | +42.1 | +12% |
+| CWH_HW | M | 84 | -3.2 | -0.7% |
+| CWH_CW | M | 12 | -0.2 | -0.1% |
+
+The pattern says three things:
+
+1. TIPSY catches up at ages 81-200; the problem is the mid-rotation trajectory.
+2. Low-SI CWH_HW/CWH_CW are the worst cells; CWH_FD H overpredicts.
+3. YSM young stands are under-dense: observed median stems 675/ha vs predicted
+   365/ha, with volume -28%, DBH -21%, and height -13%. That points to
+   establishment density, mortality, or ingrowth assumptions, not a single
+   yield multiplier.
+
+VRI plots are inventory audits, not confirmed managed stands. The old-age
+match is consistent with natural-stand behaviour; the mid-age gap is where
+management/origin and density assumptions matter most. No global correction
+should be applied.
+
 ## Caveats
 
 - Height only. Volume, DBH, and mortality are not validated here.
