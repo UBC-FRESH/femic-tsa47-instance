@@ -5,13 +5,17 @@ from __future__ import annotations
 
 import argparse
 import shutil
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any, cast
 
-from ws4.opt.repro import dataset_quality  # type: ignore[import-not-found]  # installed in the instance runtime, not the mypy path
 
-
-def apply_quality(dataset: Path, sidecar: Path) -> dict[str, Any]:
+def apply_quality(
+    dataset: Path,
+    sidecar: Path,
+    *,
+    quality_fn: Callable[[Path], dict[str, Any]] | None = None,
+) -> dict[str, Any]:
     """Copy the sidecar into the dataset and return the quality report.
 
     Parameters
@@ -20,6 +24,8 @@ def apply_quality(dataset: Path, sidecar: Path) -> dict[str, Any]:
         The compiled matrix directory.
     sidecar : Path
         The tracked ``config/dataset_quality.yaml``.
+    quality_fn : callable or None, optional
+        The checker to call. Defaults to the installed ``ws4.opt.repro.dataset_quality``.
 
     Returns
     -------
@@ -38,7 +44,11 @@ def apply_quality(dataset: Path, sidecar: Path) -> dict[str, Any]:
     destination = dataset / "data_quality.yaml"
     if sidecar.resolve() != destination.resolve():
         shutil.copyfile(sidecar, destination)
-    return cast(dict[str, Any], dataset_quality(dataset))
+    if quality_fn is None:
+        from importlib import import_module
+
+        quality_fn = import_module("ws4.opt.repro").dataset_quality
+    return cast(dict[str, Any], quality_fn(dataset))
 
 
 def main(argv: list[str] | None = None) -> int:

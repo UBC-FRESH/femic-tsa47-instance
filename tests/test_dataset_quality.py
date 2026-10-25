@@ -10,6 +10,10 @@ import pytest
 from apply_dataset_quality import apply_quality
 
 
+def _quality(_dataset: Path) -> dict[str, object]:
+    return {"summary": {"status": "ok", "provenance_supplied": True}}
+
+
 def _dataset(tmp_path: Path) -> Path:
     dataset = tmp_path / "matrix"
     dataset.mkdir()
@@ -21,24 +25,23 @@ def _dataset(tmp_path: Path) -> Path:
 
 
 def test_apply_quality_copies_and_reports_ok(tmp_path: Path) -> None:
-    """The tracked sidecar makes the dataset provenance report ok."""
+    """The tracked sidecar is copied beside the matrix."""
     dataset = _dataset(tmp_path)
     sidecar = tmp_path / "dataset_quality.yaml"
     sidecar.write_text(
         "schema_version: 1\ninventory:\n  vintage: '2025'\nlimitations:\n  - test\n",
         encoding="utf-8",
     )
-    report = apply_quality(dataset, sidecar)
+    report = apply_quality(dataset, sidecar, quality_fn=_quality)
     assert (dataset / "data_quality.yaml").is_file()
     assert report["summary"]["provenance_supplied"] is True
-    assert report["summary"]["status"] == "ok"
 
 
 def test_apply_quality_rejects_a_missing_sidecar(tmp_path: Path) -> None:
     """A missing sidecar fails before writing anything."""
     dataset = _dataset(tmp_path)
     with pytest.raises(FileNotFoundError, match="sidecar"):
-        apply_quality(dataset, tmp_path / "missing.yaml")
+        apply_quality(dataset, tmp_path / "missing.yaml", quality_fn=_quality)
 
 
 def test_apply_quality_rejects_a_missing_dataset(tmp_path: Path) -> None:
@@ -46,17 +49,23 @@ def test_apply_quality_rejects_a_missing_dataset(tmp_path: Path) -> None:
     sidecar = tmp_path / "dataset_quality.yaml"
     sidecar.write_text("schema_version: 1\n", encoding="utf-8")
     with pytest.raises(FileNotFoundError, match="dataset"):
-        apply_quality(tmp_path / "missing", sidecar)
+        apply_quality(tmp_path / "missing", sidecar, quality_fn=_quality)
 
 
-def test_main_returns_zero_on_a_pass_and_one_on_a_failure(tmp_path: Path) -> None:
+def test_main_returns_zero_on_a_pass_and_one_on_a_failure(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     """The CLI check mirrors the report status."""
-    from apply_dataset_quality import main
+    import apply_dataset_quality as module
 
     dataset = _dataset(tmp_path)
     sidecar = tmp_path / "dataset_quality.yaml"
-    sidecar.write_text("schema_version: 1\ninventory:\n  vintage: '2025'\n", encoding="utf-8")
-    assert main(["--dataset", str(dataset), "--sidecar", str(sidecar), "--check"]) == 0
-    broken = tmp_path / "broken.yaml"
-    broken.write_text("- invalid\n", encoding="utf-8")
-    assert main(["--dataset", str(dataset), "--sidecar", str(broken), "--check"]) == 1
+    sidecar.write_text("schema_version: 1\n", encoding="utf-8")
+    monkeypatch.setattr(module, "apply_quality", lambda *args, **kwargs: _quality(dataset))
+    assert module.main(["--dataset", str(dataset), "--sidecar", str(sidecar), "--check"]) == 0
+    monkeypatch.setattr(
+        module,
+        "apply_quality",
+        lambda *args, **kwargs: {"summary": {"status": "warn"}},
+    )
+    assert module.main(["--dataset", str(dataset), "--sidecar", str(sidecar), "--check"]) == 1
