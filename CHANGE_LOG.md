@@ -113,3 +113,5 @@ status and the GitHub issue comments.
 
 - Expanded the Nemora ground-plot validation to the full non-PSP set. TSA 47 has 506 matched observations; VRI n=480, volume bias -45.6 m3/ha (MAE 151.7), DBH -4.4 cm, height -1.2 m, stems -103.1 sph. TSA 46 has 20 matched observations (CMI 8, NFI 6, YSM 6), still too sparse to quantify. Added `scripts/validate_tipsy_ground_plots.py` and tests; the table is reproducible from the Nemora HPS manifest and FAIB compiled summaries. See `notes/reference/tipsy-validation.md`.
 
+- Upstreamed the non-PSP FAIB plot-id fix to Nemora (PR #5). HPS ingest now preserves string plot codes (`I/W/E/N/S`) instead of forcing integer ids. Direct ingest of the 105-plot GBR North set was verified without the staged code-to-index workaround.
+
