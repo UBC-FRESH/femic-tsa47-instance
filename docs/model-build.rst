@@ -61,6 +61,15 @@ Build and validation
 The script runs ``femic export patchworks``, ``ws4 build``, ``ws4 validate``,
 the baseline schedule and simulation, and the UI geometry preparation.
 
+Provenance
+----------
+
+The build copies ``config/dataset_quality.yaml`` beside the compiled matrix and runs
+``ws4 quality --check``. The record names the 2025 VRI vintage, VDYP-transform curve
+provenance, predecessor-derived THLB, and the imputation/coverage fields the source
+does not record. The model boundaries are documented in `Limitations and boundaries
+<https://ubc-fresh.github.io/ws4/guides/limitations-and-boundaries.html>`__.
+
 .. list-table::
    :header-rows: 1
 
