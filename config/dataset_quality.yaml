@@ -1,0 +1,26 @@
+schema_version: 1
+inventory:
+  vintage: "2025"
+  source: "BC VRI 2025 (VEG_COMP_LYR_R1_POLY_2025.gdb)"
+  imputation_share: null
+  coverage: null
+  notes: "Source paths and hashes are recorded in data/source/public_data_manifest.json."
+curves:
+  source: "VDYP7 transform (managed_curve_mode: vdyp_transform)"
+  accepted_tipsy: false
+  notes: "Not accepted TIPSY output; see notes/reference/vdyp-runtime.md."
+thlb:
+  source: "predecessor-derived THLB calibration"
+  reviewed_gbr_netdown: false
+  target_ha: 145256
+  notes: "60.08% Kingcome 186,914 ha + 20.23% Strathcona 162,873 ha; see notes/reference/ws4-build.md."
+limitations:
+  - "Managed curves are a VDYP transform, not accepted TIPSY output."
+  - "THLB is predecessor-derived, not a reviewed GBR netdown."
+  - "Imputation share and coverage are not recorded in the source manifest."
+  - "The AAC is a model ceiling, not an operational guarantee."
+sources:
+  - "config/run_profile.tsa47_full.yaml"
+  - "notes/reference/ws4-build.md"
+  - "notes/reference/vdyp-runtime.md"
+  - "data/source/public_data_manifest.json"

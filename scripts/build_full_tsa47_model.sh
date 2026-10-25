@@ -65,6 +65,11 @@ python -m ws4.cli build \
 
 python -m ws4.cli validate --dataset "$MODEL_DIR/matrix"
 
+python scripts/apply_dataset_quality.py \
+  --dataset "$MODEL_DIR/matrix" \
+  --sidecar config/dataset_quality.yaml \
+  --check
+
 python scripts/build_baseline_schedule.py \
   --dataset "$MODEL_DIR/matrix" \
   --out "$MODEL_DIR/schedules/baseline.csv" \

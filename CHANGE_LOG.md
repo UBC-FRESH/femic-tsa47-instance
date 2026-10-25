@@ -121,3 +121,6 @@ status and the GitHub issue comments.
 
 - Ran the P1.8 density diagnostic for TSA 47. Scaling initial density for the managed-sample AUs from 1.0x to 1.5x/2.0x reduces the YSM stem bias from -276.8 to -99.3 sph and volume bias from -44.5 to -30.0 m3/ha, but worsens DBH from -4.0 to -6.4 cm and leaves height unchanged. VRI audits overcorrect from -103.1 to +97.8 sph. Density is a partial lever, not a clean correction; mortality/ingrowth and establishment composition remain. No production change or AAC tuning. See `notes/reference/density-diagnostic.md`.
 
+- P35: track `config/dataset_quality.yaml`, copy it beside the matrix after `ws4 build`,
+  and gate the full model build with `ws4 quality --check`. The docs link the model
+  limitations page and the VDYP/THLB caveats.
