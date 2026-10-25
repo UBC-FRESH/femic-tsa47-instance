@@ -124,3 +124,6 @@ status and the GitHub issue comments.
 - P35: track `config/dataset_quality.yaml`, copy it beside the matrix after `ws4 build`,
   and gate the full model build with `ws4 quality --check`. The docs link the model
   limitations page and the VDYP/THLB caveats.
+
+- P36: the FreshForge workflow adds `femic.ws4_quality` after dataset validation. It copies
+  `config/dataset_quality.yaml` and fails the workflow when `ws4 quality --check` is not ok.
