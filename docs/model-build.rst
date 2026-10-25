@@ -253,3 +253,17 @@ The opening-first schedule is built from the touching-block topology:
 
 See :doc:`benchmark` for the result and :doc:`web-ui` for the run list.
 
+
+
+FreshForge provider
+-------------------
+
+The instance installs a `tsa47.ws4` provider for the model-build nodes. After
+`python -m pip install -e .`, validate the graph with:
+
+.. code-block:: bash
+
+   freshforge validate workflows/freshforge/tsa47_model_build.yaml
+
+The provider wraps the same `ws4` and baseline-script commands as the shell build; the
+`femic.ws4_quality` node installs the provenance sidecar and fails on an invalid report.
