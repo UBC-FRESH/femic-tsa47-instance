@@ -77,6 +77,7 @@ Documentation map
    model-structure
    benchmark
    ground-plot-validation
+   ground-plot-preregistration
    web-ui
    reproduce
    decisions
