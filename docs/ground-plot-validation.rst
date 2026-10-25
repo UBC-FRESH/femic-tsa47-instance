@@ -368,6 +368,9 @@ DBH, height, stems, or AAC change follows from this sample. The next test needs
 an independent remeasured managed/young sample, especially Cw and Hw in the
 16-80 age range, with enough rows to separate species from origin and density.
 
+The follow-up pre-registration and data-limit decision are in
+:doc:`ground-plot-preregistration`.
+
 Reproduce
 ---------
 

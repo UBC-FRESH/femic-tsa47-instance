@@ -241,8 +241,23 @@ Cw and Hw carry most of the gap; Ba and Fd are close to neutral. This is a
 signal, not a separable correction.
 
 Decision: ADR 0002 retains the production TSR-consistent BatchTIPSY curves.
-No curve or AAC change follows. The next test needs an independent remeasured
+No curve or AAC change follows. The follow-up pre-registration and data-limit
+decision are in ``docs/ground-plot-preregistration.rst`` (ADR 0003). The next test needs an independent remeasured
 managed/young sample, especially Cw and Hw in the 16-80 age range.
+
+## P49 pre-registration
+
+P49 inventories the public FAIB sample and pre-registers the managed/young test.
+TSA 47 has 351 candidate sites and 572 visits
+(30 PSP, 321 non-PSP), 35 remeasured sites, and
+161 sites with a visit aged 5-80. The public header and visit tables
+have no management-origin field, and the remeasured candidates are natural
+PSP_G, experimental PSP_R, or origin-unknown NFI. No candidate meets the
+four-strata managed/young inclusion rule.
+
+Decision: ADR 0003 records the data limit. Production remains on the
+TSR-consistent BatchTIPSY lane; no curve or AAC change. The pre-registered
+protocol is in ``docs/ground-plot-preregistration.rst``.
 
 ## Caveats
 

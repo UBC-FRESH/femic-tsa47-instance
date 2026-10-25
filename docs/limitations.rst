@@ -49,6 +49,8 @@ Yield curves
   audit and the 26-row managed/young subset both show underprediction, but the
   sample cannot separate origin, density, and site index; production remains on
   the TSR-consistent lane (ADR 0002).
+- No public management-origin field or independent remeasured managed/young
+  sample is available; the four-strata validation is data-limited (ADR 0003).
 - Independent height checks against RESULTS cover heights are encouraging, but
   volume, DBH, and mortality are not fully validated. RESULTS basal area is
   largely a placeholder, and the public PSP layer is not a remeasured audit in

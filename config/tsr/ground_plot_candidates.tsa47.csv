@@ -1,0 +1,9 @@
+source,tsa,sample_type,sites,visits,remeasured_sites,young_sites,age_known_visits,management_origin_field
+PSP,47,PSP_G,3,7,1,0,6,absent
+PSP,47,PSP_R,27,237,27,21,204,absent
+PSP,47,ALL,30,244,28,21,210,absent
+NONPSP,47,CMI,16,16,0,5,15,absent
+NONPSP,47,NFI,8,15,7,5,15,absent
+NONPSP,47,VRI,281,281,0,114,275,absent
+NONPSP,47,YSM,16,16,0,16,16,absent
+NONPSP,47,ALL,321,328,7,140,321,absent

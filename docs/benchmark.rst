@@ -214,6 +214,8 @@ Bias improves, but MAE gets slightly worse and RMSE is essentially unchanged. TS
 Volume/DBH validation is stratified in :doc:`ground-plot-validation`. The VRI
 audit and the 26-row managed/young subset show underprediction, but the sample
 cannot separate origin, density, and site index. Production remains on TSR.
+The managed/young pre-registration is data-limited; see
+:doc:`ground-plot-preregistration`.
 
 Nemora ground-plot validation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

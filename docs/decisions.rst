@@ -91,3 +91,13 @@ sample cannot separate species, age, site index, establishment density, and
 management origin. Production remains on the TSR-consistent BatchTIPSY lane.
 See ``notes/adr/0002-ground-plot-validation.md`` and
 :doc:`ground-plot-validation`.
+
+10. Managed/young validation pre-registration
+---------------------------------------------
+
+The public FAIB data have no management-origin field. The remeasured candidates
+are natural PSP_G, experimental PSP_R, or origin-unknown NFI, and the P48 rows
+are exploratory. The pre-registered four-strata test is therefore data-limited:
+zero eligible sites. Production remains on the TSR-consistent BatchTIPSY lane.
+See ``notes/adr/0003-ground-plot-preregistration.md`` and
+:doc:`ground-plot-preregistration`.
