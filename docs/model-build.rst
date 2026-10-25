@@ -282,3 +282,12 @@ After the matrix and sidecar exist, run the provider graph from an existing matr
 The smoke starts at `validate_dataset`, runs the provenance gate, builds a baseline
 schedule, and simulates one year. It does not rebuild the inventory or run the upstream
 compile nodes. Evidence is written to `runtime/smoke/evidence.json`.
+
+
+CI provider smoke
+-----------------
+
+The `Provider smoke` CI job installs the pinned provider requirements and runs
+`workflows/freshforge/tsa47_ws4_ci_smoke.yaml` on the tiny
+`tests/fixtures/provider_smoke` recipe. It exercises build, validate, provenance, baseline
+schedule, and one-year simulation, then uploads `runtime/smoke/ci-evidence.json`.

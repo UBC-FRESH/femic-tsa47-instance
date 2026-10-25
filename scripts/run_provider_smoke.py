@@ -92,7 +92,7 @@ def main(argv: list[str] | None = None) -> int:
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(evidence, indent=2, sort_keys=True), encoding="utf-8")
     print(json.dumps(evidence, indent=2, sort_keys=True))
-    return 0 if evidence["status"] in {"validated", "RunStatus.SUCCESS"} else 1
+    return 0 if evidence["status"] in {"validated", "success", "RunStatus.SUCCESS"} else 1
 
 
 if __name__ == "__main__":

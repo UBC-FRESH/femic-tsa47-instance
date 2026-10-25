@@ -135,3 +135,7 @@ status and the GitHub issue comments.
 - P40: add `workflows/freshforge/tsa47_ws4_smoke.yaml` and
   `scripts/run_provider_smoke.py`. The bounded graph validates the matrix, gates provenance,
   builds a baseline schedule, and simulates one year from an existing matrix.
+
+- P41: add a tiny provider-smoke fixture, `requirements-freshforge.txt` pinned to the FEMIC/ws4
+  commits, and a CI job that runs the build → validate → provenance → schedule → simulate graph
+  and uploads the evidence JSON.
