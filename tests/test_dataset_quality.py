@@ -69,3 +69,20 @@ def test_main_returns_zero_on_a_pass_and_one_on_a_failure(
         lambda *args, **kwargs: {"summary": {"status": "warn"}},
     )
     assert module.main(["--dataset", str(dataset), "--sidecar", str(sidecar), "--check"]) == 1
+
+
+def test_apply_quality_defaults_to_the_installed_checker(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A missing injected checker imports the installed ws4 checker lazily."""
+    from types import SimpleNamespace
+
+    dataset = _dataset(tmp_path)
+    sidecar = tmp_path / "dataset_quality.yaml"
+    sidecar.write_text("schema_version: 1\n", encoding="utf-8")
+    monkeypatch.setattr(
+        "importlib.import_module",
+        lambda name: SimpleNamespace(dataset_quality=_quality),
+    )
+    report = apply_quality(dataset, sidecar)
+    assert report["summary"]["provenance_supplied"] is True

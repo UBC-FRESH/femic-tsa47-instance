@@ -1,0 +1,68 @@
+workflow:
+  id: tsa47_ws4_smoke
+  name: TSA 47 bounded provider smoke
+  description: >
+    Execute the instance provider chain from an existing matrix through validate,
+    provenance, baseline schedule, and a one-year simulation. It does not rebuild
+    the inventory or run the upstream compile nodes.
+nodes:
+  - id: validate_dataset
+    provider: tsa47.ws4.validate_dataset
+    inputs:
+      dataset: runtime/tsa47_full_vdyp_20261023/matrix
+    outputs:
+      validated_dataset: runtime/tsa47_full_vdyp_20261023/matrix
+    parameters:
+      instance_root: "."
+      dataset: runtime/tsa47_full_vdyp_20261023/matrix
+
+  - id: apply_dataset_quality
+    provider: femic.ws4_quality
+    needs:
+      - validate_dataset
+    inputs:
+      dataset: validate_dataset.validated_dataset
+    outputs:
+      quality_report: runtime/tsa47_full_vdyp_20261023/matrix/data_quality.yaml
+    parameters:
+      instance_root: "."
+      dataset: runtime/tsa47_full_vdyp_20261023/matrix
+      sidecar: config/dataset_quality.yaml
+      targets: config/targets.tsa47_full.yaml
+      check: true
+    artifacts:
+      quality_report: runtime/tsa47_full_vdyp_20261023/matrix/data_quality.yaml
+
+  - id: build_baseline_schedule
+    provider: tsa47.ws4.build_baseline_schedule
+    needs:
+      - validate_dataset
+      - apply_dataset_quality
+    inputs:
+      validated_dataset: validate_dataset.validated_dataset
+    outputs:
+      schedule: runtime/tsa47_full_vdyp_20261023/smoke/baseline.csv
+    parameters:
+      instance_root: "."
+      dataset: runtime/tsa47_full_vdyp_20261023/matrix
+      out: runtime/tsa47_full_vdyp_20261023/smoke/baseline.csv
+      target_age: "60"
+    artifacts:
+      schedule: runtime/tsa47_full_vdyp_20261023/smoke/baseline.csv
+
+  - id: simulate
+    provider: tsa47.ws4.simulate
+    needs:
+      - build_baseline_schedule
+    inputs:
+      schedule: build_baseline_schedule.schedule
+    outputs:
+      run: runtime/tsa47_full_vdyp_20261023/smoke/run
+    parameters:
+      instance_root: "."
+      dataset: runtime/tsa47_full_vdyp_20261023/matrix
+      schedule: runtime/tsa47_full_vdyp_20261023/smoke/baseline.csv
+      out: runtime/tsa47_full_vdyp_20261023/smoke/run
+      years: "1"
+    artifacts:
+      run: runtime/tsa47_full_vdyp_20261023/smoke/run

@@ -37,6 +37,7 @@ convention = "numpy"
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["D"]
 "src/tsa47_workflow/**" = ["ANN401"]
+"scripts/run_provider_smoke.py" = ["ANN401"]
 "templates/project/tests/**" = ["D"]
 "docs/conf.py" = ["D", "ANN", "N"]
 
@@ -77,7 +78,7 @@ branch = true
 source = ["scripts"]
 # The opening scheduler is a data-shaped search; its output is verified
 # end-to-end in the opening-first runtime run, not by unit coverage.
-omit = ["scripts/build_opening_schedule.py"]
+omit = ["scripts/build_opening_schedule.py", "scripts/run_provider_smoke.py"]
 
 [tool.coverage.report]
 show_missing = true

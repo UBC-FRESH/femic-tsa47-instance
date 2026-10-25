@@ -267,3 +267,18 @@ The instance installs a `tsa47.ws4` provider for the model-build nodes. After
 
 The provider wraps the same `ws4` and baseline-script commands as the shell build; the
 `femic.ws4_quality` node installs the provenance sidecar and fails on an invalid report.
+
+
+Bounded provider smoke
+----------------------
+
+After the matrix and sidecar exist, run the provider graph from an existing matrix:
+
+.. code-block:: bash
+
+   python scripts/run_provider_smoke.py --dry-run
+   python scripts/run_provider_smoke.py
+
+The smoke starts at `validate_dataset`, runs the provenance gate, builds a baseline
+schedule, and simulates one year. It does not rebuild the inventory or run the upstream
+compile nodes. Evidence is written to `runtime/smoke/evidence.json`.
