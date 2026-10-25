@@ -154,3 +154,8 @@ status and the GitHub issue comments.
   `docs/ground-plot-preregistration.rst`, and record ADR 0003. The public data have no
   management-origin field; the four-strata managed/young test is data-limited (zero eligible
   sites), so production curves and the AAC remain unchanged.
+
+- P50: refresh `runtime/tsa47_full/matrix/data_quality.yaml` from the tracked sidecar and
+  run `ws4 quality --check` (status ok, 12 tables, no warnings). Add
+  `docs/runtime-provenance.rst` and the tracked hash report. No matrix, curve, target, or AAC
+  change.

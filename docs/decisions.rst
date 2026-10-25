@@ -101,3 +101,12 @@ are exploratory. The pre-registered four-strata test is therefore data-limited:
 zero eligible sites. Production remains on the TSR-consistent BatchTIPSY lane.
 See ``notes/adr/0003-ground-plot-preregistration.md`` and
 :doc:`ground-plot-preregistration`.
+
+11. Runtime provenance refresh
+------------------------------
+
+The current TSA 47 matrix was refreshed on 2026-10-25 so its sidecar matches
+the published provenance. `ws4 quality --check` reports `ok` with 12 tables and
+no warnings. The matrix tables were not rewritten, and no curve or AAC input
+changed. See :doc:`runtime-provenance` and
+``notes/reference/runtime-provenance.md``.
