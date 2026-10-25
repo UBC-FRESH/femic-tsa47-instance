@@ -127,3 +127,7 @@ status and the GitHub issue comments.
 
 - P36: the FreshForge workflow adds `femic.ws4_quality` after dataset validation. It copies
   `config/dataset_quality.yaml` and fails the workflow when `ws4 quality --check` is not ok.
+
+- P38: package the `tsa47.ws4` FreshForge provider with build, validate, baseline-schedule,
+  and simulate nodes; add the entry point and command tests. The workflow now resolves its
+  instance nodes through the installed provider.
