@@ -12,14 +12,6 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from femic.freshforge import provider_factory as femic_provider  # noqa: E402
-from freshforge.execution import run_workflow  # noqa: E402
-from freshforge.loading import load_workflow  # noqa: E402
-from freshforge.providers import ProviderRegistry  # noqa: E402
-from freshforge.validation import validate_workflow_with_providers  # noqa: E402
-
-from tsa47_workflow import provider_factory  # noqa: E402
-
 
 def _diagnostic(item: Any) -> dict[str, Any]:
     return {
@@ -62,6 +54,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--out", type=Path, default=None)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args(argv)
+    from femic.freshforge import provider_factory as femic_provider
+    from freshforge.execution import run_workflow
+    from freshforge.loading import load_workflow
+    from freshforge.providers import ProviderRegistry
+    from freshforge.validation import validate_workflow_with_providers
+
+    from tsa47_workflow import provider_factory
+
     spec, load_diagnostics = load_workflow(args.workflow)
     diagnostics = [_diagnostic(d) for d in load_diagnostics]
     if spec is None:
