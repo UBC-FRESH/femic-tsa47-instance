@@ -56,6 +56,7 @@ Goal: close the audit gaps before release.
 - [ ] P1.4 Build the documented GLB > AFLB > LHLB > THLB netdown (#14)
 - [ ] P1.5 Release v0.1.0 and verify a clean checkout
 - [x] P1.7 Repeat the RESULTS-derived TIPSY input analysis (#21) — complete
+- [x] P1.8 Diagnose managed-stand density and mortality (#24) — TSA 47 complete; TSA 46 sample too sparse
 - [x] P1.6 Complete the Sphinx docs and publish Pages (#11)
 
 Acceptance criteria:
@@ -72,4 +73,4 @@ Acceptance criteria:
 3. P1.3 replaces the VDYP transform with accepted TIPSY curves.
 4. P1.4 replaces the derived THLB with a reviewed GBR netdown.
 5. P1.5 releases v0.1.0 and verifies a clean checkout.
-6. P1.7 is complete. The next model-quality task is a density/mortality diagnostic on the managed YSM/CMI/NFI ground plots, keeping VRI audits separate and not tuning to the AAC.
+6. P1.7 is complete. P1.8 runs the density/mortality diagnostic on the managed YSM/CMI/NFI ground plots, keeping VRI audits separate and not tuning to the AAC.
