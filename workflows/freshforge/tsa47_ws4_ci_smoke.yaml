@@ -1,0 +1,81 @@
+workflow:
+  id: tsa47_ws4_ci_smoke
+  name: TSA 47 CI provider smoke
+  description: >
+    Build a tiny synthetic matrix and run validate, provenance, baseline schedule,
+    and one-year simulation through the instance provider. The inventory is not rebuilt.
+nodes:
+  - id: build_dataset
+    provider: tsa47.ws4.build_dataset
+    outputs:
+      dataset: runtime/smoke/matrix
+    parameters:
+      instance_root: "."
+      xml: tests/fixtures/provider_smoke/recipe.xml
+      fragments: tests/fixtures/provider_smoke/fragments.csv
+      out: runtime/smoke/matrix
+    artifacts:
+      manifest: runtime/smoke/matrix/manifest.json
+
+  - id: validate_dataset
+    provider: tsa47.ws4.validate_dataset
+    needs:
+      - build_dataset
+    inputs:
+      dataset: build_dataset.dataset
+    outputs:
+      validated_dataset: runtime/smoke/matrix
+    parameters:
+      instance_root: "."
+      dataset: runtime/smoke/matrix
+
+  - id: apply_dataset_quality
+    provider: femic.ws4_quality
+    needs:
+      - validate_dataset
+    inputs:
+      dataset: validate_dataset.validated_dataset
+    outputs:
+      quality_report: runtime/smoke/matrix/data_quality.yaml
+    parameters:
+      instance_root: "."
+      dataset: runtime/smoke/matrix
+      sidecar: config/dataset_quality.yaml
+      targets: tests/fixtures/provider_smoke/targets.yaml
+      check: true
+    artifacts:
+      quality_report: runtime/smoke/matrix/data_quality.yaml
+
+  - id: build_baseline_schedule
+    provider: tsa47.ws4.build_baseline_schedule
+    needs:
+      - validate_dataset
+      - apply_dataset_quality
+    inputs:
+      validated_dataset: validate_dataset.validated_dataset
+    outputs:
+      schedule: runtime/smoke/baseline.csv
+    parameters:
+      instance_root: "."
+      dataset: runtime/smoke/matrix
+      out: runtime/smoke/baseline.csv
+      target_age: "60"
+    artifacts:
+      schedule: runtime/smoke/baseline.csv
+
+  - id: simulate
+    provider: tsa47.ws4.simulate
+    needs:
+      - build_baseline_schedule
+    inputs:
+      schedule: build_baseline_schedule.schedule
+    outputs:
+      run: runtime/smoke/run
+    parameters:
+      instance_root: "."
+      dataset: runtime/smoke/matrix
+      schedule: runtime/smoke/baseline.csv
+      out: runtime/smoke/run
+      years: "1"
+    artifacts:
+      run: runtime/smoke/run

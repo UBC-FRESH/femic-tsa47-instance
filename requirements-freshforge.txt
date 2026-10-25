@@ -1,0 +1,2 @@
+femic[freshforge] @ git+https://github.com/UBC-FRESH/femic.git@e3251e9a699bd0cde4ceba8cb96304f1e3b2bd31
+ws4 @ git+https://github.com/UBC-FRESH/ws4.git@a5979d6b8b4377e8ad67758f2334c323def1f32c
