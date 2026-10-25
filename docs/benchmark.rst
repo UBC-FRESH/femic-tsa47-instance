@@ -211,10 +211,9 @@ the current TSR input.
 
 Bias improves, but MAE gets slightly worse and RMSE is essentially unchanged. TSR is already close; managed SI overcorrects TSA 47.
 
-Public PSP/CMI data are available from the FAIB ground-plot compilation, including
-volume, QMD, stems, age, and top height. A volume/DBH validation table is the
-next step; natural-growth and experimental PSP must be reported separately. See
-``notes/reference/tipsy-validation.md``.
+Volume/DBH validation is stratified in :doc:`ground-plot-validation`. The VRI
+audit and the 26-row managed/young subset show underprediction, but the sample
+cannot separate origin, density, and site index. Production remains on TSR.
 
 Nemora ground-plot validation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

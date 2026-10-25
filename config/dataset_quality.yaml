@@ -18,6 +18,7 @@ limitations_url: "https://ubc-fresh.github.io/femic-tsa47-instance/limitations.h
 limitations:
   - "Natural curves are VDYP; managed curves are TSR-consistent BatchTIPSY output under predecessor-TSR assumptions, not a reviewed GBR yield table."
   - "THLB is predecessor-derived, not a reviewed GBR netdown."
+  - "Ground-plot validation shows underprediction, especially in the 26-row managed/young subset; production curves are retained (ADR 0002). See docs/ground-plot-validation."
   - "Imputation share and coverage are not recorded in the source manifest."
   - "The AAC is a model ceiling, not an operational guarantee."
   - "The opening-first schedule is a deterministic seed, not an optimized or operatively feasible plan."
@@ -27,4 +28,5 @@ sources:
   - "notes/reference/ws4-build.md"
   - "notes/reference/tipsy-curves.md"
   - "notes/reference/tipsy-validation.md"
+  - "notes/adr/0002-ground-plot-validation.md"
   - "data/source/public_data_manifest.json"
