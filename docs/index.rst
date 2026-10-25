@@ -15,8 +15,9 @@ Status
 
 Phase P0 (build the instance) is complete. Phase P1 (harden the model) is
 active: the runtime-signal and harvest-coverage gates, the opening policy, and
-the TSR-consistent BatchTIPSY curves are in place. The remaining work is the
-reviewed GBR land-base netdown and the release verification.
+the TSR-consistent BatchTIPSY curves are in place, and an independent height
+validation has been run. The remaining work is the reviewed GBR land-base
+netdown, volume/DBH/mortality validation, and the release verification.
 
 Model at a glance
 -----------------

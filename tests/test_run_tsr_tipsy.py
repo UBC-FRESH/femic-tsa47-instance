@@ -136,3 +136,35 @@ def test_cli_runs_the_lane(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> N
         ["run_tsr_tipsy.py", "--tsa", "46", "--wineprefix", str(tmp_path / "wine")],
     )
     run_tsr_tipsy.main()
+
+
+def test_run_and_parse_passes_indicator_banks(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Indicator banks are forwarded so DBH/stem columns can be requested."""
+    captured: dict[str, object] = {}
+
+    def fake_run(**kwargs: object) -> SimpleNamespace:
+        captured.update(kwargs)
+        return SimpleNamespace(exit_code=0, stderr_log_path=tmp_path / "stderr.log")
+
+    error = tmp_path / "error.csv"
+    error.write_text("feature_id,RowNum,Type\n", encoding="utf-8")
+    monkeypatch.setattr(run_tsr_tipsy, "_run_btc_cli", fake_run)
+    monkeypatch.setattr(
+        run_tsr_tipsy,
+        "_parse_curves",
+        lambda _path: pd.DataFrame({"AU": [21000], "Age": [10], "Yield": [1.0]}),
+    )
+    run_tsr_tipsy.run_and_parse(
+        input_csv=tmp_path / "input.csv",
+        curves_csv=tmp_path / "curves.csv",
+        output_csv=tmp_path / "out.csv",
+        error_csv=error,
+        btc_exe=tmp_path / "btc",
+        scratch_dir=tmp_path / "scratch",
+        log_dir=tmp_path / "logs",
+        run_id="test",
+        indicator_banks=["stand-structure-basic"],
+    )
+    assert captured["indicator_bank_names"] == ["stand-structure-basic"]

@@ -103,6 +103,234 @@ The opening-first schedule covers all 18 managed AUs.
 unused. The earlier strict volume-only schedule left small AUs unselected; that
 result is retained with the dated VDYP-transform runtime.
 
+RESULTS sensitivity
+-------------------
+
+The TSA 48 RESULTS-derived TIPSY workflow was repeated for TSA 47. The raw
+candidate table has 16 AU/SI rows, but only six have at least three planting
+records. Using the raw table would let sparse cover data drive the result; the
+screened scenario applies RESULTS only to those six groups and keeps the
+current TSR input for the rest.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 34 14 14 18
+
+   * - Scenario
+     - Openings
+     - Blocks
+     - Scheduled area
+   * - Current TSR
+     - 8,636
+     - 17,365
+     - 103,413.3 ha
+   * - RESULTS screened
+     - 7,806
+     - 15,449
+     - 92,902.7 ha
+   * - RESULTS raw
+     - 7,320
+     - 14,585
+     - 88,651.3 ha
+
+All three scenarios meet the ten-decade band and hold 100% of patch area in the
+5-40 ha class. The screened scenario reduces scheduled area by about 10%
+relative to the current TSR lane. It is a sensitivity result, not the benchmark
+of record; the raw scenario is an upper bound driven by sparse cover data.
+
+See ``notes/reference/results-tipsy.md`` for the data coverage, AU changes, and
+caveats.
+
+Independent height validation
+-----------------------------
+
+Area is a consequence of the yield assumptions, not a score. Accuracy is
+checked separately by comparing TIPSY height at age with observed RESULTS
+forest-cover height for immature single-species stands. The AAC target is not
+used in this check.
+
+For TSA 47, 3,472 observations matched a TIPSY AU curve:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 18 18 18
+
+   * - Curve set
+     - Bias
+     - MAE
+     - RMSE
+   * - Current TSR
+     - -0.55 m
+     - 1.38 m
+     - 2.53 m
+   * - RESULTS screened
+     - -0.34 m
+     - 1.36 m
+     - 2.48 m
+
+The dominant CWH_HW H young stands are close: 2,125 observations, bias -0.33 m
+(-8%) at ages 5-15, and -1.76 m (-5.5%) at ages 51-80. CWH_HW M at ages 5-15 is
+the weakest well-sampled cell at -1.02 m (-28%). The RESULTS curves are only
+marginally closer, and their species inputs are not independent of the observed
+cover.
+
+Site-index attribution
+~~~~~~~~~~~~~~~~~~~~~~
+
+The CWH_HW H gap is small: observed managed-stand SI is **28.0 m**, while the
+checkpoint AU median is **26.3 m**. CWH_HW M is 19.0 m observed versus 17.0 m
+checkpoint. The pattern is the same as TSA 46 but much smaller. The next test
+is an SI-stratified managed-land curve, validated on held-out stands.
+
+Holdout managed-SI test
+~~~~~~~~~~~~~~~~~~~~~~~
+
+A deterministic 80/20 opening split estimated managed-stand SI from training
+observations and tested it on held-out heights, holding species and density at
+the current TSR input.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 16 16 16 16
+
+   * - Curve set
+     - n
+     - Bias
+     - MAE
+     - RMSE
+   * - Current TSR
+     - 845
+     - -0.56 m
+     - 1.52 m
+     - 3.06 m
+   * - Managed SI
+     - 845
+     - +0.13 m
+     - 1.60 m
+     - 3.04 m
+
+Bias improves, but MAE gets slightly worse and RMSE is essentially unchanged. TSR is already close; managed SI overcorrects TSA 47.
+
+Public PSP/CMI data are available from the FAIB ground-plot compilation, including
+volume, QMD, stems, age, and top height. A volume/DBH validation table is the
+next step; natural-growth and experimental PSP must be reported separately. See
+``notes/reference/tipsy-validation.md``.
+
+Nemora ground-plot validation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The managed/young-stand check uses Nemora's FAIB HPS pipeline and the non-PSP
+GBR South compilation. The 12.5 cm utilization limit is used for volume and
+stems. DBH is approximate because TIPSY `DBHg000` is all-stem QMD while PSP
+`QMD_LS` is at 12.5 cm.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 12 16 16 14 14
+
+   * - Sample
+     - n
+     - Volume bias
+     - Volume MAE
+     - DBH bias
+     - Height bias
+   * - VRI
+     - 480
+     - -45.6 m3/ha
+     - 151.7 m3/ha
+     - -4.4 cm
+     - -1.2 m
+   * - YSM
+     - 11
+     - -44.5 m3/ha
+     - 70.5 m3/ha
+     - -4.0 cm
+     - -2.1 m
+   * - CMI
+     - 7
+     - -111.8 m3/ha
+     - 135.0 m3/ha
+     - -0.1 cm
+     - -3.7 m
+   * - NFI
+     - 8
+     - -239.4 m3/ha
+     - 239.4 m3/ha
+     - -4.0 cm
+     - -2.1 m
+
+The 480-observation VRI sample shows a consistent underprediction of volume,
+DBH, height, and stems by the current TSR curves. VRI plots are inventory audits, not
+remeasured PSP/CMI plots; YSM/CMI/NFI are stronger sample types but small.
+This is an accuracy signal, not an AAC tuning result.
+
+Underprediction diagnostic
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The VRI underprediction is concentrated at ages 16-80 and in low-SI hemlock and
+cedar cells; VRI stands aged 81-200 are essentially unbiased. CWH_FD H
+overpredicts. YSM young stands are under-dense: observed median stems 675/ha
+versus predicted 365/ha, with volume -28%, DBH -21%, and height -13%.
+
+This is not a uniform scale error. The next tests should focus on mid-rotation
+density/mortality, establishment density, and management origin, not a global
+yield multiplier. See ``notes/reference/tipsy-validation.md``.
+
+Managed-SI comparison
+~~~~~~~~~~~~~~~~~~~~~~
+
+The TSA 47 managed-SI curves were run against the same independent ground
+plots, holding species and density fixed.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 16 8 20 22 14 16 14 16
+
+   * - Sample
+     - n
+     - TSR vol bias
+     - Managed-SI vol bias
+     - TSR DBH
+     - Managed DBH
+     - TSR height
+     - Managed height
+   * - VRI
+     - 480
+     - -45.6
+     - +49.7
+     - -4.4
+     - -2.1
+     - -1.2
+     - +1.3
+   * - YSM
+     - 11
+     - -44.5
+     - +9.3
+     - -4.0
+     - -1.4
+     - -2.1
+     - +0.1
+   * - CMI
+     - 7
+     - -111.8
+     - -57.9
+     - -0.1
+     - +1.1
+     - -3.7
+     - -2.1
+   * - NFI
+     - 8
+     - -239.4
+     - -145.4
+     - -4.0
+     - -2.1
+     - -2.1
+     - +0.1
+
+Managed SI improves the managed/young YSM, CMI, and NFI sample but overcorrects
+the VRI audit sample. That supports an origin split, not a global SI correction.
+Stems barely change, so the stem gap remains a density/mortality question.
+
 Baseline versus benchmark
 -------------------------
 

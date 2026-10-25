@@ -28,6 +28,7 @@ tmp/
 local/
 data/private/
 data/downloads/
+data/derived/
 data/bc/
 data/*.feather
 data/*.pkl
