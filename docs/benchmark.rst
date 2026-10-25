@@ -276,6 +276,61 @@ This is not a uniform scale error. The next tests should focus on mid-rotation
 density/mortality, establishment density, and management origin, not a global
 yield multiplier. See ``notes/reference/tipsy-validation.md``.
 
+Managed-SI comparison
+~~~~~~~~~~~~~~~~~~~~~~
+
+The TSA 47 managed-SI curves were run against the same independent ground
+plots, holding species and density fixed.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 16 8 20 22 14 16 14 16
+
+   * - Sample
+     - n
+     - TSR vol bias
+     - Managed-SI vol bias
+     - TSR DBH
+     - Managed DBH
+     - TSR height
+     - Managed height
+   * - VRI
+     - 480
+     - -45.6
+     - +49.7
+     - -4.4
+     - -2.1
+     - -1.2
+     - +1.3
+   * - YSM
+     - 11
+     - -44.5
+     - +9.3
+     - -4.0
+     - -1.4
+     - -2.1
+     - +0.1
+   * - CMI
+     - 7
+     - -111.8
+     - -57.9
+     - -0.1
+     - +1.1
+     - -3.7
+     - -2.1
+   * - NFI
+     - 8
+     - -239.4
+     - -145.4
+     - -4.0
+     - -2.1
+     - -2.1
+     - +0.1
+
+Managed SI improves the managed/young YSM, CMI, and NFI sample but overcorrects
+the VRI audit sample. That supports an origin split, not a global SI correction.
+Stems barely change, so the stem gap remains a density/mortality question.
+
 Baseline versus benchmark
 -------------------------
 

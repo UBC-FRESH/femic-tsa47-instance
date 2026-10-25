@@ -117,3 +117,5 @@ status and the GitHub issue comments.
 
 - Diagnosed the TSA 47 ground-plot underprediction. VRI volume bias is concentrated at ages 16-80 (-23% to -27%) and is unbiased at 81-200 (+2%); CWH_HW L (-53%) and CWH_CW L (-37%) are the worst cells, while CWH_FD H overpredicts (+12%). YSM young stands are under-dense (observed 675 stems/ha vs predicted 365), with volume -28%, DBH -21%, and height -13%. This points to density/mortality, establishment, and management-origin questions, not a global yield correction. See `notes/reference/tipsy-validation.md`.
 
+- Compared current TSR and managed-SI curves against the independent TSA 47 ground plots. Managed SI improves volume/DBH/height for YSM (volume -44.5 to +9.3 m3/ha; DBH -4.0 to -1.4 cm), CMI, and NFI, but overcorrects VRI audits (volume -45.6 to +49.7). Stems barely change (YSM -276.8 to -181.0 sph; VRI -103.1 to -107.4). This supports an origin split between managed/young stands and VRI audit/average stands, not a global SI correction. Production remains on TSR. See `notes/reference/tipsy-validation.md`.
+

@@ -190,8 +190,42 @@ The pattern says three things:
 
 VRI plots are inventory audits, not confirmed managed stands. The old-age
 match is consistent with natural-stand behaviour; the mid-age gap is where
-management/origin and density assumptions matter most. No global correction
-should be applied.
+management/origin and density assumptions matter most. YSM observed SI is often
+well above the checkpoint class median (for example CWH_FD H 49.1 vs 29.1), and
+the managed-SI comparison below confirms that SI is a major part of the gap. No
+global correction should be applied.
+
+## Managed-SI comparison
+
+The TSA 47 managed-SI curves (training-split SI, species/density unchanged) were
+run against the same ground plots. Ground plots are independent of the RESULTS
+cover used to estimate the managed SI.
+
+| Sample | n | TSR volume bias | Managed-SI volume bias | TSR DBH | Managed-SI DBH | TSR height | Managed-SI height |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| VRI | 480 | -45.6 | +49.7 | -4.4 | -2.1 | -1.2 | +1.3 |
+| YSM | 11 | -44.5 | +9.3 | -4.0 | -1.4 | -2.1 | +0.1 |
+| CMI | 7 | -111.8 | -57.9 | -0.1 | +1.1 | -3.7 | -2.1 |
+| NFI | 8 | -239.4 | -145.4 | -4.0 | -2.1 | -2.1 | +0.1 |
+
+Managed SI improves volume, DBH, and height for the managed/young YSM, CMI, and
+NFI samples. It **overcorrects** the VRI audit sample, which is not confirmed
+managed stands. DBH and height improve in every sample.
+
+Stems barely change: YSM -276.8 to -181.0 sph, VRI -103.1 to -107.4. The stem
+question remains density/mortality, not SI.
+
+### Interpretation
+
+The ground-plot evidence supports an **origin split**:
+
+- managed/young stands use the managed-land SI;
+- VRI audit/average stands should not inherit the managed-SI adjustment without
+  a management-origin flag.
+
+This is a candidate model decision, not a production switch. It also explains
+why a global SI correction is wrong: it helps the managed sample and hurts the
+audit sample.
 
 ## Caveats
 
