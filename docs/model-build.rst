@@ -83,7 +83,7 @@ does not record. The current runtime artifacts and sidecar hashes are recorded i
    * - Fragments in the compiled dataset
      - 97,529
    * - Block area
-     - 692,811.84 ha
+     - 692.8 thousand ha
    * - Tracks
      - 34,656
    * - Treatments
@@ -104,7 +104,7 @@ The build runs ``scripts/merge_slivers.py`` before ``ws4 build``. It merges
 only small blocks with the same AU, IFM, and origin, an area-weighted age
 difference of at most 20 years, and a neighbour with ``RETENTION = 0``.
 Retention/IFM split fragments are never merged and isolated small blocks are
-kept. The merge removed 511 blocks (255.78 ha) and left
+kept. The merge removed 511 blocks (256 ha) and left
 net area and managed area unchanged.
 
 THLB calibration
@@ -119,11 +119,11 @@ The calibration scales each stand's ``thlb_raw / 100`` by one factor, capped at
    * - Item
      - Value
    * - Uncalibrated managed area
-     - 146,347.89 ha
+     - 146.3 thousand ha
    * - Target
-     - 145,256 ha
+     - 145.3 thousand ha
    * - Factor
-     - 0.9925390944203576
+     - 0.993
    * - Saturated rows
      - 0
    * - Evidence

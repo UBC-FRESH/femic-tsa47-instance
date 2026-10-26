@@ -17,7 +17,7 @@
 - [Web UI](web-ui.html): the serve command, geometry scale, checks, and security.
 - [Reproduce](reproduce.html): a clean-checkout rebuild from public data.
 - [Decisions and limitations](decisions.html): the recorded model decisions and caveats.
-- [Glossary](glossary.html): AAC, AU, THLB, track, VDYP, and ws4 terms.
+- [Glossary](glossary.html): AAC, AU, THLB, VRI, TSR, SI, and ws4 terms.
 
 ## API
 

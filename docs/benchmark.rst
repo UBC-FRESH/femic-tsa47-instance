@@ -46,38 +46,38 @@ Result
      - Realized volume (m3)
      - Band status
    * - 1
-     - 8,305,966.0
+     - 8,305,966
      - met
    * - 2
-     - 8,305,867.1
+     - 8,305,867
      - met
    * - 3
-     - 8,305,898.7
+     - 8,305,899
      - met
    * - 4
-     - 8,305,808.5
+     - 8,305,809
      - met
    * - 5
-     - 8,305,976.7
+     - 8,305,977
      - met
    * - 6
-     - 8,305,579.0
+     - 8,305,579
      - met
    * - 7
-     - 8,305,999.0
+     - 8,305,999
      - met
    * - 8
-     - 8,305,791.8
+     - 8,305,792
      - met
    * - 9
-     - 8,305,981.9
+     - 8,305,982
      - met
    * - 10
-     - 8,305,965.6
+     - 8,305,966
      - met
 
 All ten decades are inside the band. The opening-first schedule schedules
-8,636 openings on 17,365 blocks, covering 103,413.3 ha.
+8,636 openings on 17,365 blocks, covering 103.4 thousand ha.
 
 Opening-first policy
 --------------------
@@ -88,7 +88,7 @@ uses ``product.Treated.managed.CC`` as the treated-area criterion.
 
 - Topology edges: 104,350
 - Opening range: 5.0-40.0 ha
-- Patch area: 218,872.3 ha
+- Patch area: 218.9 thousand ha
 - Patch classes: **100% in the 5-40 ha class at every year**
 
 The 0-1, 1-5, 40-50 and >50 ha classes are all 0.0%. The opening-first
@@ -123,15 +123,15 @@ current TSR input for the rest.
    * - Current TSR
      - 8,636
      - 17,365
-     - 103,413.3 ha
+     - 103.4 thousand ha
    * - RESULTS screened
      - 7,806
      - 15,449
-     - 92,902.7 ha
+     - 92.9 thousand ha
    * - RESULTS raw
      - 7,320
      - 14,585
-     - 88,651.3 ha
+     - 88.7 thousand ha
 
 All three scenarios meet the ten-decade band and hold 100% of patch area in the
 5-40 ha class. The screened scenario reduces scheduled area by about 10%
