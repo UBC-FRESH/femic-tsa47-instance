@@ -4,9 +4,10 @@ Ground-plot validation pre-registration
 Purpose
 -------
 
-P48 found that the existing ground plots under-predict volume, DBH, and stems,
+An earlier ground-plot check found that the existing ground plots under-predict
+volume, DBH, and stems,
 but the sample cannot separate species, age, site index, density, and management
-origin. P49 asks a narrower question: do the public FAIB data contain an
+origin. This check asks a narrower question: do the public FAIB data contain an
 independent remeasured managed/young sample large enough for a confirmatory test?
 
 This page fixes the test before any correction is fitted. The accepted decision
@@ -91,7 +92,7 @@ that the stand is managed.
 Species coverage
 ~~~~~~~~~~~~~~~~
 
-The matched P48 sample contains Ba (25 rows), Cw (100), Fd (42), Hm (2), and Hw
+The earlier matched sample contains Ba (25 rows), Cw (100), Fd (42), Hm (2), and Hw
 (337). These are exploratory matched rows, not candidate counts; they show that
 Cw and Hw are present, but the absent origin field prevents selecting a managed
 subset.
@@ -132,7 +133,7 @@ as managed would be an undocumented assumption, not a measurement.
 Pre-registered test
 -------------------
 
-The protocol below is fixed before the confirmatory run. The P48 rows are
+The protocol below is fixed before the confirmatory run. Those rows are
 exploratory and cannot be reused as the confirmatory sample.
 
 **Target population.** Remeasured, managed-origin, single-leading-species Cw or
@@ -159,7 +160,7 @@ bias; 95% bootstrap confidence intervals; sample size for every cell.
 5. A new ADR accepts the change.
 
 **Stopping rule.** Do not pool VRI, PSP_G, PSP_R, or single-visit plots to reach
-the minimum. Do not reuse the P48 rows as confirmation. Do not tune to the AAC.
+the minimum. Do not reuse those rows as confirmation. Do not tune to the AAC.
 
 Decision
 --------

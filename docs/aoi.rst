@@ -24,7 +24,7 @@ Boundary
    * - CRS
      - EPSG:3005
    * - Gross area
-     - 1,991,787.4693 ha
+     - 1,991.8 thousand ha
    * - Bounds
      - 740945.10, 585354.72, 1069115.12, 769795.65
 
@@ -32,7 +32,7 @@ The layer also carries supply-block rows and retired historical versions. The
 selection above keeps the single current dissolved TSA feature. Supply blocks
 are components, not the build boundary.
 
-TSA 47 contains 60.08% of the Kingcome boundary and 20.23% of the Strathcona boundary; the THLB target apportions the predecessor THLBs by those gross overlap fractions.
+TSA 47 contains 60.1% of the Kingcome boundary and 20.2% of the Strathcona boundary; the THLB target apportions the predecessor THLBs by those gross overlap fractions.
 
 Legal framework
 ---------------

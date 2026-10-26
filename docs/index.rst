@@ -13,11 +13,11 @@ you need to rebuild it. Read :doc:`limitations` before using the model output.
 Status
 ------
 
-Phase P0 (build the instance) is complete. Phase P1 (harden the model) is
-active: the runtime-signal and harvest-coverage gates, the opening policy, and
-the TSR-consistent BatchTIPSY curves are in place, and an independent height
-validation has been run. The remaining work is the reviewed GBR land-base
-netdown, volume/DBH/mortality validation, and the release verification.
+The calibrated model is built. The runtime-signal and harvest-coverage gates,
+the opening policy, and the TSR-consistent BatchTIPSY curves are in place, and
+an independent height validation has been run. The remaining work is the
+reviewed GBR land-base netdown, volume/DBH/mortality validation, and the release
+verification.
 
 Model at a glance
 -----------------
@@ -31,15 +31,15 @@ Model at a glance
    * - Boundary
      - TSA 47, current dissolved FADM feature
    * - Gross AOI area
-     - 1,991,787.47 ha
+     - 1,991.8 thousand ha
    * - Published AAC
      - 830,500 m3/yr
    * - Calibrated THLB
-     - 145,256 ha
+     - 145.3 thousand ha
    * - Blocks
      - 73,659
    * - Block area
-     - 692,811.84 ha
+     - 692.8 thousand ha
    * - AUs / curves
      - 18 / 73
    * - Managed curves

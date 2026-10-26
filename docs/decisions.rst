@@ -85,7 +85,8 @@ also records what the model does not answer. See
 9. Ground-plot validation
 -------------------------
 
-The P48 check matches 506 rows from 130 sites. The VRI audit (n=480) and the
+The earlier ground-plot check matches 506 rows from 130 sites. The VRI audit
+(n=480) and the
 managed/young subset (n=26) both under-predict volume, DBH, and stems, but the
 sample cannot separate species, age, site index, establishment density, and
 management origin. Production remains on the TSR-consistent BatchTIPSY lane.
@@ -96,7 +97,7 @@ See ``notes/adr/0002-ground-plot-validation.md`` and
 ---------------------------------------------
 
 The public FAIB data have no management-origin field. The remeasured candidates
-are natural PSP_G, experimental PSP_R, or origin-unknown NFI, and the P48 rows
+are natural PSP_G, experimental PSP_R, or origin-unknown NFI, and those rows
 are exploratory. The pre-registered four-strata test is therefore data-limited:
 zero eligible sites. Production remains on the TSR-consistent BatchTIPSY lane.
 See ``notes/adr/0003-ground-plot-preregistration.md`` and

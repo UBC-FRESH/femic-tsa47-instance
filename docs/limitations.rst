@@ -13,11 +13,11 @@ operational plan, a legal determination, or an investment case.
 Boundary and land base
 ----------------------
 
-- The model uses the full current dissolved TSA 47 boundary (1,991,787.47 ha
+- The model uses the full current dissolved TSA 47 boundary (1,991.8 thousand ha
   gross), not a district, tenure, or watershed clip.
 - The managed land base is calibrated to 145,256 ha from the mainland
-  portions of the former Kingcome TSA (186,914 ha current EBM THLB at 60.08%)
-  and Strathcona TSA (162,873 ha current THLB at 20.23%). That is a
+  portions of the former Kingcome TSA (186.9 thousand ha current EBM THLB at 60.1%)
+  and Strathcona TSA (162.9 thousand ha current THLB at 20.2%). That is a
   **predecessor-value derivation**, not a reviewed GBR netdown.
 - The calibration forces the managed area to the target. It does not discover a
   new operability, retention, or conservation land base.
